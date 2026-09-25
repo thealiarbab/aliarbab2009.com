@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans_Devanagari, Orbitron, Rajdhani, VT323 } from "next/font/google";
 import { headers } from "next/headers";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 
 import { JsonLd } from "@/components/seo/json-ld";
 import { ThemeScript } from "@/components/shell/theme-script";
@@ -186,6 +187,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           Skip to content
         </a>
         {children}
+        <Analytics />
       </body>
     </html>
   );
