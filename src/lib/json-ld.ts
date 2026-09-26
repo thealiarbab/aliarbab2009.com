@@ -23,7 +23,7 @@ const MAGLOCK_PRODUCT_ID = `${siteConfig.url}/projects/maglock#product`;
 const MAGLOCK_WORK_ID = `${siteConfig.url}/projects/maglock#work`;
 
 const PERSON_DESCRIPTION =
-  "Class XII student building AI investment tools, voice-first ledgers in Hindi, and IoT systems on ESP32. Three projects shipped or in flight.";
+  "Class XII student who builds fintech, voice and hardware projects: StockSaathi, a paper-trading coach for Indian teens (2nd nationally at an AI buildathon), SpendInCheck, BolHisaab and MagLock Protocol.";
 
 const KNOWS_ABOUT = [
   "Artificial Intelligence",
@@ -40,6 +40,10 @@ const KNOWS_ABOUT = [
   "Python",
   "Flutter",
   "Behavioral Finance",
+  "Kotlin",
+  "PostgreSQL",
+  "Quantitative Finance",
+  "Design Systems",
 ] as const;
 
 type Json = Record<string, unknown>;
@@ -72,7 +76,7 @@ export function aboutPageJsonLd(): Json {
     mainEntity: {
       ...basePerson(),
       description:
-        "Class XII student. The /about page is the long-version narrative: three projects, academic snapshot with live AP exam countdowns, and a why-I-built-this essay per project.",
+        "Class XII student. The /about page is the long-version narrative: the journey, activities, recognition, and a why-I-built-this essay per project.",
     },
   };
 }

@@ -14,9 +14,8 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
-    "Class XII student building AI, voice, and IoT systems. The long version: three projects, the journey behind them, the resume, and how I work.",
+    "Class XII student who builds fintech, voice and hardware projects. The long version: the projects, the journey behind them, recognition, and why I built each one.",
   path: "/about",
-  ogImage: "/og/about.png",
   ogImageAlt: "About Ali Arbab — long-version bio",
 });
 
@@ -79,14 +78,12 @@ export default function AboutPage() {
           </h1>
           <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-[var(--color-fg)]">
             <p>
-              I&apos;m a Class XII student finishing high school in 2026, sitting four AP exams in
-              May, and shipping software in the meantime. This page is the long version: the
-              journey, the projects, and the reasoning behind both.
+              I&apos;m a Class XII student in my final year of school, and I ship software alongside
+              it. This page is the long version: the journey, the projects, and the reasoning behind
+              both.
             </p>
             <p>
-              Three years ago I&apos;d never heard of an ESP32, didn&apos;t know that Next.js
-              wasn&apos;t a typo, and thought a stock simulator was a glorified calculator. Today
-              there&apos;s an investment coach for teenagers running at{" "}
+              Today there&apos;s a paper-trading coach for teenagers running at{" "}
               <a
                 href="https://stocksaathi.co.in"
                 target="_blank"
@@ -94,10 +91,20 @@ export default function AboutPage() {
                 className="underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
               >
                 stocksaathi.co.in
-              </a>
-              , a voice-first ledger for shopkeepers in pre-launch at bolhisaab.in, and a dual-door
-              smart lock built on two ESP32 boards sitting on my desk that I can unlock from my
-              phone over the local network.
+              </a>{" "}
+              — second nationally at an AI buildathon, and 170 accounts since without an ad — a
+              budget tracker at{" "}
+              <a
+                href="https://spendincheck.com"
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
+              >
+                spendincheck.com
+              </a>{" "}
+              that grew out of a school practical, a voice-first ledger for shopkeepers being
+              rewritten in Kotlin, and a two-door smart lock on ESP32 boards that answers to no
+              vendor.
             </p>
             <p>
               The through-line is people, not tech. Indian teenagers who don&apos;t have a safe
@@ -137,7 +144,7 @@ export default function AboutPage() {
             className="mb-6 text-[clamp(2rem,4vw,3.5rem)] leading-tight font-medium tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Class XII &mdash; AP exams sitting May 2026.
+            Class XII &mdash; CBSE science, plus four APs.
           </h2>
           <ul className="border-2 border-[var(--color-border)]">
             {COURSEWORK.map((c, i) => {
@@ -180,8 +187,8 @@ export default function AboutPage() {
             })}
           </ul>
           <p className="mt-4 font-mono text-[10px] tracking-[0.2em] text-[var(--color-muted)] uppercase">
-            Countdowns tick client-side from your local clock &middot; work offline &middot; past
-            exams auto-flip to ✓
+            Physics · Chemistry · Mathematics · Computer Science &middot; APs sat May 2026 &middot;
+            scores kept private
           </p>
         </div>
       </section>
@@ -211,9 +218,8 @@ export default function AboutPage() {
           </h2>
           <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-[var(--color-fg)]">
             <p>
-              Three projects, four AP exams, one site. If you&apos;ve scrolled this far, thank you
-              &mdash; that&apos;s a meaningful slice of attention and I don&apos;t take it for
-              granted.
+              Six projects, one site. If you&apos;ve scrolled this far, thank you &mdash;
+              that&apos;s a meaningful slice of attention and I don&apos;t take it for granted.
             </p>
             <p>
               A note on this site itself: built in Next.js 15 + Tailwind v4 + TypeScript strict,

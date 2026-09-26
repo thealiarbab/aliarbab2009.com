@@ -10,11 +10,8 @@
  * when possible), an optional `pending: true` flag for awards
  * awaiting confirmation/score-release, and a 1-line blurb.
  *
- * AP Scholar with Distinction REQUIRES 5+ exams averaging ≥3.5 with
- * 3+ scores ≥3. Ali sits 4 APs in May 2026 — at most "AP Scholar"
- * (the entry-level tier) qualifies. Verify before promoting.
- *
- * SEED VALUES below are placeholders — Ali should curate.
+ * Test scores and score-derived awards (AP Scholar etc.) are kept off
+ * the site by Ali's choice — don't add them back.
  */
 
 export type APScore = 1 | 2 | 3 | 4 | 5;
@@ -32,31 +29,11 @@ export type Award = {
 
 export const AWARDS: readonly Award[] = [
   {
-    id: "ap-scholar",
-    title: "AP Scholar",
-    org: "College Board",
+    id: "ai-buildathon-2026",
+    title: "2nd place nationally — AI Buildathon",
+    org: "Masters' Union",
     year: 2026,
-    pending: true,
     blurb:
-      "Awaiting July 2026 score release. Confirmed once 3+ AP scores ≥ 3 land. Eligibility flips automatically when src/config/milestones.ts gets the score values.",
+      "StockSaathi, built end to end in a 36-hour national buildathon; a teammate pitched it to the panel.",
   },
-  // SEED: add real awards here. Examples of acceptable kinds:
-  //   - National-level math/physics/CS olympiad medals or rankings
-  //   - Hackathon wins (with the hackathon's actual name)
-  //   - Open-source contribution recognition
-  //   - Scholarship / fellowship / grant names that don't identify the school
-  //
-  // AVOID:
-  //   - "[institution-named] Scholar of the Year" — identifies institution
-  //   - Class rank phrasing tied to a specific cohort
-  //
-  // Example shape (commented out — uncomment + edit when ready):
-  //
-  // {
-  //   id: "regional-cs-olympiad-2025",
-  //   title: "Regional CS Olympiad — Top 10",
-  //   org: "Computer Olympiad Foundation",
-  //   year: 2025,
-  //   blurb: "Top-10 finish in the regional round of the national CS olympiad.",
-  // },
 ];

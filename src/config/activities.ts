@@ -12,9 +12,11 @@
  * Categories group the table visually. Order within a category is
  * descending by `from` (newest first).
  *
- * SEED VALUES are placeholders — Ali should rewrite to reflect actual
- * activities. Each entry should have substance (a 1-line blurb that
- * reads as something concrete, not a résumé buzzword stack).
+ * Every entry is real and sourced from Ali — no placeholders. The
+ * three seed entries that used to live here (peer tutoring, an AP
+ * study group, beginner Python workshops) were invented examples and
+ * were removed on 2026-09-26; never reintroduce filler to make a
+ * category look full. An empty category simply doesn't render.
  */
 
 export type ActivityCategory = "tech" | "leadership" | "academic" | "community";
@@ -40,59 +42,95 @@ export const ACTIVITIES: readonly Activity[] = [
     id: "stocksaathi-build",
     role: "Founder + sole developer — StockSaathi",
     category: "tech",
-    from: "2024",
+    from: "2026-04",
     blurb:
-      "Built and shipped an AI-coached investment simulator for Indian teens. 3,000+ BSE/NSE stocks, virtual rupee capital, Llama 3.3 70B behavioral-finance coach. Live at stocksaathi.co.in.",
+      "Built and run a live paper-trading simulator for Indian teenagers: real NSE and BSE prices, nine behavioural-bias detectors and an AI coach that never gives tips. 170 accounts so far, all by word of mouth.",
+  },
+  {
+    id: "spendincheck-build",
+    role: "Builder — SpendInCheck",
+    category: "tech",
+    from: "2026-09",
+    blurb:
+      "Turned my Class XII Computer Science practical into a live personal-finance product: a React client over a Flask and Postgres API, with holdings priced live from StockSaathi.",
   },
   {
     id: "bolhisaab-build",
     role: "Founder + sole developer — BolHisaab",
     category: "tech",
-    from: "2025",
+    from: "2026-04",
     blurb:
-      "Voice-first Hindi/Hinglish ledger for shopkeepers. Whisper transcribes; Llama parses intent; Supabase holds an append-only ledger. Pre-launch at bolhisaab.in.",
+      "Voice-first Hindi and Hinglish ledger for shopkeepers. The web prototype is complete; the app is now being redesigned and rewritten natively in Kotlin.",
   },
   {
     id: "maglock-build",
-    role: "Builder — MagLock Protocol IoT smart lock",
+    role: "Builder — MagLock Protocol smart lock",
     category: "tech",
-    from: "2025",
+    from: "2026-04",
     blurb:
-      "Dual-door smart lock built end-to-end: ESP32 firmware in C++, ESP32-CAM MJPEG stream, Flutter app, optional Hinglish voice assistant. Local-network only — no cloud.",
+      "Two-door ESP32 smart lock with an ESP32-CAM and a Flutter app, reachable from outside only through a tunnel I control. Being rebuilt from the ground up.",
+  },
+  {
+    id: "sovereign-alpha-research",
+    role: "Independent research — Sovereign Alpha",
+    category: "tech",
+    from: "2026-04",
+    blurb:
+      "Designing and building a fully local, reproducible market simulation to test whether a language model reading history can find real, friction-adjusted alpha.",
+  },
+  {
+    id: "lamecraft-infra",
+    role: "Self-hosting — LameCRAFT home server",
+    category: "tech",
+    from: "2026-02",
+    blurb:
+      "Run my own server for my sites and tools behind a Cloudflare tunnel, with a Python control panel and the Command Nexus design system my other projects borrow.",
   },
 
   // ── leadership ────────────────────────────────────────────────────
-  // SEED: replace with Ali's actual leadership roles. Function-level
-  // descriptions only; never name the institution.
   {
-    id: "leadership-mentor",
-    role: "Peer mentor — younger-grade math + science",
+    id: "buildathon-product-lead",
+    role: "Builder — national AI buildathon team",
     category: "leadership",
-    from: "2024",
+    from: "2026-04",
+    to: "2026-04",
     blurb:
-      "Weekly tutoring sessions for two younger-grade students preparing for board-track math and physics. Designed worksheets and graded practice papers.",
+      "Built StockSaathi end to end during a 36-hour national buildathon while a teammate pitched it to the panel. It placed second nationally.",
+  },
+  {
+    id: "stocksaathi-ambassador",
+    role: "Growth — StockSaathi brand ambassador",
+    category: "leadership",
+    from: "2026",
+    blurb:
+      "Brought on a student brand ambassador to spread StockSaathi among teenagers without paid advertising.",
   },
 
   // ── academic ─────────────────────────────────────────────────────
   {
-    id: "ap-self-study-cohort",
-    role: "AP self-study cohort — informal study group",
+    id: "robotics-bionic-hand",
+    role: "Robotics — bionic hand exoskeleton",
     category: "academic",
-    from: "2025",
+    from: "2025-12",
     blurb:
-      "Organized a small self-study group for the four May 2026 APs (Calculus BC, Physics C Mech, English Lang, CSA). Weekly problem sessions; shared notes via a private Github wiki.",
+      "Built a biomimetic bionic hand and hand-exoskeleton prototype as part of a robotics group project; the hand was shown at a science exhibition.",
   },
 
   // ── community ────────────────────────────────────────────────────
-  // SEED: replace with Ali's actual community involvement. Generic
-  // role descriptions; no organization names that identify location.
   {
-    id: "community-coding",
-    role: "Coding-club volunteer — beginner Python workshops",
+    id: "bolhisaab-field-research",
+    role: "Field research — local shopkeepers",
     category: "community",
-    from: "2024",
+    from: "2026-04",
     blurb:
-      "Ran a series of intro-to-Python workshops for beginners. Each session built one small program (calculator, hangman, simple web scraper) end-to-end.",
+      "Interviewed shopkeepers about how they actually keep their books before designing BolHisaab — credit, cash, customers named in Hindi, and a paper notebook.",
+  },
+  {
+    id: "peer-programming-mentor",
+    role: "Peer programming mentor",
+    category: "community",
+    from: "2026",
+    blurb: "Mentoring a younger neighbour in Class X as they learn to program.",
   },
 ];
 
