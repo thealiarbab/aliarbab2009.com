@@ -22,7 +22,7 @@ export const metadata: Metadata = buildMetadata({
   ogImage: "/og/projects/maglock.png",
   ogImageAlt: "MagLock Protocol — neon dual-door smart lock UI",
   ogType: "article",
-  publishedTime: `${project.year}-11-20T00:00:00.000Z`,
+  publishedTime: `${project.startedISO}T00:00:00.000Z`,
   keywords: ["MagLock", "ESP32", "IoT", "Smart lock", "Flutter", "Voice assistant"],
 });
 
@@ -367,11 +367,7 @@ export default function MagLockPage() {
               Source · Flutter · Dart · ESP32 · Arduino C++
             </p>
             <div className="flex flex-wrap items-center gap-2">
-              <Link
-                href={project.repoUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2"
+              <span
                 style={{
                   fontFamily: "var(--font-orbitron), var(--font-display)",
                   fontSize: "12px",
@@ -380,16 +376,12 @@ export default function MagLockPage() {
                   textTransform: "uppercase",
                   padding: "6px 12px",
                   borderRadius: "2px",
-                  border: "1px solid color-mix(in srgb, var(--color-primary) 50%, transparent)",
-                  background: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
-                  color: "var(--color-primary)",
-                  boxShadow: "0 0 6px color-mix(in srgb, var(--color-primary) 30%, transparent)",
-                  transition:
-                    "background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease",
+                  border: "1px solid color-mix(in srgb, var(--color-primary) 30%, transparent)",
+                  color: "var(--color-muted)",
                 }}
               >
-                View source ↗
-              </Link>
+                {project.sourceNote}
+              </span>
               <Link
                 href="#section-maggy"
                 className="inline-flex items-center gap-2"

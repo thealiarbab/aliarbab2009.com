@@ -150,6 +150,17 @@ describe("projectJsonLd", () => {
     expect(types).toEqual(["CreativeWork", "Product"]);
   });
 
+  it("emits WebApplication for spendincheck and source code for the research projects", () => {
+    expect(projectJsonLd("spendincheck")["@type"]).toBe("WebApplication");
+    expect(projectJsonLd("sovereign-alpha")["@type"]).toBe("SoftwareSourceCode");
+    expect(projectJsonLd("lamecraft")["@type"]).toBe("SoftwareSourceCode");
+  });
+
+  it("never publishes a repository link for a project whose source is private", () => {
+    expect(projectJsonLd("bolhisaab").codeRepository).toBeUndefined();
+    expect(projectJsonLd("lamecraft").codeRepository).toBeUndefined();
+  });
+
   it("throws on unknown slug", () => {
     // @ts-expect-error — testing runtime guard for unknown slugs
     expect(() => projectJsonLd("nope")).toThrow(/Unknown project slug/);

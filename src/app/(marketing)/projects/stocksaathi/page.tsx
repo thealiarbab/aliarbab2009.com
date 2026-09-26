@@ -19,7 +19,7 @@ export const metadata: Metadata = buildMetadata({
   ogImage: "/og/projects/stocksaathi.png",
   ogImageAlt: "StockSaathi — AI-coached investment simulator for Indian teens",
   ogType: "article",
-  publishedTime: `${project.year}-09-01T00:00:00.000Z`,
+  publishedTime: `${project.startedISO}T00:00:00.000Z`,
   keywords: ["StockSaathi", "AI", "Investing", "Fintech", "Behavioral finance"],
 });
 
@@ -130,7 +130,7 @@ export default function StockSaathiPage() {
                 <p data-ss-section-label>Source</p>
               </div>
               <Link
-                href={project.repoUrl}
+                href={project.repoUrl!}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-baseline gap-2 font-mono text-lg font-semibold text-[var(--color-fg)] hover:text-[var(--color-primary)]"

@@ -5,14 +5,15 @@ import { NowBar } from "@/components/home/now-bar";
 import { PROJECTS } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
+import { numberWord, slabTileBorders } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
-  title: `${siteConfig.name} — Builds AI, voice, and IoT systems`,
+  title: `${siteConfig.name} — Builds fintech, voice, and hardware systems`,
   description:
-    "Ali Arbab is a Class XII student building AI, voice, and IoT systems. Three live projects: StockSaathi, BolHisaab, and MagLock Protocol.",
+    "Ali Arbab is a Class XII student who builds software and hardware. StockSaathi is live and placed 2nd nationally at an AI buildathon; SpendInCheck, BolHisaab and MagLock are next.",
   path: "/",
   ogImage: "/og/home.png",
-  ogImageAlt: "Ali Arbab — three project worlds",
+  ogImageAlt: "Ali Arbab — project worlds",
   isHome: true,
 });
 
@@ -98,7 +99,7 @@ export default function HomePage() {
             className="text-[clamp(3rem,6vw,5.5rem)] leading-[0.9] font-medium tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Three projects.
+            {numberWord(PROJECTS.length, { capitalize: true })} projects.
             <br />
             <span className="text-[var(--color-primary)]">One system of</span>
             <br />
@@ -106,8 +107,9 @@ export default function HomePage() {
           </h1>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             I&apos;m Ali. I&apos;m in Class XII. I build software for people who are usually
-            designed around &mdash; not for. An AI investment coach for teens, a voice-first ledger
-            for shopkeepers, a smart lock running on two ESP32s.
+            designed around &mdash; not for. A paper-trading coach for teenagers, a budget tracker
+            that tells you whether you&apos;re over, a voice-first ledger for shopkeepers, and a
+            smart lock that answers to no vendor.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -153,7 +155,7 @@ export default function HomePage() {
             className="col-span-12 text-[clamp(2rem,4vw,3.5rem)] leading-tight font-medium tracking-tight md:col-span-10"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Three systems, three audiences.
+            {numberWord(PROJECTS.length, { capitalize: true })} builds. Each one ships for someone.
           </h2>
         </div>
 
@@ -162,10 +164,8 @@ export default function HomePage() {
             <article
               key={p.slug}
               className={
-                "brutalist-glass-hover col-span-12 flex flex-col gap-6 border-[var(--color-border)] p-8 md:col-span-4" +
-                (i < 2 ? " md:border-r-2" : "") +
-                (i === 0 ? " border-b-2 md:border-b-0" : "") +
-                (i === 1 ? " border-b-2 md:border-b-0" : "")
+                "brutalist-glass-hover col-span-12 flex flex-col gap-6 border-[var(--color-border)] p-8 md:col-span-4 " +
+                slabTileBorders(i, PROJECTS.length)
               }
             >
               <Link href={`/projects/${p.slug}`} className="flex h-full flex-col gap-6">

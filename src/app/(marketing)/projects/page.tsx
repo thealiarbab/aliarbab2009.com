@@ -4,14 +4,15 @@ import Link from "next/link";
 import { PROJECTS } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
+import { numberWord, slabTileBorders } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
   title: "Projects",
   description:
-    "Three projects across AI, voice, and IoT. StockSaathi coaches teen investors, BolHisaab takes Hindi voice ledger entries, and MagLock locks doors.",
+    "Six projects across fintech, voice, hardware, quant research and self-hosting — StockSaathi, SpendInCheck, BolHisaab, MagLock Protocol, Sovereign Alpha, LameCRAFT.",
   path: "/projects",
   ogImage: "/og/projects.png",
-  ogImageAlt: "Three project worlds — StockSaathi, BolHisaab, MagLock Protocol",
+  ogImageAlt: "Project worlds — StockSaathi, SpendInCheck, BolHisaab, MagLock Protocol and more",
 });
 
 export default function ProjectsIndexPage() {
@@ -70,7 +71,7 @@ export default function ProjectsIndexPage() {
             className="text-[clamp(3rem,7vw,6rem)] leading-[0.9] font-medium tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Three worlds.
+            {numberWord(PROJECTS.length, { capitalize: true })} worlds.
           </h1>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             Each project picks a specific audience and ships for them. Click into a tile to enter
@@ -89,10 +90,8 @@ export default function ProjectsIndexPage() {
             <article
               key={p.slug}
               className={
-                "brutalist-glass-hover col-span-12 flex flex-col gap-6 border-[var(--color-border)] p-8 md:col-span-4" +
-                (i < 2 ? " md:border-r-2" : "") +
-                (i === 0 ? " border-b-2 md:border-b-0" : "") +
-                (i === 1 ? " border-b-2 md:border-b-0" : "")
+                "brutalist-glass-hover col-span-12 flex flex-col gap-6 border-[var(--color-border)] p-8 md:col-span-4 " +
+                slabTileBorders(i, PROJECTS.length)
               }
             >
               <Link href={`/projects/${p.slug}`} className="flex h-full flex-col gap-6">

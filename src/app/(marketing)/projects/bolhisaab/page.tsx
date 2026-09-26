@@ -19,7 +19,7 @@ export const metadata: Metadata = buildMetadata({
   ogImage: "/og/projects/bolhisaab.png",
   ogImageAlt: "BolHisaab — voice-first Hindi ledger for shopkeepers",
   ogType: "article",
-  publishedTime: `${project.year}-10-15T00:00:00.000Z`,
+  publishedTime: `${project.startedISO}T00:00:00.000Z`,
   keywords: ["BolHisaab", "Voice", "Hindi", "Ledger", "Shopkeepers", "Whisper"],
 });
 
@@ -128,10 +128,10 @@ export default function BolHisaabPage() {
                 </p>
               </div>
               <p className="mt-4 text-lg font-medium text-[var(--color-muted)]">
-                bolhisaab.in — coming soon
+                bolhisaab.in — launching soon
               </p>
               <p className="mt-2 text-xs text-[var(--color-muted)]">
-                Domain registered · deploy pending
+                Web prototype complete · native Kotlin rewrite in progress
               </p>
             </li>
             <li data-bh-app-card>
@@ -143,14 +143,9 @@ export default function BolHisaabPage() {
                   Source
                 </p>
               </div>
-              <Link
-                href={project.repoUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex items-baseline gap-2 font-mono text-lg font-medium hover:text-[var(--color-primary)]"
-              >
-                github.com/thealiarbab/BolHisaab <span aria-hidden>↗</span>
-              </Link>
+              <p className="mt-4 text-lg font-medium text-[var(--color-muted)]">
+                {project.sourceNote}
+              </p>
               <p className="mt-2 text-xs text-[var(--color-muted)]">
                 Next 16 · Supabase · Sarvam · Groq Llama 3.1 / 3.3
               </p>

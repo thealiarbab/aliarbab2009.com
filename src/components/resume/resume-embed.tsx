@@ -223,15 +223,21 @@ export function ResumeEmbed() {
                     ·{" "}
                   </>
                 ) : null}
-                Source:{" "}
-                <a
-                  href={p.repoUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[var(--color-primary)]"
-                >
-                  {p.repoUrl.replace(/^https?:\/\/github\.com\//, "github.com/")}
-                </a>
+                {p.repoUrl ? (
+                  <>
+                    Source:{" "}
+                    <a
+                      href={p.repoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-[var(--color-primary)]"
+                    >
+                      {p.repoUrl.replace(/^https?:\/\/github\.com\//, "github.com/")}
+                    </a>
+                  </>
+                ) : (
+                  p.sourceNote
+                )}
               </p>
             </li>
           ))}

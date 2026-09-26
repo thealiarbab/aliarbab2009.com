@@ -132,7 +132,13 @@ export function resumeJsonLd(): Json {
   };
 }
 
-type ProjectSlug = "stocksaathi" | "bolhisaab" | "maglock";
+type ProjectSlug =
+  | "stocksaathi"
+  | "spendincheck"
+  | "bolhisaab"
+  | "maglock"
+  | "sovereign-alpha"
+  | "lamecraft";
 
 function projectCanonical(slug: ProjectSlug): string {
   return `${siteConfig.url}/projects/${slug}`;
@@ -158,7 +164,7 @@ function stocksaathiJsonLd(p: Project): Json {
     browserRequirements: "Requires JavaScript and a modern browser",
     isAccessibleForFree: true,
     softwareVersion: "1.0",
-    datePublished: `${p.year}-09-01`,
+    datePublished: p.startedISO,
     screenshot: projectScreenshot("stocksaathi"),
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
     creator: creatorRef(),
@@ -180,7 +186,9 @@ function bolhisaabJsonLd(p: Project): Json {
     browserRequirements: "Requires JavaScript, microphone permission, and a modern browser",
     isAccessibleForFree: true,
     softwareVersion: "0.9-pre",
-    releaseNotes: "Pre-launch — public release scheduled at bolhisaab.in.",
+    datePublished: p.startedISO,
+    releaseNotes:
+      "Web prototype complete; being redesigned and rewritten natively in Kotlin before public release at bolhisaab.in.",
     creator: creatorRef(),
     codeRepository: p.repoUrl,
     programmingLanguage: ["TypeScript"],
@@ -207,7 +215,11 @@ function maglockJsonLd(p: Project): Json {
           { "@type": "PropertyValue", name: "Microcontroller", value: "ESP32 (dual)" },
           { "@type": "PropertyValue", name: "Camera module", value: "ESP32-CAM (MJPEG stream)" },
           { "@type": "PropertyValue", name: "Relay channels", value: "2" },
-          { "@type": "PropertyValue", name: "Network", value: "Local-network only (no cloud)" },
+          {
+            "@type": "PropertyValue",
+            name: "Network",
+            value: "Home network; remote access only via an owner-controlled Cloudflare tunnel",
+          },
           { "@type": "PropertyValue", name: "Client app", value: "Flutter (Android + iOS)" },
           {
             "@type": "PropertyValue",
@@ -233,6 +245,39 @@ function maglockJsonLd(p: Project): Json {
   };
 }
 
+function spendincheckJsonLd(p: Project): Json {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: p.name,
+    url: p.liveUrl,
+    description: p.description,
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Web",
+    isAccessibleForFree: true,
+    datePublished: p.startedISO,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+    creator: creatorRef(),
+    codeRepository: p.repoUrl,
+    programmingLanguage: ["TypeScript", "Python", "SQL"],
+    mainEntityOfPage: projectCanonical("spendincheck"),
+  };
+}
+
+function researchCodeJsonLd(p: Project, slug: ProjectSlug, languages: string[]): Json {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    name: p.name,
+    description: p.description,
+    dateCreated: p.startedISO,
+    creator: creatorRef(),
+    codeRepository: p.repoUrl,
+    programmingLanguage: languages,
+    mainEntityOfPage: projectCanonical(slug),
+  };
+}
+
 export function projectJsonLd(slug: ProjectSlug): Json {
   const project = getProjectBySlug(slug);
   if (!project) throw new Error(`Unknown project slug for JSON-LD: ${slug}`);
@@ -243,5 +288,11 @@ export function projectJsonLd(slug: ProjectSlug): Json {
       return bolhisaabJsonLd(project);
     case "maglock":
       return maglockJsonLd(project);
+    case "spendincheck":
+      return spendincheckJsonLd(project);
+    case "sovereign-alpha":
+      return researchCodeJsonLd(project, slug, ["Python"]);
+    case "lamecraft":
+      return researchCodeJsonLd(project, slug, ["Python", "HTML", "CSS"]);
   }
 }

@@ -9,9 +9,21 @@ import { PROJECTS, getProjectBySlug } from "./projects";
  */
 
 describe("PROJECTS catalog", () => {
-  it("contains exactly the three project worlds", () => {
-    expect(PROJECTS).toHaveLength(3);
-    expect(PROJECTS.map((p) => p.slug)).toEqual(["stocksaathi", "bolhisaab", "maglock"]);
+  it("contains the six project worlds, live products first", () => {
+    expect(PROJECTS.map((p) => p.slug)).toEqual([
+      "stocksaathi",
+      "spendincheck",
+      "bolhisaab",
+      "maglock",
+      "sovereign-alpha",
+      "lamecraft",
+    ]);
+  });
+
+  it("every theme matches its slug, so .theme-<slug> resolves", () => {
+    for (const p of PROJECTS) {
+      expect(p.theme).toBe(p.slug);
+    }
   });
 
   it("every slug matches a .theme-<slug> CSS class convention", () => {
@@ -40,9 +52,28 @@ describe("PROJECTS catalog", () => {
     }
   });
 
-  it("every project has a github repo url under the thealiarbab namespace", () => {
+  it("every published repo url sits under the thealiarbab namespace", () => {
     for (const p of PROJECTS) {
-      expect(p.repoUrl).toMatch(/^https:\/\/github\.com\/thealiarbab\//);
+      if (p.repoUrl) expect(p.repoUrl).toMatch(/^https:\/\/github\.com\/thealiarbab\//);
+    }
+  });
+
+  it("a project without public source says why instead", () => {
+    for (const p of PROJECTS) {
+      if (!p.repoUrl) expect(p.sourceNote?.length ?? 0).toBeGreaterThan(10);
+    }
+  });
+
+  it("startedISO is a YYYY-MM-DD date in the same year as `year`", () => {
+    for (const p of PROJECTS) {
+      expect(p.startedISO).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(Number(p.startedISO.slice(0, 4))).toBe(p.year);
+    }
+  });
+
+  it("only live projects carry a live url", () => {
+    for (const p of PROJECTS) {
+      if (p.liveUrl) expect(p.status).toBe("live");
     }
   });
 });
@@ -52,6 +83,9 @@ describe("getProjectBySlug", () => {
     expect(getProjectBySlug("stocksaathi")?.name).toBe("StockSaathi");
     expect(getProjectBySlug("bolhisaab")?.name).toBe("BolHisaab");
     expect(getProjectBySlug("maglock")?.name).toBe("MagLock Protocol");
+    expect(getProjectBySlug("spendincheck")?.name).toBe("SpendInCheck");
+    expect(getProjectBySlug("sovereign-alpha")?.name).toBe("Sovereign Alpha");
+    expect(getProjectBySlug("lamecraft")?.name).toBe("LameCRAFT");
   });
 
   it("returns undefined for unknown slugs", () => {

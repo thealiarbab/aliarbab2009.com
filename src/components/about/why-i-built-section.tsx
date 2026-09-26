@@ -6,7 +6,7 @@ import { WHY_I_BUILT, type WhyIBuiltEntry } from "@/config/why-i-built";
 /**
  * /about § 06 — Why I built each project.
  *
- * Three first-person essays joined to the project catalog by slug.
+ * First-person essays joined to the project catalog by slug.
  * Each block runs problem → why-me → learned, with an optional
  * editorial pull-quote rendered in the display serif.
  *
@@ -131,7 +131,7 @@ export function WhyIBuiltSection() {
           className="mb-8 text-[clamp(2rem,4vw,3.5rem)] leading-tight font-medium tracking-tight"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Three projects, three motivations.
+          {WHY_I_BUILT.length} projects, {WHY_I_BUILT.length} reasons.
         </h2>
         <div className="flex flex-col gap-6">
           {WHY_I_BUILT.map((entry, i) => (
