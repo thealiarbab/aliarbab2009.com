@@ -11,7 +11,7 @@ import { getProjectBySlug, type Project } from "@/config/projects";
  *     already publishes.
  *   - `email` is always the alias `ali@aliarbab2009.com`, never the raw
  *     Gmail address that ImprovMX forwards to.
- *   - `sameAs` only includes the GitHub profile.
+ *   - `sameAs` lists only the public GitHub and X profiles.
  *
  * Per P4.02.
  */
@@ -54,9 +54,9 @@ function basePerson(): Json {
     "@id": PERSON_ID,
     name: siteConfig.author,
     url: siteConfig.url,
-    image: `${siteConfig.url}/og/portrait.png`,
+    image: siteConfig.ogImage,
     email: `mailto:${siteConfig.email}`,
-    sameAs: [siteConfig.github],
+    sameAs: [siteConfig.github, siteConfig.x],
     description: PERSON_DESCRIPTION,
     knowsAbout: [...KNOWS_ABOUT],
     hasOccupation: { "@type": "Occupation", name: "Student" },
@@ -93,7 +93,7 @@ export function contactPageJsonLd(): Json {
       name: siteConfig.author,
       url: siteConfig.url,
       email: `mailto:${siteConfig.email}`,
-      sameAs: [siteConfig.github],
+      sameAs: [siteConfig.github, siteConfig.x],
     },
   };
 }
@@ -114,7 +114,7 @@ export function resumeJsonLd(): Json {
           name: siteConfig.author,
           url: siteConfig.url,
           email: `mailto:${siteConfig.email}`,
-          sameAs: [siteConfig.github],
+          sameAs: [siteConfig.github, siteConfig.x],
         },
         subjectOf: { "@id": RESUME_PDF_ID },
       },
@@ -148,10 +148,6 @@ function projectCanonical(slug: ProjectSlug): string {
   return `${siteConfig.url}/projects/${slug}`;
 }
 
-function projectScreenshot(slug: ProjectSlug): string {
-  return `${siteConfig.url}/projects/${slug}/screenshot.png`;
-}
-
 function creatorRef(): Json {
   return { "@type": "Person", name: siteConfig.author, url: siteConfig.url };
 }
@@ -169,7 +165,6 @@ function stocksaathiJsonLd(p: Project): Json {
     isAccessibleForFree: true,
     softwareVersion: "1.0",
     datePublished: p.startedISO,
-    screenshot: projectScreenshot("stocksaathi"),
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
     creator: creatorRef(),
     codeRepository: p.repoUrl,
@@ -212,7 +207,6 @@ function maglockJsonLd(p: Project): Json {
         description: p.description,
         category: "IoT smart lock",
         url: projectCanonical("maglock"),
-        image: `${siteConfig.url}/projects/maglock/hero.png`,
         brand: { "@type": "Brand", name: "MagLock Protocol" },
         manufacturer: creatorRef(),
         additionalProperty: [

@@ -23,7 +23,8 @@ describe("siteConfig", () => {
 
   it("ogImage is an absolute URL under the production origin", () => {
     expect(siteConfig.ogImage.startsWith(siteConfig.url)).toBe(true);
-    expect(siteConfig.ogImage).toMatch(/\.png$/);
+    // The root opengraph-image.tsx route — a real, generated PNG.
+    expect(siteConfig.ogImage).toBe(`${siteConfig.url}/opengraph-image`);
   });
 
   it("email is the alias domain, NOT the raw Gmail forwarded inbox", () => {
@@ -46,7 +47,7 @@ describe("siteConfig", () => {
 
   it("nav contains the four expected top-level routes", () => {
     const hrefs = siteConfig.nav.map((n) => n.href);
-    expect(hrefs).toEqual(["/projects", "/about", "/resume", "/contact"]);
+    expect(hrefs).toEqual(["/projects", "/lab", "/about", "/resume", "/contact"]);
   });
 
   it("every nav item has both href and label", () => {

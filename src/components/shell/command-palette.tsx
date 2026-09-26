@@ -81,6 +81,7 @@ function buildCommands(): CommandItem[] {
       kind: "nav",
       href: `/projects/${p.slug}`,
     })),
+    { id: "nav-lab", label: "Lab — hardware in design", hint: "/lab", kind: "nav", href: "/lab" },
     { id: "nav-about", label: "About — long version", hint: "/about", kind: "nav", href: "/about" },
     { id: "nav-resume", label: "Resume", hint: "/resume", kind: "nav", href: "/resume" },
     { id: "nav-contact", label: "Contact", hint: "/contact", kind: "nav", href: "/contact" },
@@ -104,6 +105,13 @@ function buildCommands(): CommandItem[] {
       hint: siteConfig.github.replace(/^https?:\/\//, ""),
       kind: "external",
       href: siteConfig.github,
+    },
+    {
+      id: "ext-x",
+      label: `X — @${siteConfig.xHandle}`,
+      hint: siteConfig.x.replace(/^https?:\/\//, ""),
+      kind: "external",
+      href: siteConfig.x,
     },
   ];
 

@@ -65,6 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ];
     }),
     {
+      url: `${base}/lab`,
+      lastModified: lastReviewed,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${base}/about`,
       lastModified: lastReviewed,
       changeFrequency: "monthly",

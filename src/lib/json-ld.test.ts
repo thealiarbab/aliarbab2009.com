@@ -57,7 +57,8 @@ describe("personJsonLd", () => {
   it("name + url + image are present", () => {
     expect(json.name).toBe("Ali Arbab");
     expect(json.url).toMatch(/^https:\/\/aliarbab2009\.com$/);
-    expect(json.image).toMatch(/^https:\/\/aliarbab2009\.com\/og\//);
+    // A real generated route, not a /og/*.png file that was never created.
+    expect(json.image).toBe("https://aliarbab2009.com/opengraph-image");
   });
 
   it("contains NONE of the forbidden privacy fields anywhere", () => {
@@ -73,8 +74,8 @@ describe("personJsonLd", () => {
     expect(json.email).not.toMatch(/@gmail\.com/);
   });
 
-  it("sameAs only includes the GitHub profile (no LinkedIn / Twitter / etc.)", () => {
-    expect(json.sameAs).toEqual(["https://github.com/thealiarbab"]);
+  it("sameAs lists only the public GitHub and X profiles", () => {
+    expect(json.sameAs).toEqual(["https://github.com/thealiarbab", "https://x.com/thealiarbab"]);
   });
 });
 
