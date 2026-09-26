@@ -14,13 +14,12 @@ const project = getProjectBySlug("bolhisaab")!;
 export const metadata: Metadata = buildMetadata({
   title: "BolHisaab — Voice-first Hindi ledger",
   description:
-    "BolHisaab is a voice-first Hindi ledger for shopkeepers. Speak a transaction, watch the entry write itself. Whisper, Llama three, append-only Supabase.",
+    "BolHisaab is a voice-first Hindi and Hinglish ledger for shopkeepers: speak a transaction and the entry writes itself. Web prototype complete; Kotlin rewrite underway.",
   path: "/projects/bolhisaab",
-  ogImage: "/og/projects/bolhisaab.png",
   ogImageAlt: "BolHisaab — voice-first Hindi ledger for shopkeepers",
   ogType: "article",
   publishedTime: `${project.startedISO}T00:00:00.000Z`,
-  keywords: ["BolHisaab", "Voice", "Hindi", "Ledger", "Shopkeepers", "Whisper"],
+  keywords: ["BolHisaab", "Voice", "Hindi", "Ledger", "Shopkeepers", "Sarvam", "Kotlin"],
 });
 
 export default function BolHisaabPage() {
@@ -644,11 +643,33 @@ $$;`}
         </div>
       </section>
 
-      {/* § 10 — LIMITATIONS */}
+      {/* § 10 — NEXT */}
       <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
         <div className="col-span-12 md:col-span-2">
           <div data-bh-section-header>
             <span data-bh-section-badge>10</span>
+            <span data-bh-section-label>What&apos;s next</span>
+          </div>
+        </div>
+        <div className="col-span-12 flex flex-col gap-4 md:col-span-10">
+          <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
+            The design started away from the keyboard: I interviewed local shopkeepers about how
+            they actually keep their books — who gets credit, how it&apos;s settled, and why the
+            paper notebook wins — and built the voice flow around the answers.
+          </p>
+          <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
+            The web prototype described on this page proved the whole pipeline end to end. The next
+            version is a full redesign, rewritten natively in Kotlin. Until it ships, bolhisaab.in
+            shows a launching-soon page and the source stays private.
+          </p>
+        </div>
+      </section>
+
+      {/* § 11 — LIMITATIONS */}
+      <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
+        <div className="col-span-12 md:col-span-2">
+          <div data-bh-section-header>
+            <span data-bh-section-badge>11</span>
             <span data-bh-section-label>Honest limits</span>
           </div>
         </div>
@@ -690,11 +711,11 @@ $$;`}
         </div>
       </section>
 
-      {/* § 11 — NUMBERS */}
+      {/* § 12 — NUMBERS */}
       <section className="grid grid-cols-12 gap-4 pt-10">
         <div className="col-span-12 md:col-span-2">
           <div data-bh-section-header>
-            <span data-bh-section-badge>11</span>
+            <span data-bh-section-badge>12</span>
             <span data-bh-section-label>Numbers</span>
           </div>
         </div>
