@@ -4,9 +4,9 @@ Context for future Claude sessions working in this repo.
 
 ## Project overview
 
-Personal portfolio at `aliarbab2009.com`. Three project worlds (StockSaathi, BolHisaab, MagLock Protocol) composed into one site. Ali Arbab is a Class XII student building this to share with college admissions officers, recruiters, and collaborators.
+Personal portfolio at `aliarbab2009.com`. Six project worlds (StockSaathi, SpendInCheck, BolHisaab, MagLock Protocol, Sovereign Alpha, LameCRAFT) composed into one site, plus `/lab` for hardware that exists only as a design. Ali Arbab is a Class XII student building this to share with college admissions officers, recruiters, and collaborators.
 
-Plan file (read before major new phases): `C:\Users\Alig\.claude\plans\i-own-stocksaathi-aliarbab2009-stocksaat-kind-pine.md`.
+The original plan file no longer exists; this file is the architecture record. GitHub handle is `thealiarbab` (the old `Ali-Arbab` URL 404s).
 
 ## Hard rules (non-negotiable)
 
@@ -17,6 +17,12 @@ Plan file (read before major new phases): `C:\Users\Alig\.claude\plans\i-own-sto
 Before merging content changes, mentally grep for: city names, MIT/Harvard/Stanford/any college, "EA"/"early action"/"regular action", "admissions committee", timezone strings, phone numbers, `foxman1544...@gmail.com`. The CI script `scripts/privacy-audit.mjs` enforces this by failing the build on any hit.
 
 Internal/private dates (application freeze dates, etc.) live in `PRIVATE_CALENDAR.md` which is gitignored. Never commit.
+
+Never link to or name the host of anything served from Ali's home server (LameCRAFT, MagLock's remote access) — describe those projects without giving an address. Test scores (AP etc.) are private by Ali's choice — list exams sat, never scores.
+
+### Truth rule
+
+Every number and claim on the site must trace to a source: the project's live surface, its repo (commits, `STATUS.md`, bugfix records), or something Ali said. Project READMEs are *not* reliable — StockSaathi's still describes a failover that was never switched on. When a figure changes, update `src/config/projects.ts` and the project page together, with an absolute "as of" date. Mark designs as designs (`/lab` "In design") and rebuilds as rebuilds. Never publish security specifics of a live installation (endpoints, auth state, hostnames) — MagLock guards a real door.
 
 ### Live countdowns, zero external input
 
@@ -34,7 +40,7 @@ Tokens live in `src/app/globals.css` as a root `@theme` block (dark) plus `:root
 
 ### Per-project theming
 
-Project detail pages (`/projects/<slug>`) each wrap their `<main>` in a `.theme-<slug>` class that overrides the brutalist tokens. Three project worlds live in `src/app/globals.css`: `.theme-stocksaathi` (teal on deep-black), `.theme-bolhisaab` (indigo on cream), `.theme-maglock` (neon green on pure black). Shell (nav, footer) stays on the site-default brutalist tokens, so visitors feel "inside Ali's site but now in a project's world."
+Project detail pages (`/projects/<slug>`) each wrap their `<main>` in a `.theme-<slug>` class that overrides the brutalist tokens. Six project worlds live in `src/app/globals.css`: `.theme-stocksaathi` (teal on deep-black), `.theme-spendincheck` (brass ledger), `.theme-bolhisaab` (indigo on cream — light-first, so its override is for dark), `.theme-maglock` (neon green on pure black), `.theme-sovereign-alpha` (amber terminal) and `.theme-lamecraft` (Command Nexus cyan). A test fails if a project lacks either mode. Shell (nav, footer) stays on the site-default brutalist tokens, so visitors feel "inside Ali's site but now in a project's world."
 
 Do not introduce separate `<Button>` variants like `<StockSaathiButton>` — the single `<Button>` auto-themes because its `bg-primary` reads from `--color-primary` which is overridden by the project theme class.
 
@@ -48,12 +54,10 @@ Do not introduce separate `<Button>` variants like `<StockSaathiButton>` — the
 - `src/components/home` — HomeHero, AuroraOrb, FeaturedProjects, NowBar
 - `src/components/project` — ProjectHero, StatsStrip, ArchitectureDiagram, LiveDemoEmbed
 - `src/components/about` — AboutHeroLetter, WhyThisProjectBlock
-- `src/components/mdx` — MDX-available (Callout, PullQuote, Figure)
 - `src/components/decoration` — ParticleField, NoiseOverlay, GradientMesh
 - `src/components/icons` — custom SVG marks
 - `src/lib` — utilities (`cn`, `time`, `github`, `seo`, etc.)
 - `src/config` — `site.ts`, `projects.ts`, `milestones.ts`
-- `content` — MDX case studies (Phase 1+)
 - `public/{fonts,textures,projects,resume,og,social}`
 - `scripts` — `optimize-media.mjs`, `scrub-metadata.mjs`, `privacy-audit.mjs`, `clone-reference-repos.sh`
 - `_repos/` (gitignored) — reference clones of StockSaathi + BolHisaab
@@ -70,23 +74,24 @@ Do not introduce separate `<Button>` variants like `<StockSaathiButton>` — the
 
 - Server Components by default. Mark client components with `"use client"` only when they need state, effects, or browser APIs.
 - `<LiveCountdown>` is client (needs `setInterval`). `<NowBar>` wraps client pieces in a server shell.
-- Case-study data flows: `content/projects/<slug>/meta.ts` → `<ProjectTemplate>` → MDX body with auto-imported MDX components.
+- Case studies are TSX. StockSaathi, BolHisaab and MagLock are bespoke pages with interactive demos; SpendInCheck, Sovereign Alpha and LameCRAFT use the shared `<CaseStudy>` in `src/components/project/case-study.tsx`, which reads only `--color-*` tokens.
+- Project metadata lives in `src/config/projects.ts`. `repoUrl` is optional — never point it at a private or empty repo; set `sourceNote` instead.
 
 ### Adding a new project
 
-1. Create `content/projects/<slug>/{index.mdx, meta.ts, challenges.mdx, architecture.mdx, why-i-built.mdx}`.
-2. Add a `.theme-<slug>` CSS block to `src/app/globals.css`.
-3. Create `src/app/(marketing)/projects/<slug>/{layout.tsx, page.tsx, opengraph-image.tsx}`.
-4. Add assets under `public/projects/<slug>/`.
-5. Add an entry to `src/config/projects.ts`.
-6. Run `scripts/scrub-metadata.mjs` on all new images before commit.
-7. Run `pnpm privacy-audit` locally before pushing.
+1. Add an entry to `src/config/projects.ts` (with `startedISO`, `lastUpdatedISO`, and `repoUrl` or `sourceNote`).
+2. Add `.theme-<slug>` plus its opposite-mode override to `src/app/globals.css`.
+3. Create `src/app/(marketing)/projects/<slug>/{layout.tsx, page.tsx, opengraph-image.tsx}` — the OG image can call `renderProjectOg()` from `src/lib/og-project.tsx`.
+4. Add a `why-i-built` entry (the test requires one per project) and a JSON-LD case in `src/lib/json-ld.ts`.
+5. Run `pnpm build && pnpm privacy-audit` locally before pushing.
 
 ## Gotchas
 
 - `maglock_protocol/` exists as a gitignored sibling folder. Never import from it; reference only.
 - `_repos/StockSaathi/` and `_repos/BolHisaab/` are likewise gitignored reference clones. Read them; don't depend on them at build time.
 - Tailwind v4 has no `tailwind.config.ts` by default — tokens live in `@theme` directive inside `src/app/globals.css`. If we ever add a plugin, we can re-introduce a config file for plugins only.
-- MDX pipeline via `velite` is added in Phase 1 (not Phase 0). Phase 0 is "coming soon" stubs + deploy.
 - Fonts: only `Space_Grotesk` + `JetBrains_Mono` are loaded (via `next/font/google`). The earlier Fraunces / Instrument Serif / Orbitron / Rajdhani / Inter imports were dropped when brutalist was promoted — the archived variants in `_archive/` still reference them in CSS comments but the actual `next/font/google` calls are gone.
-- The `<LiveCountdown>` component at `src/components/shell/live-countdown.tsx` is not yet used in any visible page after the neon-minimal home was archived. It stays because (a) it's lightweight and (b) Phase 3 /about academic snapshot will use it for AP exam countdowns. Do not delete it prematurely.
+- `<LiveCountdown>` powers the NowBar and the /about academic list; past dates flip to ✓ on their own.
+- **Share images.** Never pass `ogImage` to `buildMetadata` on a route that has (or inherits) an `opengraph-image.tsx` — a page-level image overrides the generated one. Segments without their own file (`/`, `/projects`, `/lab`) pass `ogImage: "/opengraph-image"`. The OG fonts must be TTF (`public/fonts/*.ttf`): Satori throws on WOFF2 and silently serves a 0-byte PNG. The TTFs are subsets — OG text may use Latin, `•` and `·`, but not `₹`, `●`, `◆` or arrows.
+- **Pre-commit hook** runs lint-staged, `tsc` and the whole Vitest suite (~4 minutes). Run `prettier --check` and `eslint` on changed files first so a formatting miss doesn't cost a full cycle.
+- The privacy pattern list is `scripts/.privacy-patterns.local.mjs` (gitignored); CI reads it from the `PRIVACY_PATTERNS_BASE64` secret, which must be refreshed whenever the local file changes.
