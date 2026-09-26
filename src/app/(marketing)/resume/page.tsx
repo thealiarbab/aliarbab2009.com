@@ -11,7 +11,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Resume",
   description:
-    "Class XII student with four AP exams in progress and three live projects in AI, voice, and IoT. Read the resume on this page or print to PDF.",
+    "Class XII student who founded StockSaathi (2nd nationally at an AI buildathon) and builds fintech, voice and hardware projects. Read it here or print to PDF.",
   path: "/resume",
   ogImageAlt: "Resume of Ali Arbab — Class XII builder",
 });

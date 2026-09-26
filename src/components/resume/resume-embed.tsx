@@ -134,9 +134,9 @@ export function ResumeEmbed() {
         <h2 className="mb-3 font-mono text-[10px] tracking-[0.3em] text-[var(--color-primary)] uppercase">
           Education
         </h2>
-        <p className="text-base font-medium">Class XII — final year</p>
+        <p className="text-base font-medium">Class XII (CBSE) — final year</p>
         <p className="mt-1 text-sm leading-relaxed text-[var(--color-muted)]">
-          AP exam track sitting May 2026:
+          AP exams sat May 2026:
         </p>
         <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
           {apMilestones.map((m) => (

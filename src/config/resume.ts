@@ -48,36 +48,57 @@ export type ResumeContent = {
 
 export const RESUME: ResumeContent = {
   summary:
-    "Class XII student building production software at the intersection of AI, voice interfaces, and embedded systems. Three shipped projects across financial education, Hindi natural-language tooling, and IoT.",
+    "Class XII student who builds and runs production software. Founder of StockSaathi, a live paper-trading coach for Indian teens that placed 2nd nationally at the Masters' Union AI Buildathon and has grown to 170 accounts by word of mouth — plus SpendInCheck, BolHisaab and MagLock Protocol.",
   coursework: [
-    "Calculus BC · Physics C Mechanics · English Language · Computer Science A — AP track May 2026",
-    "Self-directed: applied behavioral finance, low-power firmware design, large-language-model prompt engineering",
+    "Class XII (CBSE): Physics · Chemistry · Mathematics · Computer Science",
+    "AP: Calculus BC · Physics C: Mechanics · English Language · Computer Science A — sat May 2026",
+    "Self-directed: behavioural finance, Postgres security (RLS and grants), embedded power design, evaluating LLMs from production logs",
   ],
   skillGroups: [
     {
       label: "Languages",
-      items: ["TypeScript", "Python", "Dart", "C++ (Arduino)", "JavaScript", "SQL", "HTML/CSS"],
+      items: [
+        "TypeScript",
+        "JavaScript",
+        "Python",
+        "Kotlin",
+        "SQL + PL/pgSQL",
+        "Dart",
+        "C++ (Arduino)",
+        "HTML/CSS",
+      ],
     },
     {
       label: "Frameworks & runtimes",
       items: [
-        "Next.js 15",
+        "Next.js 15 / 16",
         "React 19",
         "Tailwind v4",
+        "Jetpack Compose",
         "Flutter",
-        "Node.js",
-        "Vercel Edge Runtime",
+        "Flask",
         "FastAPI",
+        "Vite",
       ],
     },
     {
-      label: "AI & data",
+      label: "Data & backend",
       items: [
-        "Groq inference (Llama 3.x, Whisper v3)",
-        "Prompt engineering",
-        "Behavioral-finance modelling",
-        "Vector embeddings",
-        "Supabase",
+        "PostgreSQL (Supabase)",
+        "Row-level security + grants",
+        "SECURITY DEFINER RPCs",
+        "Vercel serverless + Edge",
+        "Scheduled jobs (GitHub Actions)",
+      ],
+    },
+    {
+      label: "AI",
+      items: [
+        "Gemini on Vertex AI",
+        "Groq (Llama 3.x, Whisper)",
+        "Sarvam speech (STT + TTS)",
+        "Tool-calling agents",
+        "Evaluating from production logs",
       ],
     },
     {
@@ -85,18 +106,19 @@ export const RESUME: ResumeContent = {
       items: [
         "ESP32 firmware",
         "ESP32-CAM MJPEG streaming",
-        "Dual-relay control + cooldown timers",
-        "Local-network device pairing",
+        "Fail-secure relay control",
+        "Power budgeting (coin cell + LiFePO4)",
+        "LoRa mesh (design)",
       ],
     },
     {
       label: "Infra & tooling",
       items: [
-        "Vercel (deploy + analytics)",
+        "Vercel",
+        "Cloudflare Tunnel",
         "GitHub Actions CI",
+        "Vitest + pytest",
         "Sentry",
-        "Playwright e2e",
-        "Vitest",
         "Husky + lint-staged",
       ],
     },
