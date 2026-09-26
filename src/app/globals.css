@@ -249,6 +249,97 @@
   --glow-purple: 0 0 12px rgb(140 80 200 / 0.3), 0 0 28px 3px rgb(140 80 200 / 0.1);
 }
 
+/* ── SpendInCheck: brass ledger, dark default + paper light ── */
+
+.theme-spendincheck {
+  /* DARK — "brass": the archival ledger. Warm near-black, zero radius,
+     no shadows. Sourced from SpendInCheck's own tokens
+     (G:/FinTrack/web/src/styles/tokens.css, the --w-* warm scale). */
+  --color-bg: #14110e;
+  --color-fg: #ede6dc;
+  --color-muted: #9c8f7d;
+  --color-primary: #c9922f;
+  --color-primary-fg: #14110e;
+  --color-surface: #14110e;
+  --color-surface-2: #1e1a16;
+  --color-border: #4a3f33;
+  --color-glow: color-mix(in oklch, #c9922f, transparent 60%);
+}
+
+:root[data-theme="light"] .theme-spendincheck {
+  /* LIGHT — "paper": ink on aged paper, the app's second theme. Brass
+     darkens to #8a6414 so body-size links clear AA on the cream. */
+  --color-bg: #faf7f1;
+  --color-fg: #1c1814;
+  --color-muted: #6f6353;
+  --color-primary: #8a6414;
+  --color-primary-fg: #faf7f1;
+  --color-surface: #faf7f1;
+  --color-surface-2: #f4efe6;
+  --color-border: #d5c9b6;
+  --color-glow: color-mix(in oklch, #8a6414, transparent 75%);
+}
+
+/* ── Sovereign Alpha: amber terminal, dark default + light ── */
+
+.theme-sovereign-alpha {
+  --color-bg: #0a0a08;
+  --color-fg: #f2ead8;
+  --color-muted: #8f8672;
+  --color-primary: #ffb000;
+  --color-primary-fg: #0a0a08;
+  --color-surface: #0a0a08;
+  --color-surface-2: #13120d;
+  --color-border: #2a2618;
+  --color-glow: color-mix(in oklch, #ffb000, transparent 60%);
+  /* Mono display type — this world is a trading terminal. */
+  --font-display: var(--font-mono), ui-monospace, monospace;
+}
+
+:root[data-theme="light"] .theme-sovereign-alpha {
+  --color-bg: #f7f3e8;
+  --color-fg: #17140c;
+  --color-muted: #5e5644;
+  --color-primary: #8a5a00;
+  --color-primary-fg: #f7f3e8;
+  --color-surface: #f7f3e8;
+  --color-surface-2: #eee8d8;
+  --color-border: #cfc6ae;
+  --color-glow: color-mix(in oklch, #8a5a00, transparent 75%);
+}
+
+/* ── LameCRAFT: Command Nexus, dark default + light ── */
+
+.theme-lamecraft {
+  /* Straight from LAMECRAFT_PALETTE.json paste_ready_tokens: --bg,
+     --text, --text-med, --accent2 (cyan leads here; MagLock leads with
+     the same palette's green), --dim for borders. Courier New is the
+     spec's only face. */
+  --color-bg: #030306;
+  --color-fg: #b8c4d8;
+  --color-muted: #7080a0;
+  --color-primary: #00d4ff;
+  --color-primary-fg: #030306;
+  --color-surface: #030306;
+  --color-surface-2: #0a0a15;
+  --color-border: #1e1e36;
+  --color-glow: color-mix(in oklch, #00d4ff, transparent 60%);
+  --font-display: "Courier New", "Cascadia Mono", "DejaVu Sans Mono", monospace;
+  --font-body: "Courier New", "Cascadia Mono", "DejaVu Sans Mono", monospace;
+}
+
+:root[data-theme="light"] .theme-lamecraft {
+  --color-bg: #f4f4f0;
+  --color-fg: #0a0a15;
+  --color-muted: #404860;
+  --color-primary: #006080;
+  --color-primary-fg: #f4f4f0;
+  --color-surface: #f4f4f0;
+  --color-surface-2: #ebebe5;
+  --color-border: #0a0a15;
+  --color-glow: color-mix(in oklch, #006080, transparent 75%);
+}
+
 /* ============================================================
    BASE STYLES
    ============================================================ */
@@ -1424,8 +1515,11 @@ main {
   :root[data-theme="dark"],
   :root[data-theme="light"],
   .theme-stocksaathi,
+  .theme-spendincheck,
   .theme-bolhisaab,
-  .theme-maglock {
+  .theme-maglock,
+  .theme-sovereign-alpha,
+  .theme-lamecraft {
     --color-bg: #ffffff !important;
     --color-fg: #000000 !important;
     --color-muted: #555555 !important;

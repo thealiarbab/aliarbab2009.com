@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import { PROJECTS, getProjectBySlug } from "./projects";
@@ -23,6 +26,19 @@ describe("PROJECTS catalog", () => {
   it("every theme matches its slug, so .theme-<slug> resolves", () => {
     for (const p of PROJECTS) {
       expect(p.theme).toBe(p.slug);
+    }
+  });
+
+  it("every project has dark + light theme blocks in globals.css", () => {
+    const css = readFileSync(join(process.cwd(), "src/app/globals.css"), "utf8");
+    for (const p of PROJECTS) {
+      expect(css).toContain(`.theme-${p.slug} {`);
+      // Dark-first worlds override for light; BolHisaab is light-first
+      // and overrides for dark. Either way the other mode must exist.
+      const hasOverride =
+        css.includes(`:root[data-theme="light"] .theme-${p.slug} {`) ||
+        css.includes(`:root[data-theme="dark"] .theme-${p.slug} {`);
+      expect(hasOverride).toBe(true);
     }
   });
 
