@@ -1,10 +1,15 @@
+import Link from "next/link";
+
 import { getNextMilestone } from "@/config/milestones";
+import { NOW_ASOF, NOW_ITEMS } from "@/config/now";
 import { LiveCountdown } from "@/components/shell/live-countdown";
 
 /**
  * <NowBar /> — momentum strip below the home masthead.
  *
- * v0 surfaces two facts: Ali's school year + the next public academic
+ * Surfaces Ali's school year, the next public academic milestone, and
+ * the NOW_ITEMS list (src/config/now.ts) of what he's building. Earlier:
+ * v0 surfaced two facts: Ali's school year + the next public academic
  * milestone (always an AP exam in 2026). When all four exams are in
  * the past, the right-hand chip flips to "✓ APs done" automatically —
  * `getNextMilestone()` returns null at that point.
@@ -69,6 +74,31 @@ export function NowBar() {
             </span>
           </span>
         )}
+
+        {NOW_ITEMS.map((item) => (
+          <span key={item.href} className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+            <span aria-hidden className="font-mono text-xs text-[var(--color-muted)]">
+              ·
+            </span>
+            <span className="flex items-baseline gap-2">
+              <span className="font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase">
+                {item.label}
+              </span>
+              <Link
+                href={item.href}
+                className="font-mono text-sm font-medium underline-offset-4 hover:text-[var(--color-primary)] hover:underline"
+              >
+                {item.text}
+              </Link>
+            </span>
+          </span>
+        ))}
+        <time
+          dateTime={NOW_ASOF}
+          className="font-mono text-[10px] tracking-[0.2em] text-[var(--color-muted)] uppercase"
+        >
+          as of {NOW_ASOF}
+        </time>
       </div>
     </aside>
   );

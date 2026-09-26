@@ -68,4 +68,12 @@ describe("<NowBar />", () => {
     expect(aside).not.toBeNull();
     expect(aside).toHaveAttribute("aria-label", "Current status");
   });
+
+  it("links every current-work item to its project page", () => {
+    render(<NowBar />);
+    const links = screen.getAllByRole("link");
+    expect(links.map((a) => a.getAttribute("href"))).toEqual(
+      expect.arrayContaining(["/projects/stocksaathi", "/projects/bolhisaab", "/projects/maglock"]),
+    );
+  });
 });
