@@ -28,9 +28,7 @@ describe("robots()", () => {
   });
 
   it("disallows non-content paths (api / dev / _next / private)", () => {
-    const disallow = Array.isArray(firstRule.disallow)
-      ? firstRule.disallow
-      : [firstRule.disallow];
+    const disallow = Array.isArray(firstRule.disallow) ? firstRule.disallow : [firstRule.disallow];
     expect(disallow).toContain("/api/");
     expect(disallow).toContain("/dev/");
     expect(disallow).toContain("/_next/");
@@ -38,9 +36,7 @@ describe("robots()", () => {
   });
 
   it("does NOT disallow '/' (catastrophic de-listing protection)", () => {
-    const disallow = Array.isArray(firstRule.disallow)
-      ? firstRule.disallow
-      : [firstRule.disallow];
+    const disallow = Array.isArray(firstRule.disallow) ? firstRule.disallow : [firstRule.disallow];
     expect(disallow).not.toContain("/");
   });
 

@@ -29,6 +29,7 @@ const MONTH_ABBR = [
 export function formatTimelineDate(iso: string): string {
   const [year, month] = iso.split("-");
   const monthIndex = month ? parseInt(month, 10) - 1 : 0;
-  const safeIndex = Number.isFinite(monthIndex) && monthIndex >= 0 && monthIndex <= 11 ? monthIndex : 0;
+  const safeIndex =
+    Number.isFinite(monthIndex) && monthIndex >= 0 && monthIndex <= 11 ? monthIndex : 0;
   return `${MONTH_ABBR[safeIndex]} ${year}`;
 }

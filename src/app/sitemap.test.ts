@@ -44,7 +44,8 @@ describe("sitemap()", () => {
     for (const e of entries) {
       expect(e.lastModified).toBeDefined();
       // accept Date objects or ISO strings
-      const asString = typeof e.lastModified === "string" ? e.lastModified : e.lastModified?.toISOString();
+      const asString =
+        typeof e.lastModified === "string" ? e.lastModified : e.lastModified?.toISOString();
       expect(asString).toMatch(/^\d{4}-\d{2}-\d{2}/);
     }
   });
@@ -57,15 +58,7 @@ describe("sitemap()", () => {
   });
 
   it("changeFrequency is a documented value", () => {
-    const valid = new Set([
-      "always",
-      "hourly",
-      "daily",
-      "weekly",
-      "monthly",
-      "yearly",
-      "never",
-    ]);
+    const valid = new Set(["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"]);
     for (const e of entries) {
       if (e.changeFrequency !== undefined) {
         expect(valid.has(e.changeFrequency)).toBe(true);
