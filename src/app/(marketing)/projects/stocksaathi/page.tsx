@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getProjectBySlug } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { OriginBlock } from "@/components/project/origin-block";
+import { StockSaathiSignups } from "@/components/project/stocksaathi-signups";
 import StockSaathiTimeTravel from "@/components/project/stocksaathi-time-travel";
 import { JsonLd } from "@/components/seo/json-ld";
 import { projectJsonLd } from "@/lib/json-ld";
@@ -12,11 +13,10 @@ import { buildMetadata } from "@/lib/seo";
 const project = getProjectBySlug("stocksaathi")!;
 
 export const metadata: Metadata = buildMetadata({
-  title: "StockSaathi — AI investment coach",
+  title: "StockSaathi — AI-coached paper trading for teens",
   description:
-    "StockSaathi is a virtual rupee trading simulator with an AI coach trained on behavioral finance. Real-time data on 3,000+ BSE and NSE stocks.",
+    "A paper-trading simulator for Indian teens: real NSE/BSE prices, nine bias detectors, an AI coach that never tips, and nine replayable crashes. 2nd nationally at an AI buildathon.",
   path: "/projects/stocksaathi",
-  ogImage: "/og/projects/stocksaathi.png",
   ogImageAlt: "StockSaathi — AI-coached investment simulator for Indian teens",
   ogType: "article",
   publishedTime: `${project.startedISO}T00:00:00.000Z`,
@@ -113,12 +113,12 @@ export default function StockSaathiPage() {
               <div className="flex flex-wrap items-center gap-2 text-[12px] text-[var(--color-muted)]">
                 <span className="inline-flex items-center gap-2">
                   <span data-ss-pulse-dot className="inline-block align-middle"></span>
-                  Live at Vercel
+                  Live since April 2026
                 </span>
                 <span aria-hidden className="text-[var(--color-border)]">
                   ·
                 </span>
-                <span>3,000+ BSE/NSE stocks</span>
+                <span>4,664 instruments · 14,155 funds</span>
                 <span data-ss-saffron-badge>India</span>
               </div>
             </li>
@@ -138,17 +138,67 @@ export default function StockSaathiPage() {
                 github.com/thealiarbab/StockSaathi <span aria-hidden>↗</span>
               </Link>
               <p className="text-[12px] text-[var(--color-muted)]">
-                Vanilla ES Modules · Python · Supabase · Multi-provider LLM
+                Vanilla ES modules · Python · Supabase · Gemini on Vertex AI
               </p>
             </li>
           </ul>
         </div>
       </section>
 
-      {/* § 03 — STACK */}
+      {/* § 03 — TRACTION */}
       <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
         <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
           <p data-ss-section-number>§ 03</p>
+          <p data-ss-section-label>Traction</p>
+        </div>
+        <div className="col-span-12 flex flex-col gap-6 md:col-span-10">
+          <h2
+            className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Built in 36 hours. Still growing, with no ads.
+          </h2>
+          <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
+            StockSaathi was built end to end at the Masters&apos; Union AI Buildathon — a 36-hour
+            national build — where a teammate pitched it to the panel and it placed
+            <strong className="font-medium">second in India</strong>. It went live at
+            stocksaathi.co.in the same month and has grown since entirely by word of mouth, with a
+            student brand ambassador and no paid acquisition.
+          </p>
+          <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
+            {[
+              ["170", "accounts created"],
+              ["132", "have logged in"],
+              ["100", "traded, queued an order or used the coach"],
+              ["55", "made at least one trade"],
+              ["79", "active in the last 30 days"],
+              ["34", "active in the last 7 days"],
+            ].map(([num, label]) => (
+              <li key={label} data-ss-stat-tile data-ss-rounded>
+                <p
+                  data-ss-stat-number
+                  className="text-2xl font-bold text-[var(--color-primary)] tabular-nums"
+                >
+                  {num}
+                </p>
+                <p className="mt-2 text-[11px] font-medium text-[var(--color-muted)]">{label}</p>
+              </li>
+            ))}
+          </ul>
+          <div data-ss-rounded-card className="px-6 py-6 sm:px-7">
+            <StockSaathiSignups />
+          </div>
+          <p className="text-[11px] text-[var(--color-muted)]">
+            As of <time dateTime="2026-09-26">2026-09-26</time>. Test and throwaway-email sign-ups
+            are included in the 170; excluding them leaves about 160.
+          </p>
+        </div>
+      </section>
+
+      {/* § 04 — STACK */}
+      <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
+        <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
+          <p data-ss-section-number>§ 04</p>
           <p data-ss-section-label>Stack</p>
         </div>
         <div className="col-span-12 md:col-span-10">
@@ -162,10 +212,10 @@ export default function StockSaathiPage() {
         </div>
       </section>
 
-      {/* § 04 — ORIGIN (problem · why me · learned + pull-quote) */}
+      {/* § 05 — ORIGIN (problem · why me · learned + pull-quote) */}
       <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
         <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
-          <p data-ss-section-number>§ 04</p>
+          <p data-ss-section-number>§ 05</p>
           <p data-ss-section-label>Origin</p>
         </div>
         <div className="col-span-12 md:col-span-10">
@@ -175,10 +225,10 @@ export default function StockSaathiPage() {
         </div>
       </section>
 
-      {/* § 05 — ARCHITECTURE */}
+      {/* § 06 — ARCHITECTURE */}
       <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
         <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
-          <p data-ss-section-number>§ 05</p>
+          <p data-ss-section-number>§ 06</p>
           <p data-ss-section-label>Architecture</p>
         </div>
         <div className="col-span-12 flex flex-col gap-6 md:col-span-10">
@@ -186,40 +236,35 @@ export default function StockSaathiPage() {
             className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Four-tier failover, zero pip dependencies, all money in paise.
+            One entrypoint, server-priced trades, all money in paise.
           </h2>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
-            A Cloudflare Worker bound to{" "}
-            <code className="font-mono text-sm">stocksaathi.co.in/*</code> intercepts every request,
-            tries Vercel first, falls back to a regional Fly.io origin on 5xx/timeout, and trips a
-            KV-backed 30-second circuit breaker so a single failure doesn&apos;t cost every user a
-            9-second retry. Two Edge JS handlers (
-            <code className="font-mono text-sm">/api/chat</code>,{" "}
-            <code className="font-mono text-sm">/api/ai</code>) are inline-bundled into the Worker
-            so they keep responding even if Vercel and Fly are both down. A Cloudflare Pages
-            deployment mirrors the static tree as the third fallback.
+            The front end is vanilla ES modules with no framework and no build step, cached by a
+            service worker so it installs as an app. The Python API sits behind a{" "}
+            <strong className="font-medium">single ASGI entrypoint</strong>: sixteen handlers
+            dispatched from one function. That shape is a scar — Vercel&apos;s free tier allows
+            twelve functions per deployment, the API had grown to twenty-one, and every deploy for
+            four months quietly failed after a successful build while the site kept serving the last
+            good one. Collapsing them into one entrypoint is what finally shipped those commits.
           </p>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
-            The Python serverless tier has{" "}
-            <strong className="font-medium">zero pip dependencies</strong> — every endpoint is one{" "}
-            <code className="font-mono text-sm">BaseHTTPRequestHandler</code> subclass per file,
-            stdlib-only. Cold starts are correspondingly tiny because there is no{" "}
-            <code className="font-mono text-sm">pip install</code> step. The Fly backup origin
-            reuses these handlers unchanged via a 162-line FastAPI shim that imports each handler
-            and replays the BHTRH protocol into a Starlette response. A pytest parity test fails CI
-            if a new handler lands in <code className="font-mono text-sm">app/api/</code> without a
-            matching route in the shim.
+            A full hot-mirror failover is built and tested — a Cloudflare Worker in front, Pages for
+            static files, a Fly.io copy of the API, and a CI check that fails if a new endpoint
+            isn&apos;t mirrored. It is <strong className="font-medium">not switched on yet</strong>:
+            turning it on moves the whole serving path, so production still answers straight from
+            Vercel until that cutover is planned properly.
           </p>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
-            Every mutating write goes through one of 16{" "}
-            <code className="font-mono text-sm">SECURITY DEFINER</code> PL/pgSQL RPCs. The client
-            never executes raw <code className="font-mono text-sm">UPDATE portfolios</code> — the{" "}
+            Every mutating write goes through a{" "}
+            <code className="font-mono text-sm">SECURITY DEFINER</code> PL/pgSQL function. The
+            client can&apos;t write the money tables at all — the{" "}
             <code className="font-mono text-sm">apply_trade</code> RPC takes{" "}
             <code className="font-mono text-sm">auth.uid()</code> itself, takes a{" "}
             <code className="font-mono text-sm">FOR UPDATE</code> row lock, validates the trade,
-            applies cash + holdings + transactions transactionally, and returns a JSON envelope.
-            Idempotency keys are <code className="font-mono text-sm">UNIQUE(user_id, key)</code> so
-            a network-retried POST short-circuits and returns{" "}
+            prices the trade from the server&apos;s own quote rather than the client&apos;s, applies
+            cash + holdings + transactions transactionally, and returns a JSON envelope. Idempotency
+            keys are <code className="font-mono text-sm">UNIQUE(user_id, key)</code> so a
+            network-retried POST short-circuits and returns{" "}
             <code className="font-mono text-sm">{`{ok:true, idempotent:true}`}</code> instead of
             double-spending.
           </p>
@@ -246,10 +291,10 @@ IF NOT FOUND THEN RAISE EXCEPTION 'insufficient_cash'; END IF;`}
         </div>
       </section>
 
-      {/* § 06 — AI COACH */}
+      {/* § 07 — AI COACH */}
       <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
         <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
-          <p data-ss-section-number>§ 06</p>
+          <p data-ss-section-number>§ 07</p>
           <p data-ss-section-label>AI coach</p>
         </div>
         <div className="col-span-12 flex flex-col gap-6 md:col-span-10">
@@ -275,10 +320,11 @@ IF NOT FOUND THEN RAISE EXCEPTION 'insufficient_cash'; END IF;`}
           </p>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             <strong className="font-medium">Track 2</strong> is the conversational chat surface
-            (&ldquo;Saathi&rdquo;) — a tool-use loop with five OpenAI-compatible function tools
-            executed in parallel via <code className="font-mono text-sm">Promise.all</code>, with
-            tool responses capped at 4000 chars before re-feeding. The crypto tool bakes the warning
-            into its own response (
+            (&ldquo;Saathi&rdquo;) — a tool-use loop with eight function tools — portfolio, trade
+            history, watchlist, pending orders, prices, search, news, crypto — executed in parallel
+            via <code className="font-mono text-sm">Promise.all</code>, with tool responses capped
+            at 4000 chars before re-feeding. The crypto tool bakes the warning into its own response
+            (
             <em>
               note: &quot;India: crypto gains taxed at 30% + 1% TDS per trade since 2022&quot;
             </em>
@@ -286,17 +332,20 @@ IF NOT FOUND THEN RAISE EXCEPTION 'insufficient_cash'; END IF;`}
             remembers to ask for it.
           </p>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
-            The proxy at <code className="font-mono text-sm">/api/chat</code> is a multi-provider
-            fallback chain — Gemini 2.5 Flash-Lite leads (the only Gemini model that&apos;s truly
-            non-thinking in <code className="font-mono text-sm">json_object</code> mode), then
-            Flash, then Pro, then Cerebras Llama 3.3 70B, then OpenAI. Vertex AI is preferred when{" "}
-            <code className="font-mono text-sm">GEMINI_VERTEX_PROJECT</code> is set, with region
-            pinned to <code className="font-mono text-sm">asia-south1</code> so latency stays low
-            for Indian users and data stays in-region. Three independent layers of SEBI guardrails —
-            pre-LLM regex, in-prompt rules, and a post-LLM scanner that checks{" "}
-            <code className="font-mono text-sm">reflection</code>,{" "}
-            <code className="font-mono text-sm">historical_context</code>, and{" "}
-            <code className="font-mono text-sm">suggested_q</code> for 25 forbidden phrases.
+            The model behind it is Gemini on Vertex AI, proxied through{" "}
+            <code className="font-mono text-sm">/api/chat</code>: Gemini 3 Flash for chat and tool
+            calls, 3.1 Pro for reasoning, Flash-Lite for strict-JSON jobs. The biggest speed win
+            wasn&apos;t architecture. A tool turn has two phases that want opposite things —
+            deciding which tool to call, then writing the answer — and one reasoning setting was
+            serving both. Dropping the thinking budget on the writing turn cut time to first word
+            from about 6.6 seconds to about 1.4, measured on production. Each upstream attempt is
+            bounded at 9 seconds, and a response header records every attempt so a degraded chain is
+            visible instead of just slow.
+          </p>
+          <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
+            Three independent layers keep it inside SEBI&apos;s lines — pre-LLM checks, in-prompt
+            rules, and a post-LLM scanner for forbidden phrases — because a prompt rule is a
+            preference, not a guarantee.
           </p>
           <pre data-ss-code className="overflow-x-auto p-4 font-mono text-[11px] leading-relaxed">
             {`# SEBI-SAFE GUARDRAILS (ABSOLUTE)
@@ -309,27 +358,21 @@ IF NOT FOUND THEN RAISE EXCEPTION 'insufficient_cash'; END IF;`}
   Do not answer yes/no.`}
           </pre>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
-            Conversation memory is <strong className="font-medium">client-local IndexedDB</strong> —
-            the <code className="font-mono text-sm">coach_messages</code> table tags every turn with{" "}
-            <code className="font-mono text-sm">sessionId</code> and{" "}
-            <code className="font-mono text-sm">surface</code>. A power user can paste their own
-            Anthropic key in Settings, which routes their requests directly to{" "}
-            <code className="font-mono text-sm">api.anthropic.com</code> with{" "}
-            <code className="font-mono text-sm">
-              anthropic-dangerous-direct-browser-access: true
-            </code>{" "}
-            — no chat data ever leaves their device.
+            Conversations are stored per user in Postgres behind row-level security, so they follow
+            the account across devices — and a shared family laptop never shows the last
+            person&apos;s chats, a leak I found and closed in September. A user can also paste their
+            own API key in Settings and route the coach through their own account.
           </p>
         </div>
       </section>
 
-      {/* § 07 — TIME TRAVEL */}
+      {/* § 08 — TIME TRAVEL */}
       <section data-ss-watermark-host className="mb-20 grid grid-cols-12 gap-4 pt-10">
         <div data-ss-watermark aria-hidden>
           <span>PAPER TRADING · VIRTUAL MONEY</span>
         </div>
         <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
-          <p data-ss-section-number>§ 07</p>
+          <p data-ss-section-number>§ 08</p>
           <p data-ss-section-label>Time travel</p>
         </div>
         <div className="col-span-12 flex flex-col gap-6 md:col-span-10">
@@ -344,9 +387,10 @@ IF NOT FOUND THEN RAISE EXCEPTION 'insufficient_cash'; END IF;`}
           </h2>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             Pick (or invent) a market crisis; watch a ₹1,00,000 portfolio split into a held line and
-            a panic-sold-on-day-3 line over real historical closes. Three curated scenarios ship —
-            COVID March 2020, GFC 2008, demonetisation 2016 — with educator-tone narration. Anything
-            else routes through the custom-crash generator, a{" "}
+            a panic-sold-on-day-3 line over real historical closes. Nine real Indian market events
+            are ready to replay — from Harshad Mehta in 1992 and the dot-com crash to Satyam, the
+            2008 crisis, DHFL, YES Bank, COVID, the Paytm listing and Adani-Hindenburg — with
+            educator-tone narration. Anything else routes through the custom-crash generator, a{" "}
             <strong className="font-medium">three-phase grounded pipeline</strong>:
           </p>
           <ol className="ml-6 max-w-prose list-decimal space-y-3 text-base leading-relaxed text-[var(--color-fg)]">
@@ -390,10 +434,10 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
         </div>
       </section>
 
-      {/* § 08 — UNIVERSE */}
+      {/* § 09 — UNIVERSE */}
       <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
         <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
-          <p data-ss-section-number>§ 08</p>
+          <p data-ss-section-number>§ 09</p>
           <p data-ss-section-label>Universe</p>
         </div>
         <div className="col-span-12 flex flex-col gap-6 md:col-span-10">
@@ -406,10 +450,10 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
             <div className="flex items-center justify-between">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.18em] text-[var(--color-muted)] uppercase">
                 <span data-ss-pulse-dot className="inline-block align-middle"></span>
-                Live · NSE
+                Illustrative · NSE
               </span>
               <span className="font-mono text-[10px] tracking-tight text-[var(--color-muted)]">
-                15:14:32 IST
+                sample prices
               </span>
             </div>
             <div className="flex flex-nowrap items-center gap-x-6 gap-y-2 overflow-x-auto font-mono text-[12px] whitespace-nowrap tabular-nums">
@@ -506,20 +550,22 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
             className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            2,686 NSE equities and 13,969 mutual funds, refreshed before market open.{" "}
+            4,313 equities, 351 ETFs and 14,155 mutual funds, rebuilt every morning.{" "}
             <span data-ss-saffron-badge className="ml-2 align-middle">
               AMFI India
             </span>
           </h2>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
-            The instrument universe is built daily by two pure-Node (zero deps) scripts. The equity
-            build fetches the NSE master CSV, 17 NIFTY index constituent CSVs, and the NSE ETF API,
-            warming a per-host cookie jar with browser-like{" "}
-            <code className="font-mono text-sm">Sec-Fetch-*</code> headers because both NSE and
-            NiftyIndices 403 anything else. A 27-value sector taxonomy is derived through a layered
-            pipeline (NSE&apos;s industry tag → sectoral overlays → 100-line keyword regex for the
-            long-tail ~1,500 small-caps). NIFTY index membership is packed into a 5-bit field per
-            instrument, driving cap-bucket and risk-tier classification.
+            The instrument universe is rebuilt daily by two pure-Node (zero deps) scripts running on
+            GitHub Actions — NSE blocks requests from Vercel&apos;s servers, but a GitHub runner
+            gets the same 2,568-row master list a home connection does. The equity build fetches the
+            NSE master CSV, 17 NIFTY index constituent CSVs, and the NSE ETF API, warming a per-host
+            cookie jar with browser-like <code className="font-mono text-sm">Sec-Fetch-*</code>{" "}
+            headers because both NSE and NiftyIndices 403 anything else. A 27-value sector taxonomy
+            is derived through a layered pipeline (NSE&apos;s industry tag → sectoral overlays →
+            100-line keyword regex for the long-tail ~1,500 small-caps). NIFTY index membership is
+            packed into a 5-bit field per instrument, driving cap-bucket and risk-tier
+            classification.
           </p>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             The MF build parses AMFI&apos;s proprietary semicolon-delimited{" "}
@@ -536,19 +582,17 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
             Live quote caching is <strong className="font-medium">market-hours-aware</strong>:{" "}
             <code className="font-mono text-sm">is_market_open_ist()</code> drives both the Supabase
             TTL and the edge <code className="font-mono text-sm">Cache-Control</code> value — 5
-            seconds while NSE is open (Mon-Fri 09:15-15:30 IST), 300 seconds while closed. Eight
-            cron windows daily refresh fundamentals, instruments, and MF NAVs; crons self-bail at 50
-            seconds against Vercel&apos;s 60-second{" "}
-            <code className="font-mono text-sm">maxDuration</code> cap and resume from the next
-            paginated <code className="font-mono text-sm">?offset=</code> on the next firing.
+            seconds while NSE is open, 300 seconds while closed. Scheduled jobs refresh instruments,
+            fund NAVs, fundamentals and a tiered quote warm-up; each self-bails before the function
+            time limit and resumes from where it stopped on the next run.
           </p>
         </div>
       </section>
 
-      {/* § 09 — POLISH */}
+      {/* § 10 — POLISH */}
       <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
         <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
-          <p data-ss-section-number>§ 09</p>
+          <p data-ss-section-number>§ 10</p>
           <p data-ss-section-label>Polish</p>
         </div>
         <div className="col-span-12 flex flex-col gap-6 md:col-span-10">
@@ -560,7 +604,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
               ],
               [
                 "Server-time anchor via performance.now()",
-                "The market-status badge can't be spoofed by changing the system clock. The anchor is (performance.now() at sync midpoint, server's epoch ms); serverNow() adds the monotonic delta. Flipping your laptop to '9:30 AM IST Sunday' cannot fake 'Market Open'.",
+                "The market-status badge can't be spoofed by changing the system clock. The anchor is (performance.now() at sync midpoint, server's epoch ms); serverNow() adds the monotonic delta. Flipping your laptop to '9:30 AM on a Sunday' cannot fake 'Market Open'.",
               ],
               [
                 "Intervention modal with 3-second read delay",
@@ -572,11 +616,11 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
               ],
               [
                 "Chunked render with RAF yield",
-                "The MF browser paints 13,969 cards in 200-card chunks with requestAnimationFrame yields between batches; 'Tab not responding' never fires. Two cooperating IntersectionObservers (200% rootMargin to hydrate, 600% to dehydrate back to skeleton) keep the DOM bounded.",
+                "The MF browser paints 14,000-plus cards in 200-card chunks with requestAnimationFrame yields between batches; 'Tab not responding' never fires. Two cooperating IntersectionObservers (200% rootMargin to hydrate, 600% to dehydrate back to skeleton) keep the DOM bounded.",
               ],
               [
-                "Limit-order matcher with market-closed guard",
-                "AMOs ghosted because the matcher ran every 12s regardless of market state and trivially 'filled' against stale after-hours closes. Fix: if (!marketStatus().open) return { skipped: 'market_closed' }; before any matcher pass.",
+                "Orders fill without the app open",
+                "Limit orders and AMOs used to execute only inside the user's browser tab — and for teenagers the market is open during the school day, so orders sat unfilled for up to 128 days. Matching now runs server-side on a schedule, priced from the server's own quotes; 74 stuck orders were filled at their original limit and 24 users got an apology notice.",
               ],
             ].map(([title, body]) => (
               <li
@@ -599,10 +643,90 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
         </div>
       </section>
 
-      {/* § 10 — LIMITATIONS */}
+      {/* § 11 — HARDENING */}
       <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
         <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
-          <p data-ss-section-number>§ 10</p>
+          <p data-ss-section-number>§ 11</p>
+          <p data-ss-section-label>Hardening</p>
+        </div>
+        <div className="col-span-12 flex flex-col gap-6 md:col-span-10">
+          <h2
+            className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            September: the month I stopped trusting the client.
+          </h2>
+          <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
+            Reading the production database end to end turned up the kind of bugs a demo never
+            shows. Orders only executed while the user&apos;s own browser tab was open — and for
+            teenagers the market is open during the school day — so some sat for 128 days with cash
+            reserved. Trade prices were taken from the client. And the money tables would accept a
+            direct write from any logged-in user.
+          </p>
+          <ul className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {[
+              [
+                "Server-side execution",
+                "Limit orders and after-market orders are matched on a schedule by the server, priced from its own quotes. 74 stuck orders were filled at their original limit and 24 users got a personal apology notice.",
+              ],
+              [
+                "Server-priced trades",
+                "Every trade books the server's reference price; the client's number is advisory. Money tables accept no direct writes — only the trade functions can change a balance.",
+              ],
+              [
+                "Red-teamed",
+                "24 adversarial probes as a real logged-in user — minting cash, poisoning prices, writing another user's rows, calling admin functions. None got through, and CI tests now fail if any fix regresses.",
+              ],
+            ].map(([title, body]) => (
+              <li
+                key={title}
+                data-ss-rounded-card
+                className="flex flex-col gap-3 px-6 py-6 sm:px-7"
+              >
+                <p className="text-sm leading-snug font-semibold text-[var(--color-primary)]">
+                  {title}
+                </p>
+                <p className="text-sm leading-relaxed text-[var(--color-fg)]">{body}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
+            The same week I rebuilt the coach from its logs. Most of its 46 defects were found by
+            reading over a thousand real coach messages rather than by any test — including a
+            trading record it had invented for one user and defended for four turns. The fix was
+            two-sided: forbid invention in the prompt, and give the model real trade history, real
+            orders and a real watchlist so it never has to guess.
+          </p>
+        </div>
+      </section>
+
+      {/* § 12 — ANDROID */}
+      <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
+        <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
+          <p data-ss-section-number>§ 12</p>
+          <p data-ss-section-label>Android</p>
+        </div>
+        <div className="col-span-12 flex flex-col gap-6 md:col-span-10">
+          <h2
+            className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            A native Android client in Kotlin.
+          </h2>
+          <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
+            The web app stays the primary product, but a native client is on the way: a Jetpack
+            Compose port with integer-paise money maths, all nine bias detectors ported to the same
+            thresholds as the web, the panic-sell intervention, crash replay, limit orders, news,
+            mutual funds and a dark mode — at version 0.5.0 with a signed release build. It talks to
+            the same API as the website, so no provider key ever ships inside the app.
+          </p>
+        </div>
+      </section>
+
+      {/* § 13 — LIMITATIONS */}
+      <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
+        <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
+          <p data-ss-section-number>§ 13</p>
           <p data-ss-section-label>Honest limits</p>
         </div>
         <div className="col-span-12 flex flex-col gap-3 md:col-span-10">
@@ -646,115 +770,68 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
         </div>
       </section>
 
-      {/* § 11 — NUMBERS */}
+      {/* § 14 — NUMBERS */}
       <section className="grid grid-cols-12 gap-4 pt-10">
         <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
-          <p data-ss-section-number>§ 11</p>
+          <p data-ss-section-number>§ 14</p>
           <p data-ss-section-label>Numbers</p>
         </div>
         <div className="col-span-12 md:col-span-10">
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {[
-              ["2,686", "NSE equities + ETFs"],
-              ["13,969", "AMFI mutual funds"],
-              ["4-tier", "upstream failover"],
-              ["4-tier", "fundamentals fallback"],
+              ["4,664", "NSE + BSE instruments"],
+              ["14,155", "AMFI mutual funds"],
               ["9", "deterministic bias detectors"],
+              ["8", "coach tools"],
+              ["9", "replayable market crises"],
               ["3", "SEBI guardrail layers"],
-              ["8", "cron windows daily"],
+              ["~1.4s", "coach first word (was ~6.6s)"],
+              ["24", "red-team probes, 0 breaches"],
               ["5s / 300s", "market-open / closed TTL"],
-              ["30s", "circuit-breaker window"],
-              ["0", "pip dependencies"],
-              ["16", "atomic SECURITY DEFINER RPCs"],
+              ["4-tier", "fundamentals fallback"],
+              ["170", "accounts, no ads"],
               ["paise", "all money as bigint"],
-            ].map(([num, label]) =>
-              label === "cron windows daily" ? (
-                // Functional mockup — replace the bare "8" with an inline
-                // 8-bar sparkline visualising the daily cron firing pattern.
-                // First 3 bars at 60% height (lighter early-morning syncs:
-                // instruments, MF NAVs, holiday refresh), last 5 at 100%
-                // (full market-hours quote + fundamentals refreshes). Dotted
-                // "now" indicator sits between bars 5 and 6.
-                <li key={label} data-ss-stat-tile data-ss-rounded>
-                  <div className="flex items-end gap-3">
-                    <svg
-                      viewBox="0 0 80 24"
-                      role="img"
-                      aria-label="Sparkline showing 8 daily cron firings — three early-morning sync windows at 60% load and five full-operation windows at 100%."
-                      className="block h-6 w-20 shrink-0"
-                    >
-                      {/* baseline */}
-                      <line
-                        x1="1"
-                        y1="22"
-                        x2="79"
-                        y2="22"
-                        stroke="var(--color-border)"
-                        strokeWidth="1"
-                        opacity="0.5"
-                      />
-                      {/* 8 vertical bars: first 3 at 60% (12px), next 5 at 100% (20px). */}
-                      <rect
-                        x="1"
-                        y="10"
-                        width="8"
-                        height="12"
-                        fill="var(--color-primary)"
-                        opacity="0.55"
-                      />
-                      <rect
-                        x="11"
-                        y="10"
-                        width="8"
-                        height="12"
-                        fill="var(--color-primary)"
-                        opacity="0.55"
-                      />
-                      <rect
-                        x="21"
-                        y="10"
-                        width="8"
-                        height="12"
-                        fill="var(--color-primary)"
-                        opacity="0.55"
-                      />
-                      <rect x="31" y="2" width="8" height="20" fill="var(--color-primary)" />
-                      <rect x="41" y="2" width="8" height="20" fill="var(--color-primary)" />
-                      <rect x="51" y="2" width="8" height="20" fill="var(--color-primary)" />
-                      <rect x="61" y="2" width="8" height="20" fill="var(--color-primary)" />
-                      <rect x="71" y="2" width="8" height="20" fill="var(--color-primary)" />
-                      {/* dotted "now" indicator sitting between bar 5 and bar 6 */}
-                      <line
-                        x1="50"
-                        y1="0"
-                        x2="50"
-                        y2="24"
-                        stroke="var(--color-saffron)"
-                        strokeWidth="1"
-                        strokeDasharray="1.5 1.5"
-                      />
-                    </svg>
-                    <p
-                      data-ss-stat-number
-                      className="text-2xl leading-none font-bold text-[var(--color-primary)] tabular-nums"
-                    >
-                      {num}
-                    </p>
-                  </div>
-                  <p className="mt-2 text-[11px] font-medium text-[var(--color-muted)]">{label}</p>
-                </li>
-              ) : (
-                <li key={label} data-ss-stat-tile data-ss-rounded>
-                  <p
-                    data-ss-stat-number
-                    className="text-2xl font-bold text-[var(--color-primary)] tabular-nums"
-                  >
-                    {num}
-                  </p>
-                  <p className="mt-2 text-[11px] font-medium text-[var(--color-muted)]">{label}</p>
-                </li>
-              ),
-            )}
+            ].map(([num, label]) => (
+              <li key={label} data-ss-stat-tile data-ss-rounded>
+                <p
+                  data-ss-stat-number
+                  className="text-2xl font-bold text-[var(--color-primary)] tabular-nums"
+                >
+                  {num}
+                </p>
+                <p className="mt-2 text-[11px] font-medium text-[var(--color-muted)]">{label}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* § 15 — NEXT */}
+      <section className="mb-20 grid grid-cols-12 gap-4 pt-10">
+        <div className="col-span-12 flex flex-col gap-1 md:col-span-2">
+          <p data-ss-section-number>§ 15</p>
+          <p data-ss-section-label>Next</p>
+        </div>
+        <div className="col-span-12 flex flex-col gap-6 md:col-span-10">
+          <h2
+            className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            What happens next.
+          </h2>
+          <ul className="ml-6 max-w-prose list-disc space-y-3 text-base leading-relaxed text-[var(--color-fg)]">
+            <li>
+              <strong className="font-medium">A school paper-trading competition</strong> run on
+              StockSaathi, open to Classes IX–XII.
+            </li>
+            <li>
+              <strong className="font-medium">The Android client</strong> to full parity with the
+              web, then onto the Play Store.
+            </li>
+            <li>
+              <strong className="font-medium">Going all in after Class XII boards</strong> — and,
+              once I turn 18, building StockSaathi toward a real brokerage.
+            </li>
           </ul>
         </div>
       </section>
