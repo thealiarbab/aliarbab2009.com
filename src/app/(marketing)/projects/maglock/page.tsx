@@ -17,9 +17,8 @@ const project = getProjectBySlug("maglock")!;
 export const metadata: Metadata = buildMetadata({
   title: "MagLock Protocol — Cyberpunk IoT smart lock",
   description:
-    "MagLock Protocol is a dual-door smart lock with live ESP32-CAM video and an optional Hinglish voice assistant. Flutter app, two ESP32s, no cloud servers.",
+    "MagLock Protocol is a dual-door ESP32 smart lock with live ESP32-CAM video, a Flutter app and Maggy, a voice assistant with memory. No vendor cloud — being rebuilt from scratch.",
   path: "/projects/maglock",
-  ogImage: "/og/projects/maglock.png",
   ogImageAlt: "MagLock Protocol — neon dual-door smart lock UI",
   ogType: "article",
   publishedTime: `${project.startedISO}T00:00:00.000Z`,
@@ -118,6 +117,15 @@ export default function MagLockPage() {
             </p>
             <p className="relative z-10 max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
               {project.description}
+            </p>
+            <p
+              data-maglock-uppercase-label
+              data-size="sm"
+              className="relative z-10 max-w-prose leading-relaxed"
+            >
+              This page documents the first build, from April 2026. The rebuild adds signed requests
+              between app and lock, and moves Maggy toward a small box on the door with its own
+              microphone and speaker that answers in under three seconds.
             </p>
 
             {/* Interactive Door Control Panel — hoisted above the fold so the
@@ -504,13 +512,12 @@ export default function MagLockPage() {
             parsing JPEG SOI/EOI markers out of the raw byte stream.
           </p>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
-            <strong className="font-medium">Transport.</strong> Plain HTTP. No TLS. No WebSocket. No
-            MQTT. No bearer token, HMAC, or pre-shared key. CORS is permissive (
-            <code className="font-mono text-sm">*</code>). This is a deliberate scope choice: the
-            trust boundary is the AP itself — the device pair lives on a SoftAP-style subnet
-            that&apos;s not bridged to the home WiFi or the internet, and the only client expected
-            to talk to it is a phone the owner has paired by typing the IP into a settings screen.
-            Adding HMAC-signed POSTs with a shared secret in NVS is the natural v2 step.
+            <strong className="font-medium">Transport.</strong> Plain HTTP between the app and the
+            boards, on the home network the ESP32s join. Nothing talks to a vendor&apos;s server:
+            there is no account, no cloud relay and no telemetry. Reaching the lock from outside the
+            house goes through a Cloudflare tunnel the owner runs — the house dials out, so no port
+            on the router is opened for it. The first build trusted the network rather than the
+            request; signing every request with a per-device secret is the first job of the rebuild.
           </p>
         </div>
       </section>
@@ -1090,13 +1097,12 @@ _streamSub = res.stream.listen((chunk) {
                   ),
                 },
                 {
-                  title: "No TLS, no auth on the lock REST endpoints",
+                  title: "The first build trusted the network, not the request",
                   body: (
                     <>
-                      Anyone reachable on the closed subnet can{" "}
-                      <code className="font-mono text-sm">curl -X POST .../unlock?relay=all</code>.
-                      Deliberate — the trust boundary is the AP. The natural v2 step is HMAC-signed
-                      requests with a shared secret in NVS.
+                      Version one had no TLS and no request authentication on the lock&apos;s REST
+                      endpoints — it assumed anything on the home network was the owner. The rebuild
+                      will sign every request with a per-device secret stored in NVS.
                     </>
                   ),
                 },
@@ -1125,7 +1131,7 @@ _streamSub = res.stream.listen((chunk) {
                   title: "Web is architecturally non-viable",
                   body: (
                     <>
-                      A LAN-control app cannot run in a browser: the ESP32 doesn&apos;t send CORS
+                      A direct-control app cannot run in a browser: the ESP32 doesn&apos;t send CORS
                       headers; an HTTPS-hosted build hits mixed-content blocking on HTTP-to-LAN-IP
                       requests. The case study&apos;s &ldquo;I learned the browser&apos;s security
                       model says no&rdquo; beat.
