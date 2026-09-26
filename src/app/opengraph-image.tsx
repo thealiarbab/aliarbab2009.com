@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 import { loadOgFonts } from "@/lib/og-fonts";
 
 export const runtime = "edge";
-export const alt = "Ali Arbab — Class XII, builds AI, voice, and IoT systems";
+export const alt = "Ali Arbab — Class XII, builds fintech, voice, and hardware systems";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -96,7 +96,7 @@ export default async function Image() {
           maxWidth: 980,
         }}
       >
-        Builds AI, voice, and IoT.
+        Builds fintech, voice, and hardware.
       </div>
 
       {/* Footer hairline rule */}
@@ -128,8 +128,8 @@ export default async function Image() {
           fontFamily: "JetBrains Mono",
         }}
       >
-        <span>Class XII · three projects</span>
-        <span>StockSaathi · BolHisaab · MagLock</span>
+        <span>Class XII · six projects</span>
+        <span>StockSaathi · SpendInCheck · BolHisaab · MagLock</span>
       </div>
     </div>,
     { ...size, fonts },

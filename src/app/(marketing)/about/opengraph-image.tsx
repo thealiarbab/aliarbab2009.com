@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 import { loadOgFonts } from "@/lib/og-fonts";
 
 export const runtime = "edge";
-export const alt = "About Ali Arbab — Class XII, three projects";
+export const alt = "About Ali Arbab — Class XII, six projects";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -107,8 +107,8 @@ export default async function Image() {
           fontFamily: "JetBrains Mono",
         }}
       >
-        <span>Class XII · three projects</span>
-        <span>StockSaathi · BolHisaab · MagLock</span>
+        <span>Class XII · six projects</span>
+        <span>StockSaathi · SpendInCheck · BolHisaab · MagLock</span>
       </div>
     </div>,
     { ...size, fonts },

@@ -53,7 +53,7 @@ export default async function Image() {
         }}
       >
         <span>aliarbab2009.com / projects / 01</span>
-        <span style={{ color: PRIMARY }}>● Live in production</span>
+        <span style={{ color: PRIMARY }}>• Live in production</span>
       </div>
 
       {/* Hairline */}
@@ -104,7 +104,7 @@ export default async function Image() {
           fontFamily: "JetBrains Mono",
         }}
       >
-        <span>3,000+ stocks · ₹1L virtual · live</span>
+        <span>4,664 instruments · 170 accounts · virtual money</span>
         <span>stocksaathi.co.in</span>
       </div>
     </div>,

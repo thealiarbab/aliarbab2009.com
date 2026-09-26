@@ -12,7 +12,8 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Ali Arbab is a Class XII student who builds software and hardware. StockSaathi is live and placed 2nd nationally at an AI buildathon; SpendInCheck, BolHisaab and MagLock are next.",
   path: "/",
-  ogImage: "/og/home.png",
+  // No opengraph-image.tsx in this segment — share the root one.
+  ogImage: "/opengraph-image",
   ogImageAlt: "Ali Arbab — project worlds",
   isHome: true,
 });

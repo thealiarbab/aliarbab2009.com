@@ -43,8 +43,8 @@ export default async function Image() {
           fontFamily: "JetBrains Mono",
         }}
       >
-        <span>aliarbab2009.com / projects / 02</span>
-        <span style={{ color: PRIMARY }}>◐ Pre-launch</span>
+        <span>aliarbab2009.com / projects / 03</span>
+        <span style={{ color: PRIMARY }}>• Kotlin rewrite underway</span>
       </div>
 
       {/* Hairline */}
@@ -117,7 +117,7 @@ export default async function Image() {
           fontFamily: "JetBrains Mono",
         }}
       >
-        <span>Hindi/Hinglish · sub-2s latency · pre-launch</span>
+        <span>Hindi + Hinglish · voice to ledger</span>
         <span>bolhisaab.in</span>
       </div>
     </div>,

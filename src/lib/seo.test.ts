@@ -53,11 +53,12 @@ describe("buildMetadata", () => {
     expect(m.openGraph?.url).toBe("https://aliarbab2009.com/resume");
   });
 
-  it("uses default OG image when ogImage omitted", () => {
+  it("declares no OG image when omitted, so the route's generated image wins", () => {
+    // A page-level images entry overrides opengraph-image.tsx. Every page
+    // used to default to /og/default.png, which never existed.
     const m = buildMetadata({ title: "x", description: "y", path: "/about" });
-    const images = m.openGraph?.images;
-    expect(Array.isArray(images)).toBe(true);
-    expect((images as Array<{ url: string }>)[0]?.url).toBe("/og/default.png");
+    expect(m.openGraph?.images).toBeUndefined();
+    expect(m.twitter?.images).toBeUndefined();
   });
 
   it("respects per-route OG image override", () => {
@@ -76,6 +77,7 @@ describe("buildMetadata", () => {
       title: "Resume",
       description: "y",
       path: "/resume",
+      ogImage: "/opengraph-image",
     });
     const images = m.openGraph?.images as Array<{ alt: string }>;
     expect(images[0]?.alt).toBe("Resume");

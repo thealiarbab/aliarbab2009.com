@@ -22,12 +22,11 @@ import { siteConfig } from "@/config/site";
 export const SEO_BASE = {
   siteName: siteConfig.name,
   metadataBase: new URL(siteConfig.url),
-  defaultTitle: `${siteConfig.name} — Builds AI, voice, and IoT systems`,
+  defaultTitle: `${siteConfig.name} — Builds fintech, voice, and hardware systems`,
   defaultDescription: siteConfig.longDescription,
-  defaultOgImage: "/og/default.png",
   twitter: {
     card: "summary_large_image" as const,
-    creator: `@${siteConfig.githubHandle}`,
+    creator: `@${siteConfig.xHandle}`,
   },
   locale: "en_US",
 } as const;
@@ -39,7 +38,13 @@ export type BuildMetadataArgs = {
   description: string;
   /** Canonical pathname, e.g. `/projects/stocksaathi`. Must start with `/`. */
   path: string;
-  /** Per-route OG image, relative to `public/`. */
+  /**
+   * Explicit OG image URL. Leave unset on any route that has an
+   * `opengraph-image.tsx` (or inherits the root one): config-based images
+   * declared at the page level override the file-generated image, which
+   * is how every page ended up pointing at /og/*.png files that never
+   * existed. Omitting this lets Next inject the generated image.
+   */
   ogImage?: string;
   /** OG image alt text. Falls back to title. */
   ogImageAlt?: string;
@@ -62,7 +67,7 @@ export function buildMetadata(args: BuildMetadataArgs): Metadata {
     title,
     description,
     path,
-    ogImage = SEO_BASE.defaultOgImage,
+    ogImage,
     ogImageAlt,
     ogType = "website",
     publishedTime,
@@ -92,14 +97,18 @@ export function buildMetadata(args: BuildMetadataArgs): Metadata {
       description,
       siteName: SEO_BASE.siteName,
       locale: SEO_BASE.locale,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: imageAlt,
-        },
-      ],
+      ...(ogImage
+        ? {
+            images: [
+              {
+                url: ogImage,
+                width: 1200,
+                height: 630,
+                alt: imageAlt,
+              },
+            ],
+          }
+        : {}),
       ...(ogType === "article" && publishedTime
         ? {
             publishedTime,
@@ -111,7 +120,7 @@ export function buildMetadata(args: BuildMetadataArgs): Metadata {
       card: SEO_BASE.twitter.card,
       title: fullTitle,
       description,
-      images: [ogImage],
+      ...(ogImage ? { images: [ogImage] } : {}),
       creator: SEO_BASE.twitter.creator,
     },
     robots: noIndex

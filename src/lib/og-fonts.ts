@@ -5,8 +5,12 @@ type SatoriFont = NonNullable<ConstructorParameters<typeof ImageResponse>[1]>["f
 /**
  * Shared font loader for next/og ImageResponse calls.
  *
- * Both fonts are inlined into public/fonts/ and read at edge-render
- * time. We only ship the weights we actually use in OG output:
+ * Both fonts are read from public/fonts/ at edge-render time as TTF.
+ * Satori (under next/og) cannot parse WOFF2 — it throws "Unsupported
+ * OpenType signature wOF2", and every share image on the site rendered
+ * as a zero-byte PNG until 2026-09-27. The .ttf files are the same
+ * subsets decompressed from the .woff2 ones with fontTools; they carry
+ * Latin plus "•" and "·", so OG text must not use ₹, ●, ◆ or arrows. We only ship the weights we actually use in OG output:
  *   - Space Grotesk Medium 500 (display headings)
  *   - JetBrains Mono Regular 400 (mono kicker + footer rows)
  *
@@ -22,10 +26,10 @@ export async function loadOgFonts(): Promise<NonNullable<SatoriFont>> {
   if (cached) return cached;
 
   const [spaceGrotesk, jetBrains] = await Promise.all([
-    fetch(new URL("../../public/fonts/SpaceGrotesk-Medium.woff2", import.meta.url)).then((r) =>
+    fetch(new URL("../../public/fonts/SpaceGrotesk-Medium.ttf", import.meta.url)).then((r) =>
       r.arrayBuffer(),
     ),
-    fetch(new URL("../../public/fonts/JetBrainsMono-Regular.woff2", import.meta.url)).then((r) =>
+    fetch(new URL("../../public/fonts/JetBrainsMono-Regular.ttf", import.meta.url)).then((r) =>
       r.arrayBuffer(),
     ),
   ]);

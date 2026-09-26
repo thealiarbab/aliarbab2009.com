@@ -94,7 +94,7 @@ export default async function Image() {
           fontFamily: "JetBrains Mono",
         }}
       >
-        <span>email · github · contact form (phase 3)</span>
+        <span>contact form · email · github · x</span>
         <span>aliarbab2009.com / contact</span>
       </div>
     </div>,

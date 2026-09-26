@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 import { loadOgFonts } from "@/lib/og-fonts";
 
 export const runtime = "edge";
-export const alt = "Ali Arbab — Resume (PDF, single page)";
+export const alt = "Ali Arbab — Resume";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -42,7 +42,7 @@ export default async function Image() {
         }}
       >
         <span>aliarbab2009.com / resume</span>
-        <span>PDF · single page</span>
+        <span>print-ready · one page</span>
       </div>
 
       {/* Hairline */}
@@ -107,7 +107,7 @@ export default async function Image() {
           fontFamily: "JetBrains Mono",
         }}
       >
-        <span>format · pdf · single page</span>
+        <span>projects · skills · recognition</span>
         <span>aliarbab2009.com / resume</span>
       </div>
     </div>,

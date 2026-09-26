@@ -11,7 +11,8 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Six projects across fintech, voice, hardware, quant research and self-hosting — StockSaathi, SpendInCheck, BolHisaab, MagLock Protocol, Sovereign Alpha, LameCRAFT.",
   path: "/projects",
-  ogImage: "/og/projects.png",
+  // No opengraph-image.tsx in this segment — share the root one.
+  ogImage: "/opengraph-image",
   ogImageAlt: "Project worlds — StockSaathi, SpendInCheck, BolHisaab, MagLock Protocol and more",
 });
 

@@ -13,7 +13,6 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Class XII student with four AP exams in progress and three live projects in AI, voice, and IoT. Read the resume on this page or print to PDF.",
   path: "/resume",
-  ogImage: "/og/resume.png",
   ogImageAlt: "Resume of Ali Arbab — Class XII builder",
 });
 

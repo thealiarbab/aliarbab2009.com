@@ -78,7 +78,7 @@ export async function renderProjectOg(args: ProjectOgArgs) {
         }}
       >
         <span>aliarbab2009.com / projects / {position.toString().padStart(2, "0")}</span>
-        <span style={{ color: colors.primary }}>● {status}</span>
+        <span style={{ color: colors.primary }}>• {status}</span>
       </div>
       <div style={{ marginTop: 24, height: 1, background: colors.border, width: "100%" }} />
       <div

@@ -53,8 +53,8 @@ export default async function Image() {
           fontFamily: "JetBrains Mono",
         }}
       >
-        <span>aliarbab2009.com / projects / 03</span>
-        <span style={{ color: PRIMARY }}>◆ Hardware-dependent</span>
+        <span>aliarbab2009.com / projects / 04</span>
+        <span style={{ color: PRIMARY }}>• Being rebuilt</span>
       </div>
 
       {/* Hairline */}
@@ -122,7 +122,7 @@ export default async function Image() {
         }}
       >
         <span>dual-relay · esp32 · mjpeg cam</span>
-        <span>local-network only</span>
+        <span>no vendor cloud</span>
       </div>
     </div>,
     { ...size, fonts },

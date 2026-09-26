@@ -12,7 +12,6 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Email or send a message via the form. I read everything that lands within forty-eight hours and reply if there is something specific to say back.",
   path: "/contact",
-  ogImage: "/og/contact.png",
   ogImageAlt: "Contact Ali Arbab — email and form",
 });
 
