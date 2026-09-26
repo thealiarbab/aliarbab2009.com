@@ -7,8 +7,8 @@ export const siteConfig = {
   ogImage: "https://aliarbab2009.com/og/default.png",
   author: "Ali Arbab",
   email: "ali@aliarbab2009.com",
-  github: "https://github.com/Ali-Arbab",
-  githubHandle: "Ali-Arbab",
+  github: "https://github.com/thealiarbab",
+  githubHandle: "thealiarbab",
   /**
    * ISO date Ali last did an intentional content review of the deployed
    * site end-to-end. Bump this when shipping a content change you want
