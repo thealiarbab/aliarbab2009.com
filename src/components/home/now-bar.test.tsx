@@ -9,12 +9,9 @@ afterEach(() => {
 });
 
 /**
- * NowBar is a server component that calls getNextMilestone() at render
- * time. Tests freeze the clock so we can assert the rendered state for
- * specific calendar moments without flake.
- *
- * The "Next AP" branch and the "all four sat" fallback are exercised by
- * setting the system clock before/after the May 2026 AP window.
+ * NowBar is a server component. Tests freeze the clock so rendered
+ * state is deterministic. The AP-exam chip was retired on 2026-09-27;
+ * one test guards that it never comes back.
  */
 
 describe("<NowBar />", () => {

@@ -1,22 +1,25 @@
 import { describe, expect, it } from "vitest";
 
-import { MILESTONES, getNextMilestone } from "./milestones";
+import { MILESTONES, getNextMilestone, type Milestone } from "./milestones";
 
 /**
  * MILESTONES is the single source of truth for public academic dates
- * on the site. Tests verify the integrity of the data + correctness of
- * getNextMilestone() which the home NowBar depends on.
+ * on the site. Tests verify the integrity of whatever data is there and
+ * the correctness of getNextMilestone(), using a neutral fixture.
  */
 
+const FIXTURE: readonly Milestone[] = [
+  { id: "a", label: "First", at: "2030-03-01T08:00:00" },
+  { id: "b", label: "Second", at: "2030-03-03T08:00:00" },
+  { id: "c", label: "Third", at: "2030-03-03T12:00:00" },
+  { id: "d", label: "Fourth", at: "2030-03-05T12:00:00" },
+];
+
 describe("MILESTONES", () => {
-  it("contains exactly the four AP exams in May 2026", () => {
-    expect(MILESTONES).toHaveLength(4);
-    expect(MILESTONES.map((m) => m.id)).toEqual([
-      "ap-calc-bc",
-      "ap-phys-c-mech",
-      "ap-eng-lang",
-      "ap-csa",
-    ]);
+  it("never lists AP exams (Ali's choice, 2026-09-27)", () => {
+    for (const m of MILESTONES) {
+      expect(`${m.id} ${m.label}`).not.toMatch(/\bAP\b|^ap-/i);
+    }
   });
 
   it("uses offset-naive ISO strings (browser-local time)", () => {
@@ -35,52 +38,41 @@ describe("MILESTONES", () => {
     expect(times).toEqual(sorted);
   });
 
-  it("falls within the published College Board AP window May 11-15, 2026", () => {
-    for (const m of MILESTONES) {
-      const date = new Date(m.at);
-      expect(date.getFullYear()).toBe(2026);
-      expect(date.getMonth()).toBe(4); // 0-indexed: May
-      expect(date.getDate()).toBeGreaterThanOrEqual(11);
-      expect(date.getDate()).toBeLessThanOrEqual(15);
-    }
+  it("has unique ids", () => {
+    const ids = MILESTONES.map((m) => m.id);
+    expect(new Set(ids).size).toBe(ids.length);
   });
 });
 
 describe("getNextMilestone", () => {
   it("returns the soonest future milestone when several are upcoming", () => {
-    const now = new Date("2026-04-25T08:00:00");
-    const next = getNextMilestone(now);
-    expect(next?.id).toBe("ap-calc-bc"); // earliest of the four
+    const next = getNextMilestone(new Date("2030-02-25T08:00:00"), FIXTURE);
+    expect(next?.id).toBe("a");
   });
 
   it("skips past milestones and returns the next remaining one", () => {
-    const now = new Date("2026-05-12T08:00:00"); // after Calc BC
-    const next = getNextMilestone(now);
-    expect(next?.id).toBe("ap-phys-c-mech"); // May 13 morning
+    const next = getNextMilestone(new Date("2030-03-02T08:00:00"), FIXTURE);
+    expect(next?.id).toBe("b");
   });
 
   it("walks correctly past midday boundaries", () => {
-    const now = new Date("2026-05-13T10:00:00"); // after Phys C 8am, before Eng Lang 12pm
-    const next = getNextMilestone(now);
-    expect(next?.id).toBe("ap-eng-lang");
+    const next = getNextMilestone(new Date("2030-03-03T10:00:00"), FIXTURE);
+    expect(next?.id).toBe("c");
   });
 
-  it("returns null when all four exams are in the past", () => {
-    const now = new Date("2026-05-16T00:00:00"); // day after final exam
-    const next = getNextMilestone(now);
-    expect(next).toBeNull();
+  it("returns null when every milestone is in the past", () => {
+    expect(getNextMilestone(new Date("2030-03-06T00:00:00"), FIXTURE)).toBeNull();
   });
 
   it("returns null exactly at the moment past the last milestone", () => {
-    const now = new Date("2026-05-15T12:00:01"); // 1s after CSA start
-    const next = getNextMilestone(now);
-    expect(next).toBeNull();
+    expect(getNextMilestone(new Date("2030-03-05T12:00:01"), FIXTURE)).toBeNull();
   });
 
-  it("uses default `now` when not provided (smoke check)", () => {
-    // Don't assert specific value — just verify the function runs.
-    // Result depends on when the test runs; pre-May 2026 all four
-    // are upcoming, post-May 2026 none are.
+  it("returns null for an empty list", () => {
+    expect(getNextMilestone(new Date("2030-01-01T00:00:00"), [])).toBeNull();
+  });
+
+  it("uses the default `now` and list when not provided (smoke check)", () => {
     expect(() => getNextMilestone()).not.toThrow();
   });
 });

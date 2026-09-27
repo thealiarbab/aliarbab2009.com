@@ -60,7 +60,7 @@ Key directories:
 
 Any countdown on the site (wherever `<LiveCountdown>` lands; none currently does, since the AP countdowns were retired on 2026-09-27) ticks purely from `new Date()` against ISO strings baked into `src/config/milestones.ts` at build time. Zero fetches. Zero server round-trips. Works offline after first paint. Tested in `src/lib/time.test.ts` with 17 cases covering pure-math correctness, past-flip, decomposition, and offset-naive ISO local-time semantics.
 
-The milestone type still supports an optional `score`, but AP exams and scores are deliberately not published on the site.
+AP exams and scores are deliberately not published on the site; `MILESTONES` is currently empty.
 
 ## Privacy
 

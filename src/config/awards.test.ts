@@ -4,8 +4,7 @@ import { AWARDS } from "./awards";
 
 /**
  * Data integrity for AWARDS — surfaced in /about § Awards and the
- * resume embed. The seed catalog is small (just AP Scholar pending);
- * tests focus on the privacy guarantee and shape of any future
+ * resume embed. The catalog is small; tests focus on the privacy guarantee and shape of any future
  * entries Ali adds.
  */
 

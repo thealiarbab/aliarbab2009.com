@@ -46,7 +46,7 @@ describe("timeUntil", () => {
 
   it("flips `past` true when target is behind now", () => {
     const now = new Date("2026-05-12T08:00:00Z");
-    const target = "2026-05-11T08:00:00Z"; // AP Calc BC, day before
+    const target = "2026-05-11T08:00:00Z"; // an 8 a.m. milestone, day before
     const r = timeUntil(target, now);
 
     expect(r.past).toBe(true);
@@ -95,10 +95,10 @@ describe("timeUntil", () => {
   });
 
   it("handles offset-naive ISO strings as local time per architecture rule", () => {
-    // milestones.ts uses offset-naive strings like "2026-05-11T08:00:00"
+    // milestones.ts uses offset-naive strings like "2030-03-01T08:00:00"
     // The browser's Date constructor interprets these as local time —
-    // exactly the "8 a.m. wherever you are" semantics we want for AP
-    // exam day. The math here is correct as long as both sides of the
+    // exactly the "8 a.m. wherever you are" semantics we want for any
+    // milestone. The math here is correct as long as both sides of the
     // subtraction use the same interpretation.
     const now = new Date("2026-05-11T07:00:00"); // local time, 1h before
     const target = "2026-05-11T08:00:00"; // also local

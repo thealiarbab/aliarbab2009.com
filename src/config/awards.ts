@@ -14,8 +14,6 @@
  * the site by Ali's choice — don't add them back.
  */
 
-export type APScore = 1 | 2 | 3 | 4 | 5;
-
 export type Award = {
   id: string;
   title: string;

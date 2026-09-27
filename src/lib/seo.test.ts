@@ -132,8 +132,8 @@ describe("buildMetadata", () => {
       title: "x",
       description: "y",
       path: "/about",
-      keywords: ["AP", "Class XII", "AI"],
+      keywords: ["Fintech", "Class XII", "AI"],
     });
-    expect(m.keywords).toEqual(["AP", "Class XII", "AI"]);
+    expect(m.keywords).toEqual(["Fintech", "Class XII", "AI"]);
   });
 });
