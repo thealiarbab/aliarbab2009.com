@@ -11,7 +11,7 @@ import { getProjectBySlug, type Project } from "@/config/projects";
  *     already publishes.
  *   - `email` is always the alias `ali@aliarbab2009.com`, never the raw
  *     Gmail address that ImprovMX forwards to.
- *   - `sameAs` lists only the public GitHub and X profiles.
+ *   - `sameAs` lists only the public GitHub, X and Instagram profiles.
  *
  * Per P4.02.
  */
@@ -56,7 +56,7 @@ function basePerson(): Json {
     url: siteConfig.url,
     image: siteConfig.ogImage,
     email: `mailto:${siteConfig.email}`,
-    sameAs: [siteConfig.github, siteConfig.x],
+    sameAs: [siteConfig.github, siteConfig.x, siteConfig.instagram],
     description: PERSON_DESCRIPTION,
     knowsAbout: [...KNOWS_ABOUT],
     hasOccupation: { "@type": "Occupation", name: "Student" },
@@ -93,7 +93,7 @@ export function contactPageJsonLd(): Json {
       name: siteConfig.author,
       url: siteConfig.url,
       email: `mailto:${siteConfig.email}`,
-      sameAs: [siteConfig.github, siteConfig.x],
+      sameAs: [siteConfig.github, siteConfig.x, siteConfig.instagram],
     },
   };
 }
@@ -114,7 +114,7 @@ export function resumeJsonLd(): Json {
           name: siteConfig.author,
           url: siteConfig.url,
           email: `mailto:${siteConfig.email}`,
-          sameAs: [siteConfig.github, siteConfig.x],
+          sameAs: [siteConfig.github, siteConfig.x, siteConfig.instagram],
         },
         subjectOf: { "@id": RESUME_PDF_ID },
       },

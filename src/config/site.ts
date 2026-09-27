@@ -11,6 +11,8 @@ export const siteConfig = {
   githubHandle: "thealiarbab",
   x: "https://x.com/thealiarbab",
   xHandle: "thealiarbab",
+  instagram: "https://www.instagram.com/thealiarbab/",
+  instagramHandle: "thealiarbab",
   /**
    * ISO date Ali last did an intentional content review of the deployed
    * site end-to-end. Bump this when shipping a content change you want

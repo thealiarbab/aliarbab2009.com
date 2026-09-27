@@ -255,29 +255,29 @@
   /* DARK — "brass": the archival ledger. Warm near-black, zero radius,
      no shadows. Sourced from SpendInCheck's own tokens
      (G:/FinTrack/web/src/styles/tokens.css, the --w-* warm scale). */
-  --color-bg: #14110e;
-  --color-fg: #ede6dc;
-  --color-muted: #9c8f7d;
-  --color-primary: #c9922f;
-  --color-primary-fg: #14110e;
+  --color-bg: #14110e; /* --w-950 surface-page */
+  --color-fg: #ede6dc; /* --w-150 content-primary */
+  --color-muted: #9c8f7d; /* content-muted */
+  --color-primary: #e0a836; /* --brass-300 accent-default */
+  --color-primary-fg: #14110e; /* content-on-accent */
   --color-surface: #14110e;
-  --color-surface-2: #1e1a16;
-  --color-border: #4a3f33;
-  --color-glow: color-mix(in oklch, #c9922f, transparent 60%);
+  --color-surface-2: #1e1a16; /* --w-850 surface-raised */
+  --color-border: #4a3f33; /* --w-600 line-strong */
+  --color-glow: color-mix(in oklch, #e0a836, transparent 60%);
 }
 
 :root[data-theme="light"] .theme-spendincheck {
-  /* LIGHT — "paper": ink on aged paper, the app's second theme. Brass
-     darkens to #8a6414 so body-size links clear AA on the cream. */
-  --color-bg: #faf7f1;
-  --color-fg: #1c1814;
-  --color-muted: #6f6353;
-  --color-primary: #8a6414;
-  --color-primary-fg: #faf7f1;
-  --color-surface: #faf7f1;
-  --color-surface-2: #f4efe6;
-  --color-border: #d5c9b6;
-  --color-glow: color-mix(in oklch, #8a6414, transparent 75%);
+  /* LIGHT — "paper": ink on aged paper, the app's second theme, using
+     its [data-theme="paper"] tokens (accent is --brass-700). */
+  --color-bg: #f0e9dc; /* --w-120 surface-page */
+  --color-fg: #1c1814; /* content-primary */
+  --color-muted: #6f6353; /* content-muted */
+  --color-primary: #6b4d0f; /* --brass-700 accent-default */
+  --color-primary-fg: #fffdf9; /* --w-0 */
+  --color-surface: #f0e9dc;
+  --color-surface-2: #fffdf9; /* --w-0 surface-raised */
+  --color-border: #d8cbb4; /* --w-250 line-default */
+  --color-glow: color-mix(in oklch, #6b4d0f, transparent 75%);
 }
 
 /* ── Sovereign Alpha: amber terminal, dark default + light ── */
@@ -311,19 +311,21 @@
 /* ── LameCRAFT: Command Nexus, dark default + light ── */
 
 .theme-lamecraft {
-  /* Straight from LAMECRAFT_PALETTE.json paste_ready_tokens: --bg,
-     --text, --text-med, --accent2 (cyan leads here; MagLock leads with
-     the same palette's green), --dim for borders. Courier New is the
-     spec's only face. */
+  /* Straight from LAMECRAFT_PALETTE.json (Command Nexus v3.0). Its
+     aesthetic rule: "neon on void" — dominant spring green #00ff9d on
+     #030306, cyan #00d4ff as the info accent, --dim for 1px borders,
+     Courier New as the only face. */
   --color-bg: #030306;
   --color-fg: #b8c4d8;
   --color-muted: #7080a0;
-  --color-primary: #00d4ff;
+  --color-primary: #00ff9d;
   --color-primary-fg: #030306;
   --color-surface: #030306;
   --color-surface-2: #0a0a15;
   --color-border: #1e1e36;
-  --color-glow: color-mix(in oklch, #00d4ff, transparent 60%);
+  --color-glow: color-mix(in oklch, #00ff9d, transparent 60%);
+  --lc-info: #00d4ff;
+  --lc-grid: #0f0f22;
   --font-display: "Courier New", "Cascadia Mono", "DejaVu Sans Mono", monospace;
   --font-body: "Courier New", "Cascadia Mono", "DejaVu Sans Mono", monospace;
 }
@@ -332,12 +334,51 @@
   --color-bg: #f4f4f0;
   --color-fg: #0a0a15;
   --color-muted: #404860;
-  --color-primary: #006080;
+  --color-primary: #00704a;
   --color-primary-fg: #f4f4f0;
   --color-surface: #f4f4f0;
   --color-surface-2: #ebebe5;
   --color-border: #0a0a15;
-  --color-glow: color-mix(in oklch, #006080, transparent 75%);
+  --color-glow: color-mix(in oklch, #00704a, transparent 75%);
+  --lc-info: #006080;
+  --lc-grid: #e2e2dc;
+}
+
+/* Command Nexus chrome, per the spec: a faint 40px grid on the void,
+   every section head prefixed with ◈, and the signature "snap" — links
+   and buttons hard-invert with no transition. No blur-based glow. */
+.theme-lamecraft {
+  background-image:
+    linear-gradient(var(--lc-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--lc-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.theme-lamecraft h2::before {
+  content: "◈ ";
+  color: var(--color-primary);
+}
+.theme-lamecraft a,
+.theme-lamecraft button {
+  transition: none !important;
+}
+.theme-lamecraft code {
+  color: var(--lc-info);
+}
+
+/* Instagram-styled inline link (e.g. a person credited by their
+   Instagram): brand gradient text + glyph. */
+.instagram-link-text {
+  background: linear-gradient(90deg, #f58529, #dd2a7b 45%, #8134af 75%, #515bd4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  border-bottom: 2px solid #dd2a7b;
+}
+.instagram-link-icon {
+  color: #dd2a7b;
+}
+.instagram-link:hover .instagram-link-text {
+  border-bottom-color: #8134af;
 }
 
 /* ============================================================

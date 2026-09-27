@@ -74,8 +74,12 @@ describe("personJsonLd", () => {
     expect(json.email).not.toMatch(/@gmail\.com/);
   });
 
-  it("sameAs lists only the public GitHub and X profiles", () => {
-    expect(json.sameAs).toEqual(["https://github.com/thealiarbab", "https://x.com/thealiarbab"]);
+  it("sameAs lists only the public GitHub, X and Instagram profiles", () => {
+    expect(json.sameAs).toEqual([
+      "https://github.com/thealiarbab",
+      "https://x.com/thealiarbab",
+      "https://www.instagram.com/thealiarbab/",
+    ]);
   });
 });
 

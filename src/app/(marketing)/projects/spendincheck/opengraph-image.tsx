@@ -19,7 +19,7 @@ export default async function Image() {
       bg: "#14110e",
       fg: "#ede6dc",
       muted: "#9c8f7d",
-      primary: "#c9922f",
+      primary: "#e0a836",
       border: "#4a3f33",
     },
   });

@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
 import { ContactForm } from "@/components/contact/contact-form";
+import { SOCIALS } from "@/components/shell/social-links";
 import { JsonLd } from "@/components/seo/json-ld";
 import { contactPageJsonLd } from "@/lib/json-ld";
 import { buildMetadata } from "@/lib/seo";
@@ -93,13 +94,13 @@ export default function ContactPage() {
               a mailto: link) because mailto opens the OS's default
               mail app and the user explicitly does not want that
               popup as part of the flow. The form delivers via Resend
-              with no client-side handoff. The GitHub channel stays
-              external because it actually goes to a different site. */}
+              with no client-side handoff. The social channels stay
+              external because they actually go to different sites. */}
           <ul className="grid grid-cols-1 gap-0 border-2 border-[var(--color-border)] md:grid-cols-2">
-            <li className="border-b-2 border-[var(--color-border)] md:border-r-2 md:border-b-0">
+            <li className="border-b-2 border-[var(--color-border)] md:row-span-3 md:border-r-2 md:border-b-0">
               <a
                 href="#contact-form"
-                className="group flex items-baseline justify-between p-6 transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-fg)]"
+                className="group flex h-full items-baseline justify-between p-6 transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-fg)]"
               >
                 <span className="flex flex-col gap-1">
                   <span className="font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase group-hover:text-[var(--color-primary-fg)]">
@@ -112,24 +113,34 @@ export default function ContactPage() {
                 </span>
               </a>
             </li>
-            <li>
-              <a
-                href={siteConfig.github}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex items-baseline justify-between p-6 transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-fg)]"
+            {SOCIALS.map(({ label, handle, href, Icon }, i) => (
+              <li
+                key={label}
+                className={
+                  i < SOCIALS.length - 1 ? "border-b-2 border-[var(--color-border)]" : undefined
+                }
               >
-                <span className="flex flex-col gap-1">
-                  <span className="font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase group-hover:text-[var(--color-primary-fg)]">
-                    GitHub
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center justify-between p-6 transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-fg)]"
+                >
+                  <span className="flex items-center gap-4">
+                    <Icon className="h-5 w-5 shrink-0" />
+                    <span className="flex flex-col gap-1">
+                      <span className="font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase group-hover:text-[var(--color-primary-fg)]">
+                        {label}
+                      </span>
+                      <span className="font-mono text-lg font-medium">@{handle}</span>
+                    </span>
                   </span>
-                  <span className="font-mono text-lg font-medium">@{siteConfig.githubHandle}</span>
-                </span>
-                <span aria-hidden className="font-mono text-lg">
-                  ↗
-                </span>
-              </a>
-            </li>
+                  <span aria-hidden className="font-mono text-lg">
+                    ↗
+                  </span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </section>

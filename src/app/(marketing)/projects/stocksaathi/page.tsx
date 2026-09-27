@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getProjectBySlug } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { OriginBlock } from "@/components/project/origin-block";
+import { InstagramLink } from "@/components/shell/social-links";
 import { StockSaathiSignups } from "@/components/project/stocksaathi-signups";
 import StockSaathiTimeTravel from "@/components/project/stocksaathi-time-travel";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -164,15 +165,8 @@ export default function StockSaathiPage() {
             <strong className="font-medium">second in India</strong>. It went live at
             stocksaathi.co.in the same month and has grown since entirely by word of mouth, with a
             student brand ambassador,{" "}
-            <a
-              href="https://www.instagram.com/devaanshh.04/"
-              target="_blank"
-              rel="noreferrer"
-              className="underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
-            >
-              Devansh
-            </a>
-            , and no paid acquisition.
+            <InstagramLink href="https://www.instagram.com/devaanshh.04/">Devansh</InstagramLink>,
+            and no paid acquisition.
           </p>
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
             {[

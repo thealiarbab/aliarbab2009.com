@@ -31,6 +31,16 @@ export function Footer() {
             </Link>
           </li>
           <li>
+            <Link
+              href={siteConfig.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-[var(--color-fg)]"
+            >
+              Instagram
+            </Link>
+          </li>
+          <li>
             <Link href="/contact" className="transition-colors hover:text-[var(--color-fg)]">
               Contact
             </Link>
