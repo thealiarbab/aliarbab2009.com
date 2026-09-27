@@ -21,7 +21,7 @@ export function Nav() {
           href="/"
           className="font-mono text-sm font-medium tracking-tight transition-colors hover:text-[var(--color-primary)]"
         >
-          ali_arbab
+          TheAliArbab
           <span className="ml-1 text-[var(--color-muted)]">/2026</span>
         </Link>
 
