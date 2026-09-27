@@ -165,9 +165,9 @@ export default function AboutPage() {
             </p>
             <p>
               Before that I just thought programmers were the coolest people alive &mdash; they
-              could make <em>anything</em>. My uncle turned that into a direction and told me to
-              start with C. I did. My first real war was a missing semicolon that cost me three
-              hours; I&apos;ve respected compilers ever since.
+              could make <em>anything</em>. My phupa &mdash; my uncle &mdash; turned that into a
+              direction and told me to start with C. I did. My first real war was a missing
+              semicolon that cost me three hours; I&apos;ve respected compilers ever since.
             </p>
             <p>
               What followed was a long stretch of building for its own sake: a Minecraft server for
@@ -242,6 +242,38 @@ export default function AboutPage() {
                 that he was putting his discipline-coordinator badge at risk doing it. When I
                 realised he was doing all of it without anyone asking him to, I made it official.
                 His first review of the app, verbatim: &ldquo;the UI is sexy.&rdquo;
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 border-t-2 border-[var(--color-border)] pt-8">
+            <p className="mb-6 font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
+              Outside the code
+            </p>
+            <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-[var(--color-fg)]">
+              <p>
+                Before any of this, I was a Bed Wars player &mdash; years of Bed Wars and Capture
+                the Wool on Hypixel. My 4v4v4v4 record stands at 621 kills, 263 final kills and 82
+                beds broken. My favourite moment was being hired as a mercenary on an undercover
+                account to help a friend&apos;s team kill the Ender Dragon before the other team
+                could.
+              </p>
+              <p>
+                I&apos;ve done maths for fun since sitting the SOF Olympiads as a kid, and I still
+                practise mental arithmetic on ZetaMac, where I&apos;ve pushed my score from an
+                average of 26 to a best of 35.
+              </p>
+              <p>
+                The hardest thing I&apos;ve done had nothing to do with code: moving countries
+                partway through school. New country, new syllabus, new friends, all at once.
+              </p>
+              <p>
+                I do almost everything in last-minute bursts. I once learned every chapter of
+                chemistry in a single day before my half-yearly exams. I have also lost four phones.
+              </p>
+              <p>
+                People sometimes read me wrong. A teacher once suspected I&apos;d cheated because my
+                answers were too short and direct. I&apos;d just said what was needed and stopped.
               </p>
             </div>
           </div>
