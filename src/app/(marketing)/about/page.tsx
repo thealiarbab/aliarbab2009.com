@@ -74,12 +74,36 @@ export default function AboutPage() {
           </h1>
           <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-[var(--color-fg)]">
             <p>
-              I&apos;m a Class XII student in my final year of school, and I ship software alongside
-              it. This page is the long version: the journey, the projects, and the reasoning behind
-              both.
+              I&apos;m in my final year of school, I&apos;ve been taking things apart since I was
+              three, and I have real trouble stopping once I start building something. Most days
+              that means code. On a good day it means code for fifteen hours straight, through every
+              meal, until someone makes me stop.
             </p>
             <p>
-              Today there&apos;s a paper-trading coach for teenagers running at{" "}
+              I&apos;m happiest inside a machine: opening up a PC, working out why a server
+              can&apos;t be reached, following what a packet actually does on its way across the
+              internet. I like maths and physics for the same reason &mdash; they explain how things
+              work. I used to read constantly; these days building eats that time. What I want most
+              from the next few years is simple: to be in a room full of people who get as carried
+              away by this as I do.
+            </p>
+            <p>
+              The people around me put up with a lot of it. My smart lock started as a secret
+              project, the week I caught myself about to order a sixth late-night burger and decided
+              to put that into something I&apos;d actually want to build; my family thought I&apos;d
+              lost it and kept poking around until I told them what it was. My mum has woken me with
+              a bucket of water. The neighbour I teach has watched me spend two days rescuing his
+              PC. They turn up all over this page.
+            </p>
+            <p>
+              The work itself lives on the{" "}
+              <Link
+                href="/projects"
+                className="underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
+              >
+                project pages
+              </Link>
+              : a paper-trading coach for teenagers at{" "}
               <a
                 href="https://stocksaathi.co.in"
                 target="_blank"
@@ -88,8 +112,7 @@ export default function AboutPage() {
               >
                 stocksaathi.co.in
               </a>{" "}
-              — second nationally at an AI buildathon, and 170 accounts since without an ad — a
-              budget tracker at{" "}
+              that placed second nationally, a budget tracker at{" "}
               <a
                 href="https://spendincheck.com"
                 target="_blank"
@@ -97,17 +120,8 @@ export default function AboutPage() {
                 className="underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
               >
                 spendincheck.com
-              </a>{" "}
-              that grew out of a school practical, a voice-first ledger for shopkeepers being
-              rewritten in Kotlin, and a two-door smart lock on ESP32 boards that answers to no
-              vendor.
-            </p>
-            <p>
-              The through-line is people, not tech. Indian teenagers who don&apos;t have a safe
-              place to learn how markets actually behave. Hindi-first shopkeepers who shouldn&apos;t
-              have to translate &ldquo;Ram took 500 rupees on credit&rdquo; into English to keep
-              their books. A house that locks itself when the family forgets, without sending door
-              state to a server in a different country.
+              </a>
+              , and four more. This page is about the person behind them.
             </p>
             <p>
               Whoever you are &mdash; admissions officer, recruiter, collaborator, curious reader
@@ -173,10 +187,18 @@ export default function AboutPage() {
             <p>
               The turn from &ldquo;messing around&rdquo; to &ldquo;I build real things&rdquo; has a
               date on it: the buildathon. Thirty-six hours, a brief set on the day, and StockSaathi
-              built from nothing. I slept twenty-three minutes before a friend barged in at 5am and
-              started packing my things for me. We finished one point behind first place, and the
-              judges kept circling back to two things: the idea and the speed. I haven&apos;t really
-              slowed down since.
+              built from nothing. The first morning started with twenty-three minutes of sleep,
+              ended by a friend barging in at 5am to pack my things while my mum tried to wake me
+              with buckets of water. When the organisers sent everyone home that evening to prepare
+              for the judges the next day, I didn&apos;t stop: I kept shipping on a laptop wherever
+              I happened to be &mdash; in a Nike store, around the city, and at the friend&apos;s
+              mansion we were staying at, until I passed out at 2am, slept straight through the
+              burger I&apos;d been waiting for, and had to be carried up two floors to bed by two
+              friends.
+            </p>
+            <p>
+              We finished one point behind first place, and the judges kept circling back to two
+              things: the idea and the speed. I haven&apos;t really slowed down since.
             </p>
             <p>
               When I lock into something, it&apos;s fifteen-hour days &mdash; through breakfast,
