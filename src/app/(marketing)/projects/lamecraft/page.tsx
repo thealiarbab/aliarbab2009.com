@@ -49,6 +49,15 @@ export default function LameCraftPage() {
             body: (
               <>
                 <p>
+                  It started with a Minecraft server. In 2023 a friend set up a Discord server as a
+                  place for us to hang out around a Minecraft world and called it LameCRAFT; the
+                  name has stuck to everything I&apos;ve hosted since. The first time my tutee and I
+                  tried to host a Minecraft server for our friends, forwarding a port on the router
+                  did nothing at all. Working out why is how I learned what carrier-grade NAT is,
+                  and it sent us down an ngrok rabbit hole that eventually ended at a Cloudflare
+                  tunnel.
+                </p>
+                <p>
                   I wanted my sites running on my own machine at home, not on someone else&apos;s
                   hosting. The catch: my connection sits behind carrier-grade NAT. My ISP shares one
                   public IP address across many customers, so there is no address of my own to point

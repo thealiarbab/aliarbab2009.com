@@ -994,6 +994,16 @@ _streamSub = res.stream.listen((chunk) {
           </div>
 
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
+            <strong className="font-medium">Why she sounds like this.</strong> Every voice assistant
+            I&apos;d used sounded like a hotel concierge from somewhere else. I wanted one that
+            sounds like the people around me, so the brief I wrote was: Jarvis, if Jarvis grew up in
+            an Indian gali. Dry, deadpan, economical with words, and she answers in whatever mix of
+            Hindi and English you spoke to her in. The name comes from Maggi noodles. Even her
+            failures stay in character: when the model doesn&apos;t answer, she says &ldquo;Grok
+            ghosted me. Rude.&rdquo;
+          </p>
+
+          <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             <strong className="font-medium">Status: staged, mid-integration.</strong> Maggy lives in
             a sibling <code className="font-mono text-sm">maggy raw/</code> folder, not yet
             relocated into <code className="font-mono text-sm">lib/services/</code>. A real

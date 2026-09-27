@@ -103,7 +103,7 @@ export const ACTIVITIES: readonly Activity[] = [
     category: "leadership",
     from: "2026",
     blurb:
-      "Brought on Devansh as StockSaathi's student brand ambassador, to spread it among teenagers without paid advertising.",
+      "Devansh was already shouting StockSaathi's name everywhere, unasked, at the risk of his discipline-coordinator badge, so I made it official. Every sign-up since has come by word of mouth.",
   },
 
   // ── academic ─────────────────────────────────────────────────────
@@ -130,7 +130,8 @@ export const ACTIVITIES: readonly Activity[] = [
     role: "Peer programming mentor",
     category: "community",
     from: "2024",
-    blurb: "Mentoring a younger neighbour in Class X as they learn to program.",
+    blurb:
+      'Teaching a younger neighbour, now in Class X: programming, hosting servers, how packets and networks work. After a two-day rescue of his locked-out PC, he conceded I\'m a "PC goat".',
   },
 ];
 

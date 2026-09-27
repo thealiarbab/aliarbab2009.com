@@ -4,6 +4,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { JourneySection } from "@/components/about/journey-section";
 import { WhyIBuiltSection } from "@/components/about/why-i-built-section";
+import { InstagramLink } from "@/components/shell/social-links";
 import { JsonLd } from "@/components/seo/json-ld";
 import { aboutPageJsonLd } from "@/lib/json-ld";
 import { buildMetadata } from "@/lib/seo";
@@ -172,24 +173,17 @@ export default function AboutPage() {
             <p>
               The turn from &ldquo;messing around&rdquo; to &ldquo;I build real things&rdquo; has a
               date on it: the buildathon. Thirty-six hours, a brief set on the day, and StockSaathi
-              built from nothing. I slept twenty-three minutes. A friend hauled my things out at
-              5am; I kept coding from the briefing area over a remote desktop running off my phone.
-              We finished one point behind first place &mdash; a team that had lifted a finished app
-              off the Play Store. The judges kept circling back to the idea and the speed. I
-              haven&apos;t really slowed down since.
+              built from nothing. I slept twenty-three minutes before a friend barged in at 5am and
+              started packing my things for me. We finished one point behind first place, and the
+              judges kept circling back to two things: the idea and the speed. I haven&apos;t really
+              slowed down since.
             </p>
             <p>
               When I lock into something, it&apos;s fifteen-hour days &mdash; through breakfast,
               lunch, dinner, and well past when I should have stopped. I don&apos;t stay stuck for
-              days at a time; I chase the bug, ask the people and tools around me, and keep the
-              thing moving. If I had to name the one rule I won&apos;t compromise on, it&apos;s
-              speed &mdash; the distance between an idea and something you can actually use.
-            </p>
-            <p>
-              I build with modern AI tooling the way an earlier generation built with a good IDE and
-              Stack Overflow &mdash; constantly, and out in the open. I&apos;d rather say that
-              plainly than pretend otherwise. What to build, how it should be shaped, and whether
-              it&apos;s worth shipping at all are still mine to decide.
+              days at a time; I chase the bug, ask the people around me, and keep the thing moving.
+              If I had to name the one rule I won&apos;t compromise on, it&apos;s speed &mdash; the
+              distance between an idea and something you can actually use.
             </p>
             <p>
               Not everything works. The project I learned the most from is the one that burned me
@@ -198,6 +192,36 @@ export default function AboutPage() {
               walked away knowing more about hardware, patience, and my own limits than any project
               that simply worked has taught me.
             </p>
+          </div>
+
+          <div className="mt-10 border-t-2 border-[var(--color-border)] pt-8">
+            <p className="mb-6 font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
+              Two people who made this better
+            </p>
+            <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-[var(--color-fg)]">
+              <p>
+                Since 2024 I&apos;ve been teaching a younger neighbour, now in Class X. It started
+                with programming, then spread to everything I was obsessed with: how to host a
+                server, how Minecraft and its packets actually work, and what networking looks like
+                under the hood. There&apos;s a running joke that I killed his monitor &mdash; it
+                died on its own, and I have been blamed for it ever since. He comes over to watch me
+                build, and he&apos;s about to get his hands on MagLock. The moment that stuck: his
+                PC locked him out, and getting him back in turned into a two-day operation with him
+                watching over my shoulder the entire time. When it finally opened, he looked at me
+                and said, &ldquo;Now I accept you&apos;re a PC goat.&rdquo; I&apos;ve had worse
+                reviews.
+              </p>
+              <p>
+                StockSaathi&apos;s brand ambassador was never a hire.{" "}
+                <InstagramLink href="https://www.instagram.com/devaanshh.04/">
+                  Devansh
+                </InstagramLink>{" "}
+                started shouting the project&apos;s name everywhere he went &mdash; loudly enough
+                that he was putting his discipline-coordinator badge at risk doing it. When I
+                realised he was doing all of it without anyone asking him to, I made it official.
+                His first review of the app, verbatim: &ldquo;the UI is sexy.&rdquo;
+              </p>
+            </div>
           </div>
 
           <div className="mt-10 border-t-2 border-[var(--color-border)] pt-8">
