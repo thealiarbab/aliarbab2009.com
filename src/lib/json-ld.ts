@@ -271,6 +271,7 @@ function researchCodeJsonLd(p: Project, slug: ProjectSlug, languages: string[]):
     dateCreated: p.startedISO,
     creator: creatorRef(),
     codeRepository: p.repoUrl,
+    ...(p.liveUrl ? { url: p.liveUrl } : {}),
     programmingLanguage: languages,
     mainEntityOfPage: projectCanonical(slug),
   };

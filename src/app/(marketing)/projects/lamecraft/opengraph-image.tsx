@@ -11,7 +11,7 @@ export default async function Image() {
     position: 6,
     name: "LameCRAFT",
     tagline: "A home server, its control panel, and a design system written as data.",
-    status: "Self-hosted — private by design",
+    status: "Live — self-hosted",
     footerLeft: "FastAPI · Cloudflare Tunnel · Command Nexus",
     footerRight: "aliarbab2009.com",
     displayFont: "JetBrains Mono",

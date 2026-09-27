@@ -18,7 +18,7 @@ Before merging content changes, mentally grep for: city names, MIT/Harvard/Stanf
 
 Internal/private dates (application freeze dates, etc.) live in `PRIVATE_CALENDAR.md` which is gitignored. Never commit.
 
-Never link to or name the host of anything served from Ali's home server (LameCRAFT, MagLock's remote access) — describe those projects without giving an address. AP exams are not listed anywhere on the site (neither exams sat nor scores) by Ali's choice.
+LameCRAFT's public site (`lamecraft.org`, including `/skool`) may be linked (Ali, 2026-09-27). Never publish its other subdomains, ports or machine details, and never link or name MagLock's remote-access address. AP exams are not listed anywhere on the site (neither exams sat nor scores) by Ali's choice.
 
 ### Truth rule
 

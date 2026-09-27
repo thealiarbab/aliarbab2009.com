@@ -45,19 +45,27 @@ export default function LameCraftPage() {
         sections={[
           {
             label: "Server",
-            heading: "A home machine, on the internet, with nothing exposed.",
+            heading: "A home machine, on the internet, with no port opened.",
             body: (
               <>
                 <p>
                   My sites and tools are served from a machine at home by FastAPI on uvicorn. The
                   internet reaches it through a Cloudflare tunnel: the server dials out, so serving
                   the sites needs no port opened on the router and the machine is never addressed
-                  directly. A new subdomain is one line of tunnel config, which is also how
-                  MagLock&apos;s remote access works.
+                  directly. A new subdomain is one line of tunnel config.
                 </p>
                 <p>
-                  It&apos;s deliberately private — the pages it serves are my own notes and tools,
-                  not a product — so this page describes it without linking to it.
+                  It&apos;s live at{" "}
+                  <a
+                    href="https://lamecraft.org"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
+                  >
+                    lamecraft.org
+                  </a>
+                  : a CRT-terminal front page, and the study notes below. It&apos;s my own corner of
+                  the internet rather than a product, so expect the odd rough edge.
                 </p>
               </>
             ),
@@ -138,11 +146,19 @@ export default function LameCraftPage() {
             heading: "Notes that print like they render.",
             body: (
               <p>
-                My study material lives on the same server as standalone HTML pages in the Command
-                Nexus look, with maths typeset by KaTeX. A shared print kit adds one-click PDF
-                export and print settings to any page with a single script tag — and taught me how
-                fiddly raster pagination is: every atomic block has to refuse to split, or a PDF
-                cuts an equation in half.
+                My study material lives on the same server, in{" "}
+                <a
+                  href="https://lamecraft.org/skool/index.html"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
+                >
+                  /skool
+                </a>
+                , as standalone HTML pages in the Command Nexus look, with maths typeset by KaTeX. A
+                shared print kit adds one-click PDF export and print settings to any page with a
+                single script tag — and taught me how fiddly raster pagination is: every atomic
+                block has to refuse to split, or a PDF cuts an equation in half.
               </p>
             ),
           },
