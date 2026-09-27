@@ -191,7 +191,7 @@ export const PROJECTS: readonly Project[] = [
     tagline:
       "A self-hosted home server, the control panel that runs it, and the design system everything else borrows",
     description:
-      "A home machine serving my own sites to the internet through a Cloudflare tunnel — FastAPI on uvicorn, no port forwarding, no hosting bill. A Python control panel, packaged as a Windows executable, watches its processes and network. And the Command Nexus design system: one JSON spec of colours, type and motion rules that MagLock's app and my study pages are both built from. It's live at lamecraft.org.",
+      "A home machine behind carrier-grade NAT (so no public IP and no port forwarding) serving my own sites to the internet anyway, through a Cloudflare tunnel it dials out itself — FastAPI on uvicorn, no hosting bill. A Python control panel, packaged as a Windows executable, watches its processes and network. And the Command Nexus design system: one JSON spec of colours, type and motion rules that MagLock's app and my study pages are both built from. It's live at lamecraft.org.",
     theme: "lamecraft",
     status: "live",
     statusLabel: "Live — self-hosted",

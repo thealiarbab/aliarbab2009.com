@@ -45,14 +45,23 @@ export default function LameCraftPage() {
         sections={[
           {
             label: "Server",
-            heading: "A home machine, on the internet, with no port opened.",
+            heading: "Self-hosted from behind a CGNAT.",
             body: (
               <>
                 <p>
-                  My sites and tools are served from a machine at home by FastAPI on uvicorn. The
-                  internet reaches it through a Cloudflare tunnel: the server dials out, so serving
-                  the sites needs no port opened on the router and the machine is never addressed
-                  directly. A new subdomain is one line of tunnel config.
+                  I wanted my sites running on my own machine at home, not on someone else&apos;s
+                  hosting. The catch: my connection sits behind carrier-grade NAT. My ISP shares one
+                  public IP address across many customers, so there is no address of my own to point
+                  a domain at, and forwarding a port on my router does nothing, because the router
+                  itself isn&apos;t reachable from the internet.
+                </p>
+                <p>
+                  So the traffic goes the other way round. FastAPI on uvicorn serves the sites
+                  locally, and a Cloudflare tunnel daemon on the same machine dials out to
+                  Cloudflare and holds that connection open. Visitors hit Cloudflare&apos;s edge,
+                  and requests come back down the tunnel the server opened itself. Outbound
+                  connections work fine through CGNAT, so the site is live without a public IP, an
+                  open port or a hosting bill, and adding a subdomain is one line of tunnel config.
                 </p>
                 <p>
                   It&apos;s live at{" "}
