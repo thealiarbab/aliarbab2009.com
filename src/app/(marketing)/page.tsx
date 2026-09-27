@@ -142,92 +142,12 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          § 02 — WORK
-          ============================================================ */}
-      <section className="mb-28">
-        <div className="mb-8 grid grid-cols-12 gap-4 border-t-2 border-[var(--color-border)] pt-4">
-          <div className="col-span-12 md:col-span-2">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
-              § 02
-            </p>
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-primary)] uppercase">
-              Work
-            </p>
-          </div>
-          <h2
-            className="col-span-12 text-[clamp(2rem,4vw,3.5rem)] leading-tight font-medium tracking-tight md:col-span-10"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            {numberWord(PROJECTS.length, { capitalize: true })} builds. Each one ships for someone.
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-12 gap-0 border-2 border-[var(--color-border)]">
-          {PROJECTS.map((p, i) => (
-            <article
-              key={p.slug}
-              className={
-                "brutalist-glass-hover col-span-12 flex flex-col gap-6 border-[var(--color-border)] p-8 md:col-span-4 " +
-                slabTileBorders(i, PROJECTS.length)
-              }
-            >
-              <Link href={`/projects/${p.slug}`} className="flex h-full flex-col gap-6">
-                <div className="flex items-baseline justify-between">
-                  <p
-                    className="font-mono text-[52px] leading-none font-medium tracking-[-0.04em] text-[var(--color-primary)]"
-                    style={{ fontFeatureSettings: "'ss01'" }}
-                  >
-                    0{i + 1}
-                  </p>
-                  <span className="border border-[var(--color-border)] px-2 py-0.5 font-mono text-[9px] tracking-[0.25em] uppercase">
-                    {p.statusLabel}
-                  </span>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <h3
-                    className="text-3xl leading-tight font-medium tracking-[-0.01em]"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {p.name}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-[var(--color-fg)]">{p.tagline}.</p>
-                  <p className="text-[13px] leading-relaxed text-[var(--color-muted)]">
-                    {p.description}
-                  </p>
-                </div>
-
-                <div className="brutalist-rule" />
-
-                <dl className="flex flex-col gap-2 font-mono text-[10px] tracking-[0.2em] uppercase">
-                  <div className="flex justify-between">
-                    <dt className="text-[var(--color-muted)]">Year</dt>
-                    <dd className="text-[var(--color-fg)]">{p.year}</dd>
-                  </div>
-                  <div className="flex justify-between gap-4">
-                    <dt className="text-[var(--color-muted)]">Stack</dt>
-                    <dd className="text-right text-[var(--color-fg)]">
-                      {p.stack.slice(0, 3).join(" / ")}
-                    </dd>
-                  </div>
-                </dl>
-
-                <span className="mt-auto inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] text-[var(--color-primary)] uppercase">
-                  Read case &rarr;
-                </span>
-              </Link>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* ============================================================
-          § 03 — LAB: an index strip, deliberately not a project card
+          § 02 — LAB: an index strip, deliberately not a project card
           ============================================================ */}
       <section className="mb-28 grid grid-cols-12 gap-4 border-t-2 border-[var(--color-border)] pt-10">
         <div className="col-span-12 md:col-span-2">
           <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
-            § 03
+            § 02
           </p>
           <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-primary)] uppercase">
             Lab
@@ -278,6 +198,86 @@ export default function HomePage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* ============================================================
+          § 03 — WORK
+          ============================================================ */}
+      <section className="mb-28">
+        <div className="mb-8 grid grid-cols-12 gap-4 border-t-2 border-[var(--color-border)] pt-4">
+          <div className="col-span-12 md:col-span-2">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
+              § 03
+            </p>
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-primary)] uppercase">
+              Work
+            </p>
+          </div>
+          <h2
+            className="col-span-12 text-[clamp(2rem,4vw,3.5rem)] leading-tight font-medium tracking-tight md:col-span-10"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {numberWord(PROJECTS.length, { capitalize: true })} builds. Each one ships for someone.
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-12 gap-0 border-2 border-[var(--color-border)]">
+          {PROJECTS.map((p, i) => (
+            <article
+              key={p.slug}
+              className={
+                "brutalist-glass-hover col-span-12 flex flex-col gap-6 border-[var(--color-border)] p-8 md:col-span-4 " +
+                slabTileBorders(i, PROJECTS.length)
+              }
+            >
+              <Link href={`/projects/${p.slug}`} className="flex h-full flex-col gap-6">
+                <div className="flex items-baseline justify-between">
+                  <p
+                    className="font-mono text-[52px] leading-none font-medium tracking-[-0.04em]"
+                    style={{ color: p.primaryColor, fontFeatureSettings: "'ss01'" }}
+                  >
+                    0{i + 1}
+                  </p>
+                  <span className="border border-[var(--color-border)] px-2 py-0.5 font-mono text-[9px] tracking-[0.25em] uppercase">
+                    {p.statusLabel}
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <h3
+                    className="text-3xl leading-tight font-medium tracking-[-0.01em]"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {p.name}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-[var(--color-fg)]">{p.tagline}.</p>
+                  <p className="text-[13px] leading-relaxed text-[var(--color-muted)]">
+                    {p.description}
+                  </p>
+                </div>
+
+                <div className="brutalist-rule" />
+
+                <dl className="flex flex-col gap-2 font-mono text-[10px] tracking-[0.2em] uppercase">
+                  <div className="flex justify-between">
+                    <dt className="text-[var(--color-muted)]">Year</dt>
+                    <dd className="text-[var(--color-fg)]">{p.year}</dd>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-[var(--color-muted)]">Stack</dt>
+                    <dd className="text-right text-[var(--color-fg)]">
+                      {p.stack.slice(0, 3).join(" / ")}
+                    </dd>
+                  </div>
+                </dl>
+
+                <span className="mt-auto inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] text-[var(--color-primary)] uppercase">
+                  Read case &rarr;
+                </span>
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -344,7 +344,7 @@ export default function HomePage() {
               Socials
             </p>
             <ul className="grid grid-cols-1 gap-0 border-2 border-[var(--color-border)] sm:grid-cols-3">
-              {SOCIALS.map(({ label, handle, href, Icon }, i) => (
+              {SOCIALS.map(({ label, brand, handle, href, Icon }, i) => (
                 <li
                   key={label}
                   className={
@@ -357,11 +357,11 @@ export default function HomePage() {
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex items-center gap-3 p-6 transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-fg)]"
+                    className={`social-card social-${brand} group flex items-center gap-3 p-6`}
                   >
                     <Icon className="h-5 w-5 shrink-0" />
                     <span className="flex flex-col">
-                      <span className="font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase group-hover:text-[var(--color-primary-fg)]">
+                      <span className="font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase">
                         {label}
                       </span>
                       <span className="font-mono text-lg font-medium">@{handle}</span>

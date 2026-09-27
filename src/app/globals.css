@@ -365,6 +365,45 @@
   color: var(--lc-info);
 }
 
+/* Social cards themed per platform: the icon wears the brand colour
+   at rest; hover floods the card with the brand (Instagram's gradient,
+   GitHub's and X's near-black / white by mode). Snap, no fade. */
+.social-card .social-icon,
+.social-card svg {
+  transition: none;
+}
+.social-github svg {
+  color: #8b949e;
+}
+.social-instagram svg {
+  color: #dd2a7b;
+}
+.social-x svg {
+  color: var(--color-fg);
+}
+.social-card:hover,
+.social-card:focus-visible {
+  color: #ffffff;
+}
+.social-card:hover span,
+.social-card:hover svg,
+.social-card:focus-visible span,
+.social-card:focus-visible svg {
+  color: #ffffff !important;
+}
+.social-github:hover,
+.social-github:focus-visible {
+  background: #24292f;
+}
+.social-instagram:hover,
+.social-instagram:focus-visible {
+  background: linear-gradient(45deg, #f58529, #dd2a7b 45%, #8134af 75%, #515bd4);
+}
+.social-x:hover,
+.social-x:focus-visible {
+  background: #000000;
+}
+
 /* Instagram-styled inline link (e.g. a person credited by their
    Instagram): brand gradient text + glyph. */
 .instagram-link-text {

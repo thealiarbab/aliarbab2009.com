@@ -5,7 +5,7 @@
  * Composition: this file holds the bits NOT already living in other
  * configs. The full resume is assembled by <ResumeEmbed> from:
  *   - siteConfig                  (name, contact, github)
- *   - src/config/projects.ts      (three projects + stacks)
+ *   - src/config/projects.ts      (the six projects + stacks)
  *   - src/config/activities.ts    (activities & leadership)
  *   - src/config/awards.ts        (awards & recognition — if any)
  *   - src/config/resume.ts        (THIS file: summary, education,
@@ -47,7 +47,7 @@ export type ResumeContent = {
 
 export const RESUME: ResumeContent = {
   summary:
-    "Class XII student who builds and runs production software. Founder of StockSaathi, a live paper-trading coach for Indian teens that placed 2nd nationally at the Masters' Union AI Buildathon and has grown to 170 accounts by word of mouth — plus SpendInCheck, BolHisaab and MagLock Protocol.",
+    "Class XII student who builds and runs production software. Founder of StockSaathi, a live paper-trading coach for Indian teens that placed 2nd nationally at the Masters' Union AI Buildathon and has grown to 170 accounts by word of mouth — plus SpendInCheck, BolHisaab, MagLock Protocol, Sovereign Alpha and LameCRAFT.",
   coursework: [
     "Class XII (CBSE): Physics · Chemistry · Mathematics · Computer Science",
     "Self-directed: behavioural finance, Postgres security (RLS and grants), embedded power design, evaluating LLMs from production logs",
@@ -121,6 +121,6 @@ export const RESUME: ResumeContent = {
       ],
     },
   ],
-  hasPDF: false,
+  hasPDF: true,
   pdfFilename: "ali-arbab-resume.pdf",
 } as const;

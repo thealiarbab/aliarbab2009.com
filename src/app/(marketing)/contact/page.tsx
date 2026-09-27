@@ -113,7 +113,7 @@ export default function ContactPage() {
                 </span>
               </a>
             </li>
-            {SOCIALS.map(({ label, handle, href, Icon }, i) => (
+            {SOCIALS.map(({ label, brand, handle, href, Icon }, i) => (
               <li
                 key={label}
                 className={
@@ -124,12 +124,12 @@ export default function ContactPage() {
                   href={href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex items-center justify-between p-6 transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-fg)]"
+                  className={`social-card social-${brand} group flex items-center justify-between p-6`}
                 >
                   <span className="flex items-center gap-4">
                     <Icon className="h-5 w-5 shrink-0" />
                     <span className="flex flex-col gap-1">
-                      <span className="font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase group-hover:text-[var(--color-primary-fg)]">
+                      <span className="font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase">
                         {label}
                       </span>
                       <span className="font-mono text-lg font-medium">@{handle}</span>

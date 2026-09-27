@@ -196,7 +196,7 @@ export const PROJECTS: readonly Project[] = [
     status: "live",
     statusLabel: "Live — self-hosted",
     liveUrl: "https://lamecraft.org",
-    sourceNote: "Source not public — the site is",
+    sourceNote: "Source not public",
     primaryColor: "#00FF9D",
     year: 2026,
     startedISO: "2026-02-18",

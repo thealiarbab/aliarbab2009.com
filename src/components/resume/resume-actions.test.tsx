@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import { fireEvent } from "@testing-library/dom";
 
+import { RESUME } from "@/config/resume";
 import { ResumeActions } from "./resume-actions";
 
 afterEach(() => {
@@ -14,9 +15,9 @@ afterEach(() => {
  *   - Print · Save as PDF (always visible)
  *   - Download PDF (gated on RESUME.hasPDF)
  *
- * RESUME.hasPDF is currently false (PDF not finalized), so we test the
- * fallback: print button works, "PDF coming soon" notice is visible,
- * download button is NOT rendered.
+ * RESUME.hasPDF is true (the PDF shipped 2026-09-27), so we test that the
+ * print button works, the download link points at the PDF, and the old
+ * "coming soon" notice is gone.
  */
 
 describe("<ResumeActions />", () => {
@@ -35,14 +36,15 @@ describe("<ResumeActions />", () => {
     expect(printMock).toHaveBeenCalledTimes(1);
   });
 
-  it("shows the 'PDF download — coming soon' fallback when RESUME.hasPDF is false", () => {
+  it("links the PDF download to /resume/<pdfFilename> now that RESUME.hasPDF is true", () => {
     render(<ResumeActions />);
-    expect(screen.getByText(/PDF download — coming soon/i)).toBeInTheDocument();
+    const link = screen.getByRole("link", { name: /download pdf/i });
+    expect(link).toHaveAttribute("href", `/resume/${RESUME.pdfFilename}`);
   });
 
-  it("does NOT render a Download PDF link when RESUME.hasPDF is false", () => {
+  it("no longer shows the 'coming soon' fallback", () => {
     render(<ResumeActions />);
-    expect(screen.queryByRole("link", { name: /download pdf/i })).toBeNull();
+    expect(screen.queryByText(/coming soon/i)).toBeNull();
   });
 
   it("Print button has type=button so it can't accidentally submit a form", () => {

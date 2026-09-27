@@ -20,7 +20,7 @@ import "./globals.css";
  * Self-hosting trades Google Fonts CDN for stable cross-build hashes
  * and an offline-capable build.
  *
- * Per-project theme fonts loaded from Google for the three project worlds:
+ * Per-project theme fonts loaded from Google for the original three project worlds:
  *   - Inter (StockSaathi + BolHisaab) — fintech-default geometric sans
  *   - Noto Sans Devanagari (BolHisaab) — Hindi/Hinglish glyph coverage
  *   - Orbitron (MagLock) — cyberpunk display

@@ -40,7 +40,7 @@ Tokens live in `src/app/globals.css` as a root `@theme` block (dark) plus `:root
 
 ### Per-project theming
 
-Project detail pages (`/projects/<slug>`) each wrap their `<main>` in a `.theme-<slug>` class that overrides the brutalist tokens. Six project worlds live in `src/app/globals.css`: `.theme-stocksaathi` (teal on deep-black), `.theme-spendincheck` (brass ledger), `.theme-bolhisaab` (indigo on cream — light-first, so its override is for dark), `.theme-maglock` (neon green on pure black), `.theme-sovereign-alpha` (amber terminal) and `.theme-lamecraft` (Command Nexus cyan). A test fails if a project lacks either mode. Shell (nav, footer) stays on the site-default brutalist tokens, so visitors feel "inside Ali's site but now in a project's world."
+Project detail pages (`/projects/<slug>`) each wrap their `<main>` in a `.theme-<slug>` class that overrides the brutalist tokens. Six project worlds live in `src/app/globals.css`: `.theme-stocksaathi` (teal on deep-black), `.theme-spendincheck` (brass in dark, paper in light — the app's own two themes), `.theme-bolhisaab` (indigo on cream — light-first, so its override is for dark), `.theme-maglock` (neon green on pure black), `.theme-sovereign-alpha` (amber terminal) and `.theme-lamecraft` (Command Nexus: spring green on void, grid, ◈ heads). A test fails if a project lacks either mode. Shell (nav, footer) stays on the site-default brutalist tokens, so visitors feel "inside Ali's site but now in a project's world."
 
 Do not introduce separate `<Button>` variants like `<StockSaathiButton>` — the single `<Button>` auto-themes because its `bg-primary` reads from `--color-primary` which is overridden by the project theme class.
 

@@ -44,15 +44,23 @@ export function InstagramIcon({ className }: IconProps) {
   );
 }
 
+/** `brand` picks the .social-<brand> hover skin in globals.css. */
 export const SOCIALS = [
-  { label: "GitHub", handle: siteConfig.githubHandle, href: siteConfig.github, Icon: GitHubIcon },
+  {
+    label: "GitHub",
+    brand: "github",
+    handle: siteConfig.githubHandle,
+    href: siteConfig.github,
+    Icon: GitHubIcon,
+  },
   {
     label: "Instagram",
+    brand: "instagram",
     handle: siteConfig.instagramHandle,
     href: siteConfig.instagram,
     Icon: InstagramIcon,
   },
-  { label: "X", handle: siteConfig.xHandle, href: siteConfig.x, Icon: XIcon },
+  { label: "X", brand: "x", handle: siteConfig.xHandle, href: siteConfig.x, Icon: XIcon },
 ] as const;
 
 /**

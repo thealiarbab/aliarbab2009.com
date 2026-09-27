@@ -68,9 +68,20 @@ export function ResumeEmbed() {
             background: transparent !important;
           }
           .resume-embed a { text-decoration: underline; }
+          /* Compact print: stack items become inline, dot-separated text
+             (no boxes), links don't repeat their URL, tighter spacing —
+             keeps the PDF to about two pages. */
+          .resume-embed { font-size: 9.5pt; }
+          .resume-embed a[href]::after { content: none !important; }
+          .resume-embed ul:has(> .resume-pill) { gap: 0 !important; }
           .resume-embed .resume-pill {
-            border: 1px solid #000000 !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: 8pt !important;
           }
+          .resume-embed .resume-pill:not(:last-child)::after { content: " · "; white-space: pre; }
+          .resume-embed section { margin-bottom: 10pt !important; padding-top: 8pt !important; }
+          .resume-embed section > ul { gap: 8pt !important; }
           /* Avoid orphan section headings */
           .resume-embed h2, .resume-embed h3 { break-after: avoid; }
           .resume-embed li { break-inside: avoid; }
@@ -167,7 +178,9 @@ export function ResumeEmbed() {
                   {p.statusLabel} · {p.year}
                 </span>
               </div>
-              <p className="text-sm leading-relaxed text-[var(--color-fg)]">{p.description}</p>
+              <p className="resume-print-hide text-sm leading-relaxed text-[var(--color-fg)]">
+                {p.description}
+              </p>
               <ul className="flex flex-wrap gap-1.5">
                 {p.stack.map((s) => (
                   <li
