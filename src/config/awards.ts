@@ -39,6 +39,7 @@ export const AWARDS: readonly Award[] = [
     title: "Inter-House Math Quiz — 1st place",
     org: "Inter-house competition",
     year: 2025,
-    blurb: "Won the inter-house mathematics quiz in December 2025.",
+    blurb:
+      "Three tie-breakers deep, I had made my peace with third place — then my house was announced first. December 2025.",
   },
 ];

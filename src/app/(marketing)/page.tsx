@@ -142,73 +142,13 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          § 02 — LAB: an index strip, deliberately not a project card
-          ============================================================ */}
-      <section className="mb-28 grid grid-cols-12 gap-4 border-t-2 border-[var(--color-border)] pt-10">
-        <div className="col-span-12 md:col-span-2">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
-            § 02
-          </p>
-          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-primary)] uppercase">
-            Lab
-          </p>
-        </div>
-        <div className="col-span-12 md:col-span-10">
-          <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-            <h2
-              className="text-[clamp(2rem,4vw,3.5rem)] leading-tight font-medium tracking-tight"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              On the bench.
-            </h2>
-            <Link
-              href="/lab"
-              className="font-mono text-[11px] tracking-[0.25em] text-[var(--color-primary)] uppercase underline decoration-2 underline-offset-4"
-            >
-              Open the lab &rarr;
-            </Link>
-          </div>
-          <p className="mb-6 max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
-            Hardware I&apos;ve designed on paper, and one I&apos;ve built. Specs, power budgets and
-            the ideas I cut.
-          </p>
-          <ol className="border-y-2 border-[var(--color-border)]">
-            {LAB.map((entry, i) => (
-              <li
-                key={entry.id}
-                className={i < LAB.length - 1 ? "border-b border-[var(--color-border)]" : ""}
-              >
-                <Link
-                  href={`/lab#${entry.id}`}
-                  className="group grid grid-cols-12 items-baseline gap-4 py-4 transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-fg)]"
-                >
-                  <span className="col-span-2 pl-2 font-mono text-[11px] text-[var(--color-muted)] group-hover:text-[var(--color-primary-fg)] sm:col-span-1">
-                    L{i + 1}
-                  </span>
-                  <span className="col-span-10 font-mono text-base font-medium sm:col-span-4">
-                    {entry.name}
-                  </span>
-                  <span className="col-span-12 hidden text-sm text-[var(--color-muted)] group-hover:text-[var(--color-primary-fg)] sm:col-span-5 sm:block">
-                    {entry.summary}
-                  </span>
-                  <span className="col-span-12 pr-2 text-right font-mono text-[9px] tracking-[0.25em] uppercase sm:col-span-2">
-                    {entry.status === "built" ? "Built" : "In design"}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ============================================================
-          § 03 — WORK
+          § 02 — WORK
           ============================================================ */}
       <section className="mb-28">
         <div className="mb-8 grid grid-cols-12 gap-4 border-t-2 border-[var(--color-border)] pt-4">
           <div className="col-span-12 md:col-span-2">
             <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
-              § 03
+              § 02
             </p>
             <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-primary)] uppercase">
               Work
@@ -278,6 +218,66 @@ export default function HomePage() {
               </Link>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* ============================================================
+          § 03 — LAB: an index strip, deliberately not a project card
+          ============================================================ */}
+      <section className="mb-28 grid grid-cols-12 gap-4 border-t-2 border-[var(--color-border)] pt-10">
+        <div className="col-span-12 md:col-span-2">
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
+            § 03
+          </p>
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-primary)] uppercase">
+            Lab
+          </p>
+        </div>
+        <div className="col-span-12 md:col-span-10">
+          <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+            <h2
+              className="text-[clamp(2rem,4vw,3.5rem)] leading-tight font-medium tracking-tight"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              On the bench.
+            </h2>
+            <Link
+              href="/lab"
+              className="font-mono text-[11px] tracking-[0.25em] text-[var(--color-primary)] uppercase underline decoration-2 underline-offset-4"
+            >
+              Open the lab &rarr;
+            </Link>
+          </div>
+          <p className="mb-6 max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
+            Hardware I&apos;ve designed on paper, and one I&apos;ve built. Specs, power budgets and
+            the ideas I cut.
+          </p>
+          <ol className="border-y-2 border-[var(--color-border)]">
+            {LAB.map((entry, i) => (
+              <li
+                key={entry.id}
+                className={i < LAB.length - 1 ? "border-b border-[var(--color-border)]" : ""}
+              >
+                <Link
+                  href={`/lab#${entry.id}`}
+                  className="group grid grid-cols-12 items-baseline gap-4 py-4 transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-fg)]"
+                >
+                  <span className="col-span-2 pl-2 font-mono text-[11px] text-[var(--color-muted)] group-hover:text-[var(--color-primary-fg)] sm:col-span-1">
+                    L{i + 1}
+                  </span>
+                  <span className="col-span-10 font-mono text-base font-medium sm:col-span-4">
+                    {entry.name}
+                  </span>
+                  <span className="col-span-12 hidden text-sm text-[var(--color-muted)] group-hover:text-[var(--color-primary-fg)] sm:col-span-5 sm:block">
+                    {entry.summary}
+                  </span>
+                  <span className="col-span-12 pr-2 text-right font-mono text-[9px] tracking-[0.25em] uppercase sm:col-span-2">
+                    {entry.status === "built" ? "Built" : "In design"}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

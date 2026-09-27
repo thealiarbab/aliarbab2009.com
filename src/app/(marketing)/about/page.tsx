@@ -124,41 +124,105 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* § 02 — ACADEMICS */}
+      {/* § 02 — STORY (origin → curiosity → turning point → how I work) */}
       <section className="mb-24 grid grid-cols-12 gap-4 border-t-2 border-[var(--color-border)] pt-10">
         <div className="col-span-12 md:col-span-2">
           <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
             § 02
           </p>
           <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-primary)] uppercase">
-            Academics
+            Story
           </p>
         </div>
         <div className="col-span-12 md:col-span-10">
           <h2
-            className="mb-6 text-[clamp(2rem,4vw,3.5rem)] leading-tight font-medium tracking-tight"
+            className="mb-8 text-[clamp(2rem,4vw,3.5rem)] leading-tight font-medium tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Class XII &mdash; CBSE, science stream.
+            The long way here.
           </h2>
-          <ul className="grid grid-cols-2 gap-0 border-2 border-[var(--color-border)] sm:grid-cols-4">
-            {["Physics", "Chemistry", "Mathematics", "Computer Science"].map((subject, i) => (
-              <li
-                key={subject}
-                className={
-                  "flex flex-col gap-2 border-[var(--color-border)] p-5" +
-                  (i % 2 === 0 ? " border-r-2" : "") +
-                  (i < 2 ? " border-b-2 sm:border-b-0" : "") +
-                  (i === 1 ? " sm:border-r-2" : "")
-                }
+          <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-[var(--color-fg)]">
+            <p>
+              I was three when I started taking things apart &mdash; toys, mostly, dissected and
+              smashed for the crime of being interesting. The software came later. At thirteen,
+              working through a school Python book, I wrote a small password-and-login system, and
+              something clicked: the same itch, now with no screws to strip.
+            </p>
+            <p>
+              Before that I just thought programmers were the coolest people alive &mdash; they
+              could make <em>anything</em>. My uncle turned that into a direction and told me to
+              start with C. I did. My first real war was a missing semicolon that cost me three
+              hours; I&apos;ve respected compilers ever since.
+            </p>
+            <p>
+              What followed was a long stretch of building for its own sake: a Minecraft server for
+              friends, a pile of rough Python minigames I&apos;d rather not link, and a genuine
+              obsession with how the internet works underneath &mdash; how a server gets discovered
+              from the other side of the world, how packets actually move, and how you serve
+              something from your own machine when your ISP hides you behind carrier-grade NAT. That
+              rabbit hole became{" "}
+              <Link
+                href="/projects/lamecraft"
+                className="underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
               >
-                <span className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
-                  0{i + 1}
-                </span>
-                <span className="font-mono text-base font-medium">{subject}</span>
-              </li>
-            ))}
-          </ul>
+                LameCRAFT
+              </Link>
+              , the home server this site&apos;s whole approach to self-hosting grew out of.
+            </p>
+            <p>
+              The turn from &ldquo;messing around&rdquo; to &ldquo;I build real things&rdquo; has a
+              date on it: the buildathon. Thirty-six hours, a brief set on the day, and StockSaathi
+              built from nothing. I slept twenty-three minutes. A friend hauled my things out at
+              5am; I kept coding from the briefing area over a remote desktop running off my phone.
+              We finished one point behind first place &mdash; a team that had lifted a finished app
+              off the Play Store. The judges kept circling back to the idea and the speed. I
+              haven&apos;t really slowed down since.
+            </p>
+            <p>
+              When I lock into something, it&apos;s fifteen-hour days &mdash; through breakfast,
+              lunch, dinner, and well past when I should have stopped. I don&apos;t stay stuck for
+              days at a time; I chase the bug, ask the people and tools around me, and keep the
+              thing moving. If I had to name the one rule I won&apos;t compromise on, it&apos;s
+              speed &mdash; the distance between an idea and something you can actually use.
+            </p>
+            <p>
+              I build with modern AI tooling the way an earlier generation built with a good IDE and
+              Stack Overflow &mdash; constantly, and out in the open. I&apos;d rather say that
+              plainly than pretend otherwise. What to build, how it should be shaped, and whether
+              it&apos;s worth shipping at all are still mine to decide.
+            </p>
+            <p>
+              Not everything works. The project I learned the most from is the one that burned me
+              &mdash; literally, over-soldering a biomimetic bionic hand for a science exhibition.
+              It wasn&apos;t ranked and it didn&apos;t win. People still stopped to stare, and I
+              walked away knowing more about hardware, patience, and my own limits than any project
+              that simply worked has taught me.
+            </p>
+          </div>
+
+          <div className="mt-10 border-t-2 border-[var(--color-border)] pt-8">
+            <p className="mb-4 font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
+              Right now &mdash; Class XII, CBSE science stream
+            </p>
+            <ul className="grid grid-cols-2 gap-0 border-2 border-[var(--color-border)] sm:grid-cols-4">
+              {["Physics", "Chemistry", "Mathematics", "Computer Science"].map((subject, i) => (
+                <li
+                  key={subject}
+                  className={
+                    "flex flex-col gap-2 border-[var(--color-border)] p-5" +
+                    (i % 2 === 0 ? " border-r-2" : "") +
+                    (i < 2 ? " border-b-2 sm:border-b-0" : "") +
+                    (i === 1 ? " sm:border-r-2" : "")
+                  }
+                >
+                  <span className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
+                    0{i + 1}
+                  </span>
+                  <span className="font-mono text-base font-medium">{subject}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -189,6 +253,13 @@ export default function AboutPage() {
             <p>
               Six projects, one site. If you&apos;ve scrolled this far, thank you &mdash;
               that&apos;s a meaningful slice of attention and I don&apos;t take it for granted.
+            </p>
+            <p>
+              What&apos;s next: after boards I&apos;m going all-in &mdash; deliberate structure and
+              full days on the build instead of drifting. I want to study computer science, not as a
+              finish line but as a launchpad: to finally be in a room full of people as obsessed
+              with building as I am, and to make things far bigger than one student and a laptop
+              can.
             </p>
             <p>
               A note on this site itself: built in Next.js 15 + Tailwind v4 + TypeScript strict,
