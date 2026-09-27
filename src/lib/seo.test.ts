@@ -16,7 +16,7 @@ describe("buildMetadata", () => {
       description: "x".repeat(150),
       path: "/about",
     });
-    expect(m.title).toBe("About — Ali Arbab");
+    expect(m.title).toEqual({ absolute: "About — Ali Arbab" });
   });
 
   it("uses bare title when isHome=true", () => {
@@ -26,7 +26,7 @@ describe("buildMetadata", () => {
       path: "/",
       isHome: true,
     });
-    expect(m.title).toBe("Ali Arbab — Builds AI, voice, and IoT systems");
+    expect(m.title).toEqual({ absolute: "Ali Arbab — Builds AI, voice, and IoT systems" });
   });
 
   it("sets canonical to the path verbatim (preserves trailing slash for /)", () => {

@@ -87,7 +87,9 @@ export function buildMetadata(args: BuildMetadataArgs): Metadata {
   const imageAlt = ogImageAlt ?? title;
 
   const metadata: Metadata = {
-    title: fullTitle,
+    // `absolute` so the root layout's `%s — Ali Arbab` template doesn't
+    // append the suffix a second time.
+    title: { absolute: fullTitle },
     description,
     alternates: { canonical },
     openGraph: {
