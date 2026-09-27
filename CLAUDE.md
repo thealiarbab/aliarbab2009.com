@@ -18,7 +18,7 @@ Before merging content changes, mentally grep for: city names, MIT/Harvard/Stanf
 
 Internal/private dates (application freeze dates, etc.) live in `PRIVATE_CALENDAR.md` which is gitignored. Never commit.
 
-Never link to or name the host of anything served from Ali's home server (LameCRAFT, MagLock's remote access) — describe those projects without giving an address. Test scores (AP etc.) are private by Ali's choice — list exams sat, never scores.
+Never link to or name the host of anything served from Ali's home server (LameCRAFT, MagLock's remote access) — describe those projects without giving an address. AP exams are not listed anywhere on the site (neither exams sat nor scores) by Ali's choice.
 
 ### Truth rule
 
@@ -91,7 +91,7 @@ Do not introduce separate `<Button>` variants like `<StockSaathiButton>` — the
 - `_repos/StockSaathi/` and `_repos/BolHisaab/` are likewise gitignored reference clones. Read them; don't depend on them at build time.
 - Tailwind v4 has no `tailwind.config.ts` by default — tokens live in `@theme` directive inside `src/app/globals.css`. If we ever add a plugin, we can re-introduce a config file for plugins only.
 - Fonts: only `Space_Grotesk` + `JetBrains_Mono` are loaded (via `next/font/google`). The earlier Fraunces / Instrument Serif / Orbitron / Rajdhani / Inter imports were dropped when brutalist was promoted — the archived variants in `_archive/` still reference them in CSS comments but the actual `next/font/google` calls are gone.
-- `<LiveCountdown>` powers the NowBar and the /about academic list; past dates flip to ✓ on their own.
+- `<LiveCountdown>` and `src/config/milestones.ts` currently have no consumers on the site (the AP countdowns were retired 2026-09-27); they stay as the countdown infrastructure for future public milestones.
 - **Share images.** Never pass `ogImage` to `buildMetadata` on a route that has (or inherits) an `opengraph-image.tsx` — a page-level image overrides the generated one. Segments without their own file (`/`, `/projects`, `/lab`) pass `ogImage: "/opengraph-image"`. The OG fonts must be TTF (`public/fonts/*.ttf`): Satori throws on WOFF2 and silently serves a 0-byte PNG. The TTFs are subsets — OG text may use Latin, `•` and `·`, but not `₹`, `●`, `◆` or arrows.
 - **Pre-commit hook** runs lint-staged, `tsc` and the whole Vitest suite (~4 minutes). Run `prettier --check` and `eslint` on changed files first so a formatting miss doesn't cost a full cycle.
 - The privacy pattern list is `scripts/.privacy-patterns.local.mjs` (gitignored); CI reads it from the `PRIVACY_PATTERNS_BASE64` secret, which must be refreshed whenever the local file changes.

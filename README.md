@@ -58,13 +58,13 @@ Key directories:
 
 ## Live-countdown architecture
 
-All countdowns on the site (NowBar, /about academic snapshot, anywhere `<LiveCountdown>` lands) tick purely from `new Date()` against ISO strings baked into `src/config/milestones.ts` at build time. Zero fetches. Zero server round-trips. Works offline after first paint. Tested in `src/lib/time.test.ts` with 17 cases covering pure-math correctness, past-flip, decomposition, and offset-naive ISO local-time semantics.
+Any countdown on the site (wherever `<LiveCountdown>` lands; none currently does, since the AP countdowns were retired on 2026-09-27) ticks purely from `new Date()` against ISO strings baked into `src/config/milestones.ts` at build time. Zero fetches. Zero server round-trips. Works offline after first paint. Tested in `src/lib/time.test.ts` with 17 cases covering pure-math correctness, past-flip, decomposition, and offset-naive ISO local-time semantics.
 
-The milestone type still supports an optional `score`, but scores are deliberately not published on the site.
+The milestone type still supports an optional `score`, but AP exams and scores are deliberately not published on the site.
 
 ## Privacy
 
-The deployed site publishes only: Ali Arbab (name), the `thealiarbab` GitHub and X handles, Class XII status, the projects, the lab designs, the APs sat (never scores), and the HTML resume.
+The deployed site publishes only: Ali Arbab (name), the `thealiarbab` GitHub and X handles, Class XII status, the projects, the lab designs, and the HTML resume. AP exams are not listed at all.
 
 It does **not** publish: city, school, phone, timezone, raw Gmail, any specific college name, any application deadline, any decision date. The `privacy-audit` script enforces this on every build by grepping `.next/server`, `.next/static`, and `public/` for a forbidden-token list (with three severity tiers — HIGH always fails, MEDIUM fails under `STRICT_PRIVACY=1`, LOW reports only).
 
