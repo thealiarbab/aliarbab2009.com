@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { COURSEWORK } from "@/config/coursework";
-import { MILESTONES } from "@/config/milestones";
 import { siteConfig } from "@/config/site";
 import { JourneySection } from "@/components/about/journey-section";
 import { WhyIBuiltSection } from "@/components/about/why-i-built-section";
-import { LiveCountdown } from "@/components/shell/live-countdown";
 import { JsonLd } from "@/components/seo/json-ld";
 import { aboutPageJsonLd } from "@/lib/json-ld";
 import { buildMetadata } from "@/lib/seo";
@@ -20,8 +17,6 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function AboutPage() {
-  const milestoneById = Object.fromEntries(MILESTONES.map((m) => [m.id, m]));
-
   return (
     <div className="relative mx-auto w-full max-w-[1400px] px-6 pt-16 pb-16 sm:pt-20">
       <JsonLd data={aboutPageJsonLd()} />
@@ -129,7 +124,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* § 02 — ACADEMIC SNAPSHOT (live AP countdowns) */}
+      {/* § 02 — ACADEMICS */}
       <section className="mb-24 grid grid-cols-12 gap-4 border-t-2 border-[var(--color-border)] pt-10">
         <div className="col-span-12 md:col-span-2">
           <p className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
@@ -144,52 +139,26 @@ export default function AboutPage() {
             className="mb-6 text-[clamp(2rem,4vw,3.5rem)] leading-tight font-medium tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Class XII &mdash; CBSE science, plus four APs.
+            Class XII &mdash; CBSE, science stream.
           </h2>
-          <ul className="border-2 border-[var(--color-border)]">
-            {COURSEWORK.map((c, i) => {
-              const m = milestoneById[c.id];
-              return (
-                <li
-                  key={c.id}
-                  className={
-                    "grid grid-cols-12 items-center gap-4 p-5" +
-                    (i < COURSEWORK.length - 1 ? " border-b-2 border-[var(--color-border)]" : "")
-                  }
-                >
-                  <span className="col-span-1 font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
-                    0{i + 1}
-                  </span>
-                  <span className="col-span-12 font-mono text-base font-medium sm:col-span-5">
-                    {c.label}
-                  </span>
-                  <span className="col-span-6 font-mono text-[11px] tracking-[0.2em] text-[var(--color-muted)] uppercase sm:col-span-3">
-                    {m?.subLabel ?? ""}
-                  </span>
-                  <span className="col-span-6 text-right sm:col-span-3">
-                    {m?.score ? (
-                      <span className="inline-flex items-baseline gap-1.5 font-mono text-sm font-medium text-[var(--color-primary)]">
-                        <span className="text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase">
-                          Score
-                        </span>
-                        {m.score}
-                      </span>
-                    ) : m ? (
-                      <LiveCountdown iso={m.at} className="text-sm text-[var(--color-primary)]" />
-                    ) : (
-                      <span className="font-mono text-[11px] text-[var(--color-muted)]">
-                        pending
-                      </span>
-                    )}
-                  </span>
-                </li>
-              );
-            })}
+          <ul className="grid grid-cols-2 gap-0 border-2 border-[var(--color-border)] sm:grid-cols-4">
+            {["Physics", "Chemistry", "Mathematics", "Computer Science"].map((subject, i) => (
+              <li
+                key={subject}
+                className={
+                  "flex flex-col gap-2 border-[var(--color-border)] p-5" +
+                  (i % 2 === 0 ? " border-r-2" : "") +
+                  (i < 2 ? " border-b-2 sm:border-b-0" : "") +
+                  (i === 1 ? " sm:border-r-2" : "")
+                }
+              >
+                <span className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
+                  0{i + 1}
+                </span>
+                <span className="font-mono text-base font-medium">{subject}</span>
+              </li>
+            ))}
           </ul>
-          <p className="mt-4 font-mono text-[10px] tracking-[0.2em] text-[var(--color-muted)] uppercase">
-            Physics · Chemistry · Mathematics · Computer Science &middot; APs sat May 2026 &middot;
-            scores kept private
-          </p>
         </div>
       </section>
 

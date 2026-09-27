@@ -1,33 +1,24 @@
 import Link from "next/link";
 
-import { getNextMilestone } from "@/config/milestones";
 import { NOW_ASOF, NOW_ITEMS } from "@/config/now";
-import { LiveCountdown } from "@/components/shell/live-countdown";
 
 /**
  * <NowBar /> — momentum strip below the home masthead.
  *
- * Surfaces Ali's school year, the next public academic milestone, and
- * the NOW_ITEMS list (src/config/now.ts) of what he's building. Earlier:
- * v0 surfaced two facts: Ali's school year + the next public academic
- * milestone (always an AP exam in 2026). When all four exams are in
- * the past, the right-hand chip flips to "✓ APs done" automatically —
- * `getNextMilestone()` returns null at that point.
+ * Surfaces Ali's school year and the NOW_ITEMS list (src/config/now.ts)
+ * of what he's building. The earlier "Next AP" countdown chip was
+ * retired on 2026-09-27: AP exams are no longer published on the site.
  *
- * v1 will add a "Last commit <relative time>" chip fed by a cached
- * /api/github route. Skipped for now to keep the bar zero-network on
- * first render — the live countdown already ticks purely client-side
- * from new Date(), so this entire component works offline.
+ * A "Last commit <relative time>" chip fed by a cached /api/github route
+ * was considered and skipped to keep the bar zero-network, so the whole
+ * component works offline.
  *
- * Server component — composes a client <LiveCountdown /> for the
- * timer piece. No client-side state of its own.
+ * Server component with no client-side state.
  */
 
 const SCHOOL_YEAR_LABEL = "Class XII · final year";
 
 export function NowBar() {
-  const next = getNextMilestone();
-
   return (
     <aside
       aria-label="Current status"
@@ -44,36 +35,6 @@ export function NowBar() {
 
       <div className="col-span-12 flex flex-wrap items-baseline gap-x-6 gap-y-2 md:col-span-10">
         <span className="font-mono text-sm font-medium">{SCHOOL_YEAR_LABEL}</span>
-
-        <span aria-hidden className="font-mono text-xs text-[var(--color-muted)]">
-          ·
-        </span>
-
-        {next ? (
-          <span className="flex flex-wrap items-baseline gap-2">
-            <span className="font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase">
-              Next AP
-            </span>
-            <span className="font-mono text-sm font-medium">{next.label}</span>
-            <span aria-hidden className="font-mono text-xs text-[var(--color-muted)]">
-              in
-            </span>
-            <LiveCountdown
-              iso={next.at}
-              seconds={false}
-              className="font-mono text-sm font-medium text-[var(--color-primary)]"
-            />
-          </span>
-        ) : (
-          <span className="flex items-baseline gap-2">
-            <span className="font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase">
-              APs
-            </span>
-            <span className="font-mono text-sm font-medium text-[var(--color-primary)]">
-              ✓ all four sat
-            </span>
-          </span>
-        )}
 
         {NOW_ITEMS.map((item) => (
           <span key={item.href} className="flex flex-wrap items-baseline gap-x-6 gap-y-2">

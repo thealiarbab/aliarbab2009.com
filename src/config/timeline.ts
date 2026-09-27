@@ -68,7 +68,7 @@ export const TIMELINE: readonly TimelineEntry[] = [
   {
     date: "2026-04",
     title: "2nd nationally at the Masters' Union AI Buildathon",
-    note: "Built StockSaathi end to end in a 36-hour national buildathon; a teammate pitched it to the panel. It placed second — and instead of stopping there, it went live and kept growing.",
+    note: "The organisers set the problem on the day, so StockSaathi was built from scratch in a 36-hour national buildathon while a teammate pitched it. It placed second — and instead of stopping there, it went live and kept growing.",
     kind: "milestone",
   },
   {
@@ -88,6 +88,12 @@ export const TIMELINE: readonly TimelineEntry[] = [
     title: "Put my own server on the internet",
     note: "Set up LameCRAFT: a home machine serving my sites through a Cloudflare tunnel, a Python control panel to run it, and the Command Nexus design system that later became MagLock's look.",
     kind: "build",
+  },
+  {
+    date: "2025-12",
+    title: "1st place, Inter-House Math Quiz",
+    note: "Took first place in the inter-house mathematics quiz, December 2025.",
+    kind: "milestone",
   },
   {
     date: "2025-12",

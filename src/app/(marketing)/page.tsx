@@ -56,7 +56,7 @@ export default function HomePage() {
       </header>
 
       {/* ============================================================
-          NOW BAR — momentum strip (school year + next AP countdown)
+          NOW BAR — momentum strip (school year + what's being built)
           ============================================================ */}
       <NowBar />
 

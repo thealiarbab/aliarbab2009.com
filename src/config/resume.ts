@@ -5,7 +5,6 @@
  * Composition: this file holds the bits NOT already living in other
  * configs. The full resume is assembled by <ResumeEmbed> from:
  *   - siteConfig                  (name, contact, github)
- *   - src/config/milestones.ts    (AP exams)
  *   - src/config/projects.ts      (three projects + stacks)
  *   - src/config/activities.ts    (activities & leadership)
  *   - src/config/awards.ts        (awards & recognition — if any)
@@ -29,9 +28,9 @@ export type ResumeContent = {
   /** 2-sentence elevator pitch shown above the resume body. */
   summary: string;
   /**
-   * Free-form coursework / accolades that supplement the APs already
-   * surfaced from milestones.ts. Keep generic — no entry whose
-   * wording identifies the institution Ali attended.
+   * Free-form coursework / accolades. Keep generic — no entry whose
+   * wording identifies the institution Ali attended. AP exams are not
+   * listed anywhere on the site, by Ali's choice.
    */
   coursework: readonly string[];
   /** Skill groups, rendered as pill-rows. */
@@ -51,7 +50,6 @@ export const RESUME: ResumeContent = {
     "Class XII student who builds and runs production software. Founder of StockSaathi, a live paper-trading coach for Indian teens that placed 2nd nationally at the Masters' Union AI Buildathon and has grown to 170 accounts by word of mouth — plus SpendInCheck, BolHisaab and MagLock Protocol.",
   coursework: [
     "Class XII (CBSE): Physics · Chemistry · Mathematics · Computer Science",
-    "AP: Calculus BC · Physics C: Mechanics · English Language · Computer Science A — sat May 2026",
     "Self-directed: behavioural finance, Postgres security (RLS and grants), embedded power design, evaluating LLMs from production logs",
   ],
   skillGroups: [

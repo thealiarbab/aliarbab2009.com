@@ -34,6 +34,13 @@ export const AWARDS: readonly Award[] = [
     org: "Masters' Union",
     year: 2026,
     blurb:
-      "StockSaathi, built end to end in a 36-hour national buildathon; a teammate pitched it to the panel.",
+      "The brief was set on the day, so StockSaathi was built from scratch in 36 hours; a teammate pitched it to the panel.",
+  },
+  {
+    id: "inter-house-math-quiz-2025",
+    title: "Inter-House Math Quiz — 1st place",
+    org: "Inter-house competition",
+    year: 2025,
+    blurb: "Won the inter-house mathematics quiz in December 2025.",
   },
 ];

@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { ACTIVITIES } from "@/config/activities";
 import { AWARDS } from "@/config/awards";
-import { MILESTONES } from "@/config/milestones";
 import { PROJECTS } from "@/config/projects";
 import { RESUME } from "@/config/resume";
 import { siteConfig } from "@/config/site";
@@ -27,7 +26,6 @@ import { formatDateRange } from "@/lib/format-date-range";
  */
 
 export function ResumeEmbed() {
-  const apMilestones = MILESTONES;
   const projects = PROJECTS;
   const activities = [...ACTIVITIES].sort((a, b) => b.from.localeCompare(a.from));
   const awards = [...AWARDS].sort((a, b) => b.year - a.year);
@@ -135,34 +133,6 @@ export function ResumeEmbed() {
           Education
         </h2>
         <p className="text-base font-medium">Class XII (CBSE) — final year</p>
-        <p className="mt-1 text-sm leading-relaxed text-[var(--color-muted)]">
-          AP exams sat May 2026:
-        </p>
-        <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {apMilestones.map((m) => (
-            <li
-              key={m.id}
-              className="flex items-baseline justify-between gap-3 border-l-2 border-[var(--color-border)] pl-3"
-            >
-              <span className="text-sm font-medium">{m.label}</span>
-              <span className="flex items-baseline gap-2">
-                <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--color-muted)] uppercase">
-                  {new Date(m.at).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                    timeZone: "UTC",
-                  })}
-                </span>
-                {m.score ? (
-                  <span className="resume-pill border border-[var(--color-primary)] px-1.5 py-0.5 font-mono text-[10px] tracking-wide text-[var(--color-primary)]">
-                    Score {m.score}
-                  </span>
-                ) : null}
-              </span>
-            </li>
-          ))}
-        </ul>
         <ul className="mt-4 flex flex-col gap-2 text-sm leading-relaxed text-[var(--color-fg)]">
           {RESUME.coursework.map((line, i) => (
             <li key={i} className="flex gap-3">
