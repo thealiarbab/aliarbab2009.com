@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 /* ---------------------------------------------------------------------------
  * StockSaathiTimeTravel — interactive crash-replay chart.
  *
- * The user picks one of four pre-canned Indian-market crashes and a "panic
+ * The user picks one of four real Indian-market crashes and a "panic
  * day". Two lines render over a 30-day window:
  *   1. Held — applies the scenario's daily returns end-to-end.
  *   2. Panic-sold — applies returns up to panicDay, then locks in cash
@@ -35,49 +35,56 @@ const SESSIONS = 30;
 const STARTING_PORTFOLIO = 100_000; // ₹1,00,000
 
 /**
- * Eyeballed but plausible daily-return shapes for four real Indian-market
- * crashes. Each array is exactly SESSIONS long. The held line at the end
- * = 100_000 × Π(returns). The shapes below produce roughly:
- *   covid:  -34% trough day ~17, recovery to ~+4% by day 30
- *   adani:  -18% trough day ~10, partial recovery to ~-6% by day 30
- *   demon:  -10% trough day ~6,  flat-ish recovery to ~-3% by day 30
- *   gfc:    -38% trough day ~22, still -28% by day 30 (no recovery yet)
+ * Real daily moves for four Indian-market crashes: each array is the first 30
+ * trading sessions from the window start, as close[i] / close[i-1] from Yahoo
+ * Finance daily closes (day 1 = 1.0). The held line at the end therefore equals
+ * the real move over the window (fetched 2026-10-01):
+ *   covid:  Nifty 50 low -31.6% on day 15, -16.8% on day 30
+ *   adani:  Adani Enterprises low -65.3% on day 24, -40.7% on day 30
+ *   demon:  Nifty 50 low -7.2% on day 9, -5.4% on day 30
+ *   gfc:    Sensex low -37.1% on day 29, -33.2% on day 30
+ * An earlier version used hand-drawn shapes here while the labels named real
+ * windows; never go back to invented series.
  */
 const SCENARIOS: Scenario[] = [
   {
     id: "covid",
     label: "COVID March 2020",
-    blurb: "Nifty 50 · Mar 2 – Apr 13, 2020",
+    blurb: "Nifty 50 · Mar 2 – Apr 17, 2020",
     returns: [
-      1.0, 0.985, 0.96, 0.92, 0.93, 0.96, 0.94, 0.91, 0.93, 0.92, 0.94, 0.97, 0.98, 0.96, 0.94,
-      0.93, 0.95, 0.98, 1.02, 1.04, 1.05, 1.06, 1.07, 1.04, 1.05, 1.06, 1.05, 1.06, 1.07, 1.06,
+      1.0, 1.0153, 0.9954, 1.0016, 0.9752, 0.951, 1.0007, 0.917, 1.0381, 0.9239, 0.975, 0.9444,
+      0.9758, 1.0583, 0.8702, 1.0251, 1.0662, 1.0389, 1.0022, 0.9562, 1.0382, 0.96, 0.9794, 1.0876,
+      0.9951, 1.0415, 0.987, 0.9924, 1.0076, 1.0305,
     ],
   },
   {
     id: "adani",
     label: "Adani-Hindenburg 2023",
-    blurb: "Adani Enterprises · Jan 24 – Mar 6, 2023",
+    blurb: "Adani Enterprises · Jan 24 – Mar 8, 2023",
     returns: [
-      1.0, 0.98, 0.95, 0.93, 0.94, 0.96, 0.95, 0.94, 0.96, 0.92, 0.95, 0.97, 0.98, 0.99, 1.0, 0.99,
-      1.01, 1.02, 1.0, 0.99, 1.01, 1.02, 1.03, 1.01, 1.02, 1.03, 1.02, 1.03, 1.04, 1.03,
+      1.0, 0.9846, 0.8148, 1.0476, 1.028, 0.718, 0.733, 1.0138, 0.9911, 1.1464, 1.2004, 0.8898,
+      0.9591, 0.93, 1.0187, 1.0168, 1.0098, 0.9589, 0.9412, 0.9689, 0.8942, 0.9842, 0.9515, 0.9072,
+      1.1427, 1.147, 1.0275, 1.1694, 1.055, 1.0286,
     ],
   },
   {
     id: "demon",
     label: "Demonetisation 2016",
-    blurb: "Nifty 50 · Nov 8 – Dec 21, 2016",
+    blurb: "Nifty 50 · Nov 8 – Dec 20, 2016",
     returns: [
-      1.0, 0.985, 0.97, 0.96, 0.97, 0.96, 0.98, 0.99, 1.0, 1.01, 1.0, 0.99, 1.0, 1.01, 1.02, 1.01,
-      1.02, 1.01, 1.0, 1.01, 1.02, 1.01, 1.0, 1.01, 1.02, 1.0, 1.01, 1.02, 1.01, 1.02,
+      1.0, 0.9869, 1.0111, 0.9731, 0.9774, 1.0004, 0.9961, 0.9993, 0.982, 1.0092, 1.0039, 0.9916,
+      1.0187, 1.0016, 1.0019, 1.0101, 0.9962, 0.987, 1.0052, 1.0018, 0.995, 1.0179, 1.0018, 0.989,
+      1.0062, 0.9952, 0.9965, 0.9983, 0.9957, 0.9973,
     ],
   },
   {
     id: "gfc",
     label: "GFC 2008",
-    blurb: "Sensex · Sep 15 – Oct 27, 2008",
+    blurb: "Sensex · Sep 15 – Oct 29, 2008",
     returns: [
-      1.0, 0.96, 0.95, 0.93, 0.94, 0.92, 0.94, 0.93, 0.95, 0.94, 0.96, 0.95, 0.97, 0.96, 0.95, 0.94,
-      0.93, 0.94, 0.95, 0.93, 0.94, 0.92, 0.95, 0.97, 0.98, 1.0, 1.01, 1.0, 1.01, 1.02,
+      1.0, 0.9991, 0.9811, 1.004, 1.0546, 0.9966, 0.9697, 1.009, 0.9894, 0.9672, 0.9613, 1.021,
+      1.0152, 0.9595, 0.9422, 0.991, 0.9686, 0.9293, 1.0742, 1.0154, 0.9413, 0.9789, 0.9427, 1.0248,
+      1.045, 0.9519, 0.9608, 0.8904, 0.978, 1.0629,
     ],
   },
 ];

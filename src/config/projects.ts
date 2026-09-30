@@ -59,7 +59,7 @@ export const PROJECTS: readonly Project[] = [
     tagline:
       "An AI-coached paper-trading simulator that teaches Indian teenagers how markets — and their own reactions to them — actually work",
     description:
-      "A virtual ₹1,00,000 portfolio priced off real NSE and BSE quotes: 4,313 equities, 351 ETFs and 14,155 mutual funds. Nine behavioural-bias detectors run on every trade, and an AI coach explains what just happened in the user's own numbers without ever giving a tip. Crash Replay re-runs nine real Indian market crises day by day. Placed 2nd nationally at the Masters' Union AI Buildathon; 170 accounts since, all by word of mouth.",
+      "A virtual ₹1,00,000 portfolio priced off real NSE and BSE quotes: 4,324 equities, 351 ETFs and 14,165 mutual funds (as of 1 Oct 2026). Nine behavioural-bias detectors run on every trade, and an AI coach explains what just happened in the user's own numbers without ever giving a tip. Crash Replay re-runs real Indian market crashes day by day: three hand-built from real Nifty 50 closes, ten featured, and a generator for any other event. Placed 2nd nationally at the Masters' Union AI Buildathon; 170 accounts since, all by word of mouth.",
     theme: "stocksaathi",
     status: "live",
     statusLabel: "Live in production",

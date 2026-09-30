@@ -104,7 +104,7 @@ export default async function Image() {
           fontFamily: "JetBrains Mono",
         }}
       >
-        <span>4,664 instruments · 170 accounts · virtual money</span>
+        <span>4,675 instruments · 170 accounts · virtual money</span>
         <span>stocksaathi.co.in</span>
       </div>
     </div>,

@@ -16,7 +16,7 @@ const project = getProjectBySlug("stocksaathi")!;
 export const metadata: Metadata = buildMetadata({
   title: "StockSaathi — AI-coached paper trading for teens",
   description:
-    "A paper-trading simulator for Indian teens: real NSE/BSE prices, nine bias detectors, an AI coach that never tips, and nine replayable crashes. 2nd nationally at an AI buildathon.",
+    "A paper-trading simulator for Indian teens: real NSE/BSE prices, nine bias detectors, an AI coach that never tips, and crash replays built from real closes. 2nd nationally at an AI buildathon.",
   path: "/projects/stocksaathi",
   ogImageAlt: "StockSaathi — AI-coached investment simulator for Indian teens",
   ogType: "article",
@@ -119,7 +119,7 @@ export default function StockSaathiPage() {
                 <span aria-hidden className="text-[var(--color-border)]">
                   ·
                 </span>
-                <span>4,664 instruments · 14,155 funds</span>
+                <span>4,675 instruments · 14,165 funds</span>
                 <span data-ss-saffron-badge>India</span>
               </div>
             </li>
@@ -390,10 +390,12 @@ IF NOT FOUND THEN RAISE EXCEPTION 'insufficient_cash'; END IF;`}
           </h2>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             Pick (or invent) a market crisis; watch a ₹1,00,000 portfolio split into a held line and
-            a panic-sold-on-day-3 line over real historical closes. Nine real Indian market events
-            are ready to replay — from Harshad Mehta in 1992 and the dot-com crash to Satyam, the
-            2008 crisis, DHFL, YES Bank, COVID, the Paytm listing and Adani-Hindenburg — with
-            educator-tone narration. Anything else routes through the custom-crash generator, a{" "}
+            a panic-sold-on-day-3 line over real historical closes. Three hand-built replays (the
+            COVID-19 crash, the 2008 crisis and demonetisation) use a real Nifty 50 close for every
+            step, and ten featured replays are ready to run — Harshad Mehta in 1992, the dot-com
+            crash, the 2008 crisis, Satyam, IL&amp;FS, DHFL, YES Bank, COVID, the Paytm listing and
+            Adani-Hindenburg — with educator-tone narration. Anything else routes through the
+            custom-crash generator, a{" "}
             <strong className="font-medium">three-phase grounded pipeline</strong>:
           </p>
           <ol className="ml-6 max-w-prose list-decimal space-y-3 text-base leading-relaxed text-[var(--color-fg)]">
@@ -553,7 +555,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
             className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            4,313 equities, 351 ETFs and 14,155 mutual funds, rebuilt every morning.{" "}
+            4,324 equities, 351 ETFs and 14,165 mutual funds, rebuilt every morning.{" "}
             <span data-ss-saffron-badge className="ml-2 align-middle">
               AMFI India
             </span>
@@ -619,7 +621,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
               ],
               [
                 "Chunked render with RAF yield",
-                "The MF browser paints 14,000-plus cards in 200-card chunks with requestAnimationFrame yields between batches; 'Tab not responding' never fires. Two cooperating IntersectionObservers (200% rootMargin to hydrate, 600% to dehydrate back to skeleton) keep the DOM bounded.",
+                "The MF browser paints thousands of fund cards in 200-card chunks with requestAnimationFrame yields between batches; 'Tab not responding' never fires. Two cooperating IntersectionObservers (200% rootMargin to hydrate, 600% to dehydrate back to skeleton) keep the DOM bounded.",
               ],
               [
                 "Orders fill without the app open",
@@ -782,11 +784,11 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
         <div className="col-span-12 md:col-span-10">
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {[
-              ["4,664", "NSE + BSE instruments"],
-              ["14,155", "AMFI mutual funds"],
+              ["4,675", "NSE + BSE instruments"],
+              ["14,165", "AMFI mutual funds"],
               ["9", "deterministic bias detectors"],
               ["8", "coach tools"],
-              ["9", "replayable market crises"],
+              ["13", "crash replays (3 hand-built, 10 featured)"],
               ["3", "SEBI guardrail layers"],
               ["~1.4s", "coach first word (was ~6.6s)"],
               ["24", "red-team probes, 0 breaches"],
