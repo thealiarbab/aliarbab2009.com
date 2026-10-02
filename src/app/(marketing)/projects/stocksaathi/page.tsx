@@ -119,7 +119,7 @@ export default function StockSaathiPage() {
                 <span aria-hidden className="text-[var(--color-border)]">
                   ·
                 </span>
-                <span>4,675 instruments · 14,165 funds</span>
+                <span>4,675 instruments · 8,800+ active funds</span>
                 <span data-ss-saffron-badge>India</span>
               </div>
             </li>
@@ -555,7 +555,8 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
             className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            4,324 equities, 351 ETFs and 14,165 mutual funds, rebuilt every morning.{" "}
+            4,324 equities, 351 ETFs and 14,165 AMFI mutual fund schemes (about 8,800 still active),
+            rebuilt every morning.{" "}
             <span data-ss-saffron-badge className="ml-2 align-middle">
               AMFI India
             </span>
@@ -785,7 +786,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {[
               ["4,675", "NSE + BSE instruments"],
-              ["14,165", "AMFI mutual funds"],
+              ["8,800+", "active AMFI mutual funds"],
               ["9", "deterministic bias detectors"],
               ["8", "coach tools"],
               ["13", "crash replays (3 hand-built, 10 featured)"],

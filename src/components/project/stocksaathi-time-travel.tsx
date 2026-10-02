@@ -215,8 +215,13 @@ export default function StockSaathiTimeTravel({ className }: Props) {
   // should feel like live scrubbing, not a restart of the whole chart.
   const drawKey = scenario.id;
 
+  // Neutral sign: in all four 30-session windows selling is still ahead (the
+  // windows end before the recoveries), so this must not read as "cost of panic".
   const heldVsPanicDelta = heldEndValue - panicEndValue;
-  const deltaPct = ((heldEndValue - panicEndValue) / panicEndValue) * 100;
+  const holdingAhead = heldVsPanicDelta >= 0;
+  const deltaPct = holdingAhead
+    ? (heldEndValue / panicEndValue - 1) * 100
+    : (panicEndValue / heldEndValue - 1) * 100;
 
   // panicDay slider's x-coordinate on the chart, used to draw the
   // dashed vertical "PANIC · D+N" marker.
@@ -474,17 +479,19 @@ export default function StockSaathiTimeTravel({ className }: Props) {
         </div>
         <div className="col-span-2 flex flex-col gap-0.5 sm:col-span-1">
           <p className="text-[10px] font-semibold tracking-[0.18em] text-[var(--color-muted)] uppercase">
-            Cost of panic
+            Holding vs selling
           </p>
           <p
             key={`delta-${formatINR(heldVsPanicDelta)}`}
             data-tt-readout
             className="font-mono text-lg font-bold text-[var(--color-fg)] tabular-nums"
           >
-            {formatINR(heldVsPanicDelta)}
+            {formatINR(Math.abs(heldVsPanicDelta))}
           </p>
           <p className="font-mono text-[11px] text-[var(--color-muted)] tabular-nums">
-            {formatPct(deltaPct)} more by holding
+            {holdingAhead
+              ? `Holding ahead by ${deltaPct.toFixed(1)}%`
+              : `Selling ahead by ${deltaPct.toFixed(1)}% so far`}
           </p>
         </div>
       </div>
