@@ -10,13 +10,13 @@ import { buildMetadata } from "@/lib/seo";
 import { numberWord, slabTileBorders } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
-  title: `${siteConfig.name} — Builds fintech, voice, and hardware systems`,
+  title: `${siteConfig.name} — ${siteConfig.shortDescription}`,
   description:
-    "Ali Arbab is a Class XII student who builds software and hardware. StockSaathi is live and placed 2nd nationally at an AI buildathon; SpendInCheck, BolHisaab and MagLock are next.",
+    "Ali Arbab founded and built StockSaathi, a free stock market simulator for students in India. He builds fintech, voice and hardware projects.",
   path: "/",
   // No opengraph-image.tsx in this segment — share the root one.
   ogImage: "/opengraph-image",
-  ogImageAlt: "Ali Arbab — project worlds",
+  ogImageAlt: "Ali Arbab, founder of StockSaathi — project worlds",
   isHome: true,
 });
 

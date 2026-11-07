@@ -12,7 +12,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
-    "Class XII student who builds fintech, voice and hardware projects. The long version: the projects, the journey behind them, recognition, and why I built each one.",
+    "Ali Arbab is the founder and developer of StockSaathi and a Class XII student. The long version: his projects, the journey and why he built each one.",
   path: "/about",
   ogImageAlt: "About Ali Arbab — long-version bio",
 });
@@ -73,6 +73,15 @@ export default function AboutPage() {
             Hi &mdash; I&apos;m Ali.
           </h1>
           <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-[var(--color-fg)]">
+            <p className="font-medium">
+              Founder and developer of{" "}
+              <a
+                href="https://stocksaathi.co.in/about"
+                className="underline underline-offset-4 hover:text-[var(--color-primary)]"
+              >
+                StockSaathi
+              </a>
+            </p>
             <p>
               I&apos;m in my final year of school, I&apos;ve been taking things apart since I was
               three, and I have real trouble stopping once I start building something. Most days

@@ -57,9 +57,9 @@ export const PROJECTS: readonly Project[] = [
     slug: "stocksaathi",
     name: "StockSaathi",
     tagline:
-      "An AI-coached paper-trading simulator that teaches Indian teenagers how markets — and their own reactions to them — actually work",
+      "A free stock market simulator that teaches students in India how markets — and their own reactions to them — actually work",
     description:
-      "A virtual ₹1,00,000 portfolio priced off real NSE and BSE quotes: 4,324 equities, 351 ETFs and 8,800+ active mutual funds (as of 1 Oct 2026). Nine behavioural-bias detectors run on every trade, and an AI coach explains what just happened in the user's own numbers without ever giving a tip. Crash Replay re-runs real Indian market crashes day by day: three hand-built from real Nifty 50 closes, ten featured, and a generator for any other event. Placed 2nd nationally at the Masters' Union AI Buildathon; 170 accounts since, all by word of mouth.",
+      "A virtual ₹1,00,000 portfolio priced off real NSE and BSE prices, which can be delayed: 4,000+ stocks, 300+ ETFs and 8,000+ active mutual funds. Nine behavioural-bias detectors run on every trade, and an AI coach explains what just happened in the user's own numbers without ever giving a tip. Crash Replay re-runs real Indian market crashes day by day: three hand-built from real Nifty 50 closes, ten featured, and a generator for any other event. Placed 2nd nationally at the Masters' Union AI Buildathon; grown since by word of mouth.",
     theme: "stocksaathi",
     status: "live",
     statusLabel: "Live in production",
@@ -68,12 +68,12 @@ export const PROJECTS: readonly Project[] = [
     primaryColor: "#00B386",
     year: 2026,
     startedISO: "2026-04-17",
-    lastUpdatedISO: "2026-09-26",
+    lastUpdatedISO: "2026-11-07",
     stack: [
       "Vanilla ES modules, no build step",
       "Python on Vercel (one ASGI entrypoint)",
       "Supabase Postgres + RLS + RPCs",
-      "Gemini 3 Flash / 3.1 Pro on Vertex AI",
+      "LLMs on Vertex AI, with fallbacks",
       "GitHub Actions data + order jobs",
       "Yahoo + Tickertape + AMFI feeds",
       "Service Worker PWA",
@@ -95,7 +95,7 @@ export const PROJECTS: readonly Project[] = [
     primaryColor: "#E0A836",
     year: 2026,
     startedISO: "2026-09-08",
-    lastUpdatedISO: "2026-09-26",
+    lastUpdatedISO: "2026-11-07",
     stack: [
       "React 19 + TypeScript + Vite",
       "TanStack Query + React Router",
@@ -120,7 +120,7 @@ export const PROJECTS: readonly Project[] = [
     primaryColor: "#4F46E5",
     year: 2026,
     startedISO: "2026-04-17",
-    lastUpdatedISO: "2026-09-26",
+    lastUpdatedISO: "2026-11-07",
     stack: [
       "Next.js 16 + React 19",
       "TypeScript strict",
@@ -148,7 +148,7 @@ export const PROJECTS: readonly Project[] = [
     primaryColor: "#00FF9D",
     year: 2026,
     startedISO: "2026-04-14",
-    lastUpdatedISO: "2026-09-26",
+    lastUpdatedISO: "2026-11-07",
     stack: [
       "ESP32 (Arduino, ArduinoJson)",
       "ESP32-CAM (hardware JPEG, MJPEG)",
@@ -174,7 +174,7 @@ export const PROJECTS: readonly Project[] = [
     primaryColor: "#FFB000",
     year: 2026,
     startedISO: "2026-04-28",
-    lastUpdatedISO: "2026-09-26",
+    lastUpdatedISO: "2026-11-07",
     stack: [
       "Python 3.12 + uv",
       "Polars (as_of_join only)",
@@ -200,7 +200,7 @@ export const PROJECTS: readonly Project[] = [
     primaryColor: "#00FF9D",
     year: 2026,
     startedISO: "2026-02-18",
-    lastUpdatedISO: "2026-09-26",
+    lastUpdatedISO: "2026-11-07",
     stack: [
       "FastAPI + uvicorn",
       "Cloudflare Tunnel",

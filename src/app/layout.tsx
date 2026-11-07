@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ThemeScript } from "@/components/shell/theme-script";
 import { siteConfig } from "@/config/site";
-import { personJsonLd } from "@/lib/json-ld";
+import { personJsonLd, stocksaathiOrgJsonLd, websiteJsonLd } from "@/lib/json-ld";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
@@ -178,6 +178,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <ThemeScript nonce={nonce} />
         <JsonLd data={personJsonLd()} />
+        <JsonLd data={websiteJsonLd()} />
+        <JsonLd data={stocksaathiOrgJsonLd()} />
       </head>
       <body className="min-h-dvh antialiased">
         <a

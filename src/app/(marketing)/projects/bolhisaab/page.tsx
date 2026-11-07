@@ -14,7 +14,7 @@ const project = getProjectBySlug("bolhisaab")!;
 export const metadata: Metadata = buildMetadata({
   title: "BolHisaab — Voice-first Hindi ledger",
   description:
-    "BolHisaab is a voice-first Hindi and Hinglish ledger for shopkeepers: speak a transaction and the entry writes itself. Web prototype complete; Kotlin rewrite underway.",
+    "A voice-first Hindi and Hinglish ledger for shopkeepers: speak a transaction and the entry writes itself. Web prototype complete; Kotlin rewrite underway.",
   path: "/projects/bolhisaab",
   ogImageAlt: "BolHisaab — voice-first Hindi ledger for shopkeepers",
   ogType: "article",

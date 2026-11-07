@@ -47,7 +47,7 @@ export type ResumeContent = {
 
 export const RESUME: ResumeContent = {
   summary:
-    "Class XII student who builds and runs production software. Founder of StockSaathi, a live paper-trading coach for Indian teens that placed 2nd nationally at the Masters' Union AI Buildathon and has grown to 170 accounts by word of mouth — plus SpendInCheck, BolHisaab, MagLock Protocol, Sovereign Alpha and LameCRAFT.",
+    "Class XII student who builds and runs production software. Founder and developer of StockSaathi, a free stock market simulator for students in India that placed 2nd nationally at the Masters' Union AI Buildathon and has grown by word of mouth — plus SpendInCheck, BolHisaab, MagLock Protocol, Sovereign Alpha and LameCRAFT.",
   coursework: [
     "Class XII (CBSE): Physics · Chemistry · Mathematics · Computer Science",
     "Self-directed: behavioural finance, Postgres security (RLS and grants), embedded power design, evaluating LLMs from production logs",
@@ -92,7 +92,7 @@ export const RESUME: ResumeContent = {
     {
       label: "AI",
       items: [
-        "Gemini on Vertex AI",
+        "LLMs on Vertex AI",
         "Groq (Llama 3.x, Whisper)",
         "Sarvam speech (STT + TTS)",
         "Tool-calling agents",

@@ -11,7 +11,7 @@ const project = getProjectBySlug("lamecraft")!;
 export const metadata: Metadata = buildMetadata({
   title: "LameCRAFT — home server + Command Nexus design system",
   description:
-    "A self-hosted home server behind a Cloudflare tunnel, the Python control panel that runs it, and Command Nexus — the JSON-specified design system MagLock is built from.",
+    "A self-hosted home server behind a Cloudflare tunnel, its Python control panel, and Command Nexus, the JSON-specified design system MagLock is built from.",
   path: "/projects/lamecraft",
   ogImageAlt: "LameCRAFT — self-hosted server and the Command Nexus design system",
   ogType: "article",

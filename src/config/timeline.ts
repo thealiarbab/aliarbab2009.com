@@ -31,8 +31,8 @@ export type TimelineEntry = {
 export const TIMELINE: readonly TimelineEntry[] = [
   {
     date: "2026-09",
-    title: "StockSaathi passes 170 accounts",
-    note: "No ads and no marketing — 52 sign-ups in August and 84 more in September, almost all by word of mouth. 100 people have traded, set a limit order or talked to the coach; 79 were active in the last 30 days.",
+    title: "StockSaathi keeps growing by word of mouth",
+    note: "No paid marketing: growth through August and September came almost entirely from people telling other people.",
     kind: "milestone",
   },
   {

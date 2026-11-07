@@ -11,7 +11,7 @@ const project = getProjectBySlug("spendincheck")!;
 export const metadata: Metadata = buildMetadata({
   title: "SpendInCheck — on budget, not just spent",
   description:
-    "A personal finance tracker that answers 'am I over or under?'. Started as a Class XII CS practical in Python and SQL, rebuilt in React on a Flask and Postgres API.",
+    "A personal finance tracker that answers 'am I over or under?'. Started as a Class XII CS practical in Python and SQL, rebuilt in React with Flask and SQL.",
   path: "/projects/spendincheck",
   ogImageAlt: "SpendInCheck — a personal finance tracker that tells you whether you're on budget",
   ogType: "article",

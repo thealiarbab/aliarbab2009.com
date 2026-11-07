@@ -90,12 +90,12 @@ export function ResumeEmbed() {
 
       {/* HEADER */}
       <header className="mb-8 border-b-2 border-[var(--color-border)] pb-6">
-        <h1
-          className="text-[clamp(2rem,5vw,3.25rem)] leading-[0.95] font-medium tracking-[-0.02em]"
+        <h2
+          className="resume-name text-[clamp(2rem,5vw,3.25rem)] leading-[0.95] font-medium tracking-[-0.02em]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {siteConfig.author}
-        </h1>
+        </h2>
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--color-fg)]">
           {RESUME.summary}
         </p>

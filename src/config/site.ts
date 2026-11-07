@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Ali Arbab",
-  shortDescription: "Class XII · builds fintech, voice, and hardware systems",
+  shortDescription: "Founder of StockSaathi · Fintech, voice & hardware",
   longDescription:
-    "Personal portfolio of Ali Arbab: StockSaathi, a paper-trading coach for Indian teens that placed 2nd nationally at an AI buildathon, plus SpendInCheck, BolHisaab, MagLock Protocol, Sovereign Alpha and LameCRAFT.",
+    "Ali Arbab is the founder and developer of StockSaathi, a free stock market simulator for students in India. Also SpendInCheck, BolHisaab, MagLock Protocol, Sovereign Alpha and LameCRAFT.",
   url: "https://aliarbab2009.com",
   ogImage: "https://aliarbab2009.com/opengraph-image",
   author: "Ali Arbab",
@@ -10,6 +10,7 @@ export const siteConfig = {
   github: "https://github.com/thealiarbab",
   githubHandle: "thealiarbab",
   x: "https://x.com/thealiarbab",
+  linkedin: "https://www.linkedin.com/in/thealiarbab",
   xHandle: "thealiarbab",
   instagram: "https://www.instagram.com/thealiarbab/",
   instagramHandle: "thealiarbab",
@@ -20,7 +21,7 @@ export const siteConfig = {
    * routes; honest dates beat `new Date()` (which would tell crawlers
    * "everything was edited just now" on every crawl).
    */
-  lastReviewedISO: "2026-09-27",
+  lastReviewedISO: "2026-11-07",
   /**
    * Bumped specifically when public/resume/*.pdf is replaced. Sitemap
    * reports this for /resume so search engines recrawl when the PDF

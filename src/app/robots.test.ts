@@ -18,8 +18,10 @@ describe("robots()", () => {
   const firstRule = rules[0];
   if (!firstRule) throw new Error("robots() emitted no rules — fixture invariant broken");
 
-  it("exposes a single rule (the catch-all '*')", () => {
-    expect(rules).toHaveLength(1);
+  it("has the catch-all rule first, then the named search and AI crawlers", () => {
+    expect(rules).toHaveLength(2);
+    expect(rules[1]?.userAgent).toContain("GPTBot");
+    expect(rules[1]?.allow).toBe("/");
   });
 
   it("allows '/' for the catch-all user-agent", () => {
@@ -27,11 +29,11 @@ describe("robots()", () => {
     expect(firstRule.allow).toBe("/");
   });
 
-  it("disallows non-content paths (api / dev / _next / private)", () => {
+  it("disallows non-content paths (api / dev / private) but not /_next/", () => {
     const disallow = Array.isArray(firstRule.disallow) ? firstRule.disallow : [firstRule.disallow];
     expect(disallow).toContain("/api/");
     expect(disallow).toContain("/dev/");
-    expect(disallow).toContain("/_next/");
+    expect(disallow).not.toContain("/_next/");
     expect(disallow).toContain("/private/");
   });
 
@@ -60,7 +62,7 @@ describe("robots()", () => {
     expect(r.sitemap).toBe(`${siteConfig.url}/sitemap.xml`);
   });
 
-  it("declares the canonical host", () => {
-    expect(r.host).toBe(siteConfig.url);
+  it("omits the Host line (Google ignores it)", () => {
+    expect(r.host).toBeUndefined();
   });
 });

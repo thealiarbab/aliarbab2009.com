@@ -39,7 +39,7 @@ export const WHY_I_BUILT: readonly WhyIBuiltEntry[] = [
     slug: "stocksaathi",
     problem:
       "Indian high-school curricula teach the mechanics of money — compound interest, GST, simple budgeting — and skip behavioural finance entirely. Teenagers leave school with formulas but no instinct for how their own brain will sabotage them once real rupees are involved. The market education that exists is written for adults, in English, by full-time investors. It reads like job training, not learning.",
-    why: "I'm 17. I've watched the people around me get their first taste of investing through whatever influencer's reel showed up that morning. The advice ranges from technically wrong to actively harmful. I'm one peer group away from the audience that needs this — not a finance professional translating down, but someone who started where they're starting now.",
+    why: "I built this while in Class XII. I've watched the people around me get their first taste of investing through whatever influencer's reel showed up that morning. The advice ranges from technically wrong to actively harmful. I'm one peer group away from the audience that needs this — not a finance professional translating down, but someone who started where they're starting now.",
     learned:
       "My users can't tell a real number from an invented one, so a confident wrong answer is the worst thing the coach can do. I learned that by reading over a thousand logged coach messages: it had made up an entire trading record for one user and defended it for four turns, while every automated test I'd written stayed green. Telling a model not to lie was only half the fix. Giving it the real data was the other half.",
     pullQuote:

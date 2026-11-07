@@ -1648,6 +1648,11 @@ main {
     page-break-after: avoid;
     break-after: avoid;
   }
+  /* The resume card's name is an h2 (the page has one h1) but prints at h1 size */
+  .resume-name {
+    font-size: 24pt !important;
+    line-height: 1.1 !important;
+  }
   h4,
   h5,
   h6 {

@@ -13,10 +13,10 @@ export type NowItem = {
   href: string;
 };
 
-export const NOW_ASOF = "2026-09-26";
+export const NOW_ASOF = "2026-11-07";
 
 export const NOW_ITEMS: readonly NowItem[] = [
-  { label: "Growing", text: "StockSaathi · 170 accounts", href: "/projects/stocksaathi" },
+  { label: "Growing", text: "StockSaathi", href: "/projects/stocksaathi" },
   { label: "Rewriting", text: "BolHisaab in Kotlin", href: "/projects/bolhisaab" },
   { label: "Rebuilding", text: "MagLock from scratch", href: "/projects/maglock" },
 ];

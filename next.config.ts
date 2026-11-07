@@ -12,16 +12,13 @@ import type { NextConfig } from "next";
  */
 const PERMISSIONS_POLICY = [
   "accelerometer=()",
-  "ambient-light-sensor=()",
   "autoplay=()",
-  "battery=()",
   "browsing-topics=()", // Chrome Topics API — privacy block
   "camera=()",
   "clipboard-read=()",
   "clipboard-write=(self)",
   "cross-origin-isolated=()",
   "display-capture=()",
-  "document-domain=()",
   "encrypted-media=()",
   "execution-while-not-rendered=()",
   "execution-while-out-of-viewport=()",
@@ -39,7 +36,7 @@ const PERMISSIONS_POLICY = [
   "navigation-override=()",
   "otp-credentials=()",
   "payment=()",
-  "picture-in-picture=(self https://stocksaathi.co.in https://bolhisaab.in)",
+  'picture-in-picture=(self "https://stocksaathi.co.in" "https://bolhisaab.in")',
   "publickey-credentials-create=()",
   "publickey-credentials-get=()",
   "screen-wake-lock=()",

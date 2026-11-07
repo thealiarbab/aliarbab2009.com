@@ -22,7 +22,7 @@ import { siteConfig } from "@/config/site";
 export const SEO_BASE = {
   siteName: siteConfig.name,
   metadataBase: new URL(siteConfig.url),
-  defaultTitle: `${siteConfig.name} — Builds fintech, voice, and hardware systems`,
+  defaultTitle: `${siteConfig.name} — ${siteConfig.shortDescription}`,
   defaultDescription: siteConfig.longDescription,
   twitter: {
     card: "summary_large_image" as const,
@@ -58,6 +58,8 @@ export type BuildMetadataArgs = {
   keywords?: readonly string[];
   /** True only for `/`. Skips the title suffix. */
   isHome?: boolean;
+  /** The title is already complete: skip the suffix on a non-home route. */
+  fullTitle?: boolean;
   /** Set true to emit `noindex, nofollow`. Used by `/dev/*` and 404. */
   noIndex?: boolean;
 };
@@ -74,6 +76,7 @@ export function buildMetadata(args: BuildMetadataArgs): Metadata {
     author = siteConfig.author,
     keywords,
     isHome = false,
+    fullTitle: completeTitle = false,
     noIndex = false,
   } = args;
 
@@ -81,7 +84,7 @@ export function buildMetadata(args: BuildMetadataArgs): Metadata {
     throw new Error(`buildMetadata: path must start with "/" (got: ${path})`);
   }
 
-  const fullTitle = isHome ? title : `${title} — ${SEO_BASE.siteName}`;
+  const fullTitle = isHome || completeTitle ? title : `${title} — ${SEO_BASE.siteName}`;
   const canonical = path === "/" ? "/" : path;
   const ogUrl = new URL(path, SEO_BASE.metadataBase).toString();
   const imageAlt = ogImageAlt ?? title;

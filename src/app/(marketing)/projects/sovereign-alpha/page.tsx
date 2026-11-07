@@ -11,7 +11,7 @@ const project = getProjectBySlug("sovereign-alpha")!;
 export const metadata: Metadata = buildMetadata({
   title: "Sovereign Alpha — a backtest that can't cheat",
   description:
-    "A fully local, deterministic simulation of 2015–2025 markets for testing whether an LLM reading history can find real alpha — with a temporal firewall enforced by CI.",
+    "A local, deterministic simulation of 2015–2025 markets testing whether an LLM reading history can find real alpha, with a CI-enforced temporal firewall.",
   path: "/projects/sovereign-alpha",
   ogImageAlt: "Sovereign Alpha — deterministic local market simulation",
   ogType: "article",

@@ -44,7 +44,7 @@ export const ACTIVITIES: readonly Activity[] = [
     category: "tech",
     from: "2026-04",
     blurb:
-      "Built and run a live paper-trading simulator for Indian teenagers: real NSE and BSE prices, nine behavioural-bias detectors and an AI coach that never gives tips. 170 accounts so far, all by word of mouth.",
+      "Built and run a free stock market simulator for students in India: real NSE and BSE prices, nine behavioural-bias detectors and an AI coach that never gives tips. Grown by word of mouth.",
   },
   {
     id: "spendincheck-build",

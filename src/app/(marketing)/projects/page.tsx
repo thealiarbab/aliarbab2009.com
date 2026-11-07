@@ -9,7 +9,7 @@ import { numberWord, slabTileBorders } from "@/lib/utils";
 export const metadata: Metadata = buildMetadata({
   title: "Projects",
   description:
-    "Six projects across fintech, voice, hardware, quant research and self-hosting — StockSaathi, SpendInCheck, BolHisaab, MagLock Protocol, Sovereign Alpha, LameCRAFT.",
+    "Six projects across fintech, voice, hardware, quant and self-hosting: StockSaathi, SpendInCheck, BolHisaab, MagLock, Sovereign Alpha and LameCRAFT.",
   path: "/projects",
   // No opengraph-image.tsx in this segment — share the root one.
   ogImage: "/opengraph-image",

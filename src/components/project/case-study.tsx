@@ -168,7 +168,7 @@ export function CaseStudy({ project, stats, statsAsOf, sections }: Props) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-mono text-lg font-medium underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
+                  className="font-mono text-lg font-medium [overflow-wrap:anywhere] underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
                 >
                   {project.liveUrl.replace(/^https?:\/\//, "")} ↗
                 </a>
@@ -187,7 +187,7 @@ export function CaseStudy({ project, stats, statsAsOf, sections }: Props) {
                   href={project.repoUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-mono text-lg font-medium underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
+                  className="font-mono text-lg font-medium [overflow-wrap:anywhere] underline decoration-2 underline-offset-4 hover:text-[var(--color-primary)]"
                 >
                   {project.repoUrl.replace(/^https?:\/\//, "")} ↗
                 </a>

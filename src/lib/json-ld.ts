@@ -11,39 +11,35 @@ import { getProjectBySlug, type Project } from "@/config/projects";
  *     already publishes.
  *   - `email` is always the alias `ali@aliarbab2009.com`, never the raw
  *     Gmail address that ImprovMX forwards to.
- *   - `sameAs` lists only the public GitHub, X and Instagram profiles.
+ *   - `sameAs` lists only public profiles: LinkedIn, GitHub, X, Instagram,
+ *     and the StockSaathi /about page that names him as founder.
  *
  * Per P4.02.
  */
 
-const PERSON_ID = `${siteConfig.url}#person`;
+const PERSON_ID = `${siteConfig.url}/#person`;
+const WEBSITE_ID = `${siteConfig.url}/#website`;
 const RESUME_PAGE_ID = `${siteConfig.url}/resume#page`;
 const RESUME_PDF_ID = `${siteConfig.url}/resume#pdf`;
 const MAGLOCK_PRODUCT_ID = `${siteConfig.url}/projects/maglock#product`;
 const MAGLOCK_WORK_ID = `${siteConfig.url}/projects/maglock#work`;
 
 const PERSON_DESCRIPTION =
-  "Class XII student who builds fintech, voice and hardware projects: StockSaathi, a paper-trading coach for Indian teens (2nd nationally at an AI buildathon), SpendInCheck, BolHisaab and MagLock Protocol.";
+  "Student developer from India who builds fintech, voice and hardware systems; founder of StockSaathi.";
+
+const SAME_AS = [
+  siteConfig.linkedin,
+  siteConfig.github,
+  siteConfig.x,
+  siteConfig.instagram,
+  "https://stocksaathi.co.in/about",
+];
 
 const KNOWS_ABOUT = [
-  "Artificial Intelligence",
-  "Large Language Models",
-  "Voice Interfaces",
-  "Hindi Natural Language Processing",
-  "Internet of Things",
-  "Embedded Systems",
-  "ESP32",
-  "Web Development",
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Python",
-  "Flutter",
-  "Behavioral Finance",
-  "Kotlin",
-  "PostgreSQL",
-  "Quantitative Finance",
-  "Design Systems",
+  "stock market simulation",
+  "fintech",
+  "software development",
+  "embedded systems",
 ] as const;
 
 type Json = Record<string, unknown>;
@@ -56,15 +52,44 @@ function basePerson(): Json {
     url: siteConfig.url,
     image: siteConfig.ogImage,
     email: `mailto:${siteConfig.email}`,
-    sameAs: [siteConfig.github, siteConfig.x, siteConfig.instagram],
+    jobTitle: "Founder and developer, StockSaathi",
+    sameAs: SAME_AS,
     description: PERSON_DESCRIPTION,
     knowsAbout: [...KNOWS_ABOUT],
+    founder: {
+      "@type": "Organization",
+      name: "StockSaathi",
+      url: "https://stocksaathi.co.in/",
+      sameAs: ["https://www.instagram.com/stocksaathi.co.in/", "https://x.com/stocksaathicoin"],
+    },
     hasOccupation: { "@type": "Occupation", name: "Student" },
   };
 }
 
 export function personJsonLd(): Json {
   return { "@context": "https://schema.org", ...basePerson() };
+}
+
+export function stocksaathiOrgJsonLd(): Json {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "StockSaathi",
+    url: "https://stocksaathi.co.in/",
+    sameAs: ["https://www.instagram.com/stocksaathi.co.in/", "https://x.com/stocksaathicoin"],
+    founder: { "@id": PERSON_ID },
+  };
+}
+
+export function websiteJsonLd(): Json {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": WEBSITE_ID,
+    url: `${siteConfig.url}/`,
+    name: siteConfig.name,
+    publisher: { "@id": PERSON_ID },
+  };
 }
 
 export function aboutPageJsonLd(): Json {
@@ -75,8 +100,6 @@ export function aboutPageJsonLd(): Json {
     dateModified: new Date().toISOString().slice(0, 10),
     mainEntity: {
       ...basePerson(),
-      description:
-        "Class XII student. The /about page is the long-version narrative: the journey, activities, recognition, and a why-I-built-this essay per project.",
     },
   };
 }
@@ -93,7 +116,7 @@ export function contactPageJsonLd(): Json {
       name: siteConfig.author,
       url: siteConfig.url,
       email: `mailto:${siteConfig.email}`,
-      sameAs: [siteConfig.github, siteConfig.x, siteConfig.instagram],
+      sameAs: SAME_AS,
     },
   };
 }
@@ -114,7 +137,7 @@ export function resumeJsonLd(): Json {
           name: siteConfig.author,
           url: siteConfig.url,
           email: `mailto:${siteConfig.email}`,
-          sameAs: [siteConfig.github, siteConfig.x, siteConfig.instagram],
+          sameAs: SAME_AS,
         },
         subjectOf: { "@id": RESUME_PDF_ID },
       },
@@ -149,7 +172,7 @@ function projectCanonical(slug: ProjectSlug): string {
 }
 
 function creatorRef(): Json {
-  return { "@type": "Person", name: siteConfig.author, url: siteConfig.url };
+  return { "@type": "Person", "@id": PERSON_ID, name: siteConfig.author, url: siteConfig.url };
 }
 
 function stocksaathiJsonLd(p: Project): Json {
@@ -167,6 +190,7 @@ function stocksaathiJsonLd(p: Project): Json {
     datePublished: p.startedISO,
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
     creator: creatorRef(),
+    author: creatorRef(),
     codeRepository: p.repoUrl,
     programmingLanguage: ["JavaScript", "Python"],
     mainEntityOfPage: projectCanonical("stocksaathi"),

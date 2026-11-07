@@ -5,7 +5,6 @@ import { getProjectBySlug } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { OriginBlock } from "@/components/project/origin-block";
 import { InstagramLink } from "@/components/shell/social-links";
-import { StockSaathiSignups } from "@/components/project/stocksaathi-signups";
 import StockSaathiTimeTravel from "@/components/project/stocksaathi-time-travel";
 import { JsonLd } from "@/components/seo/json-ld";
 import { projectJsonLd } from "@/lib/json-ld";
@@ -14,11 +13,12 @@ import { buildMetadata } from "@/lib/seo";
 const project = getProjectBySlug("stocksaathi")!;
 
 export const metadata: Metadata = buildMetadata({
-  title: "StockSaathi — AI-coached paper trading for teens",
+  title: "StockSaathi — Free stock market simulator for students | Ali Arbab",
+  fullTitle: true,
   description:
-    "A paper-trading simulator for Indian teens: real NSE/BSE prices, nine bias detectors, an AI coach that never tips, and crash replays built from real closes. 2nd nationally at an AI buildathon.",
+    "I founded and built StockSaathi, a free stock market simulator for students in India: virtual money, real NSE and BSE prices and an AI coach.",
   path: "/projects/stocksaathi",
-  ogImageAlt: "StockSaathi — AI-coached investment simulator for Indian teens",
+  ogImageAlt: "StockSaathi — free stock market simulator for students in India",
   ogType: "article",
   publishedTime: `${project.startedISO}T00:00:00.000Z`,
   keywords: ["StockSaathi", "AI", "Investing", "Fintech", "Behavioral finance"],
@@ -74,7 +74,26 @@ export default function StockSaathiPage() {
             className="max-w-3xl text-2xl leading-snug font-semibold text-[var(--color-fg)]"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            {project.tagline}.
+            I founded and built StockSaathi, a free stock market simulator for students in India. It
+            gives every user ₹1,00,000 in virtual money on real NSE and BSE prices, with an AI coach
+            that explains their mistakes.
+          </p>
+          <p className="flex flex-wrap gap-x-6 gap-y-2 text-base font-semibold">
+            <a
+              href="https://stocksaathi.co.in/"
+              className="text-[var(--color-primary)] underline underline-offset-4"
+            >
+              Open StockSaathi
+            </a>
+            <a
+              href="https://stocksaathi.co.in/about"
+              className="text-[var(--color-primary)] underline underline-offset-4"
+            >
+              About StockSaathi
+            </a>
+          </p>
+          <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
+            {project.tagline}. Built while in Class XII.
           </p>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             {project.description}
@@ -107,7 +126,7 @@ export default function StockSaathiPage() {
                 href={project.liveUrl!}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-baseline gap-2 font-mono text-lg font-semibold text-[var(--color-fg)] hover:text-[var(--color-primary)]"
+                className="inline-flex flex-wrap items-baseline gap-2 font-mono text-lg font-semibold [overflow-wrap:anywhere] text-[var(--color-fg)] hover:text-[var(--color-primary)]"
               >
                 stocksaathi.co.in <span aria-hidden>↗</span>
               </Link>
@@ -119,7 +138,7 @@ export default function StockSaathiPage() {
                 <span aria-hidden className="text-[var(--color-border)]">
                   ·
                 </span>
-                <span>4,675 instruments · 8,800+ active funds</span>
+                <span>4,000+ stocks · 8,000+ active funds</span>
                 <span data-ss-saffron-badge>India</span>
               </div>
             </li>
@@ -134,12 +153,12 @@ export default function StockSaathiPage() {
                 href={project.repoUrl!}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-baseline gap-2 font-mono text-lg font-semibold text-[var(--color-fg)] hover:text-[var(--color-primary)]"
+                className="inline-flex flex-wrap items-baseline gap-2 font-mono text-lg font-semibold [overflow-wrap:anywhere] text-[var(--color-fg)] hover:text-[var(--color-primary)]"
               >
                 github.com/thealiarbab/StockSaathi <span aria-hidden>↗</span>
               </Link>
               <p className="text-[12px] text-[var(--color-muted)]">
-                Vanilla ES modules · Python · Supabase · Gemini on Vertex AI
+                Vanilla ES modules · Python · Supabase · LLMs on Vertex AI
               </p>
             </li>
           </ul>
@@ -157,43 +176,15 @@ export default function StockSaathiPage() {
             className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Built in 36 hours. Still growing, with no ads.
+            Built in 36 hours. Still growing, with no paid marketing.
           </h2>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
-            StockSaathi was built end to end at the Masters&apos; Union AI Buildathon — a 36-hour
-            national build — where a teammate pitched it to the panel and it placed
-            <strong className="font-medium">second in India</strong>. It went live at
-            stocksaathi.co.in the same month and has grown since entirely by word of mouth, with a
-            student brand ambassador,{" "}
+            StockSaathi started at the Masters&apos; Union AI Buildathon, a 36-hour national build,
+            where it placed <strong className="font-medium">second in India</strong>. It went live
+            at stocksaathi.co.in the same month and has grown since entirely by word of mouth, with
+            a student brand ambassador,{" "}
             <InstagramLink href="https://www.instagram.com/devaanshh.04/">Devansh</InstagramLink>,
             and no paid acquisition.
-          </p>
-          <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
-            {[
-              ["170", "accounts created"],
-              ["132", "have logged in"],
-              ["100", "traded, queued an order or used the coach"],
-              ["55", "made at least one trade"],
-              ["79", "active in the last 30 days"],
-              ["34", "active in the last 7 days"],
-            ].map(([num, label]) => (
-              <li key={label} data-ss-stat-tile data-ss-rounded>
-                <p
-                  data-ss-stat-number
-                  className="text-2xl font-bold text-[var(--color-primary)] tabular-nums"
-                >
-                  {num}
-                </p>
-                <p className="mt-2 text-[11px] font-medium text-[var(--color-muted)]">{label}</p>
-              </li>
-            ))}
-          </ul>
-          <div data-ss-rounded-card className="px-6 py-6 sm:px-7">
-            <StockSaathiSignups />
-          </div>
-          <p className="text-[11px] text-[var(--color-muted)]">
-            As of <time dateTime="2026-09-26">2026-09-26</time>. Test and throwaway-email sign-ups
-            are included in the 170; excluding them leaves about 160.
           </p>
         </div>
       </section>
@@ -335,11 +326,11 @@ IF NOT FOUND THEN RAISE EXCEPTION 'insufficient_cash'; END IF;`}
             remembers to ask for it.
           </p>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
-            The model behind it is Gemini on Vertex AI, proxied through{" "}
-            <code className="font-mono text-sm">/api/chat</code>: Gemini 3 Flash for chat and tool
-            calls, 3.1 Pro for reasoning, Flash-Lite for strict-JSON jobs. The biggest speed win
-            wasn&apos;t architecture. A tool turn has two phases that want opposite things —
-            deciding which tool to call, then writing the answer — and one reasoning setting was
+            The models run on Vertex AI, proxied through{" "}
+            <code className="font-mono text-sm">/api/chat</code>: one fast model leads every
+            request, with fallbacks behind it for chat, reasoning and strict-JSON jobs. The biggest
+            speed win wasn&apos;t architecture. A tool turn has two phases that want opposite things
+            — deciding which tool to call, then writing the answer — and one reasoning setting was
             serving both. Dropping the thinking budget on the writing turn cut time to first word
             from about 6.6 seconds to about 1.4, measured on production. Each upstream attempt is
             bounded at 9 seconds, and a response header records every attempt so a degraded chain is
@@ -386,7 +377,7 @@ IF NOT FOUND THEN RAISE EXCEPTION 'insufficient_cash'; END IF;`}
             className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            The LLM picks the story. Yahoo data is the truth.
+            The LLM picks the story. Historical prices are the truth.
           </h2>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             Pick (or invent) a market crisis; watch a ₹1,00,000 portfolio split into a held line and
@@ -400,7 +391,7 @@ IF NOT FOUND THEN RAISE EXCEPTION 'insufficient_cash'; END IF;`}
           </p>
           <ol className="ml-6 max-w-prose list-decimal space-y-3 text-base leading-relaxed text-[var(--color-fg)]">
             <li>
-              <strong className="font-medium">Phase A — pick dates and ticker.</strong> Gemini Flash
+              <strong className="font-medium">Phase A — pick dates and ticker.</strong> A fast model
               with a colloquial-to-formal mapping table identifies any Indian market event from any
               phrasing: <em>&ldquo;the soap guy scam&rdquo;</em> → Nirav Modi / PNB,{" "}
               <em>&ldquo;demon&rdquo;</em> → demonetisation, <em>&ldquo;yes guy&rdquo;</em> → YES
@@ -555,8 +546,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
             className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            4,324 equities, 351 ETFs and 14,165 AMFI mutual fund schemes (about 8,800 still active),
-            rebuilt every morning.{" "}
+            4,000+ stocks, 300+ ETFs and 8,000+ active AMFI mutual funds, rebuilt every morning.{" "}
             <span data-ss-saffron-badge className="ml-2 align-middle">
               AMFI India
             </span>
@@ -585,7 +575,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
             <code className="font-mono text-sm">br</code>.
           </p>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
-            Live quote caching is <strong className="font-medium">market-hours-aware</strong>:{" "}
+            Quote caching is <strong className="font-medium">market-hours-aware</strong>:{" "}
             <code className="font-mono text-sm">is_market_open_ist()</code> drives both the Supabase
             TTL and the edge <code className="font-mono text-sm">Cache-Control</code> value — 5
             seconds while NSE is open, 300 seconds while closed. Scheduled jobs refresh instruments,
@@ -741,11 +731,10 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
               <strong className="font-medium">
                 Yahoo NSE data is officially 15-minute delayed.
               </strong>{" "}
-              The &ldquo;LIVE&rdquo; badge flips to &ldquo;DELAYED&rdquo; via the{" "}
+              The app flags a quote as delayed via the{" "}
               <code className="font-mono text-sm">staleAgeMinutes</code> flag when Yahoo&apos;s own{" "}
               <code className="font-mono text-sm">ts</code> is older than 5 minutes during market
-              hours. The product calls itself a paper-trading simulator, never a real-time tick
-              feed.
+              hours. The product calls itself a simulator and says prices can be delayed.
             </li>
             <li>
               <strong className="font-medium">The coach never gives buy/sell advice.</strong> The
@@ -785,8 +774,8 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
         <div className="col-span-12 md:col-span-10">
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {[
-              ["4,675", "NSE + BSE instruments"],
-              ["8,800+", "active AMFI mutual funds"],
+              ["4,000+", "NSE + BSE stocks"],
+              ["8,000+", "active AMFI mutual funds"],
               ["9", "deterministic bias detectors"],
               ["8", "coach tools"],
               ["13", "crash replays (3 hand-built, 10 featured)"],
@@ -795,7 +784,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
               ["24", "red-team probes, 0 breaches"],
               ["5s / 300s", "market-open / closed TTL"],
               ["4-tier", "fundamentals fallback"],
-              ["170", "accounts, no ads"],
+              ["300+", "ETFs"],
               ["paise", "all money as bigint"],
             ].map(([num, label]) => (
               <li key={label} data-ss-stat-tile data-ss-rounded>

@@ -17,7 +17,7 @@ const project = getProjectBySlug("maglock")!;
 export const metadata: Metadata = buildMetadata({
   title: "MagLock Protocol — Cyberpunk IoT smart lock",
   description:
-    "MagLock Protocol is a dual-door ESP32 smart lock with live ESP32-CAM video, a Flutter app and Maggy, a voice assistant with memory. No vendor cloud — being rebuilt from scratch.",
+    "A dual-door ESP32 smart lock with ESP32-CAM video, a Flutter app and Maggy, a voice assistant with memory. No vendor cloud; being rebuilt from scratch.",
   path: "/projects/maglock",
   ogImageAlt: "MagLock Protocol — neon dual-door smart lock UI",
   ogType: "article",

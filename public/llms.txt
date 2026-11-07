@@ -1,0 +1,22 @@
+# Ali Arbab
+
+> Ali Arbab is the founder and developer of StockSaathi, a free stock market simulator for students in India. He is a student developer who builds fintech, voice and hardware systems.
+
+## StockSaathi
+
+- [About StockSaathi](https://stocksaathi.co.in/about): who founded it, what it does and how it checks what it explains.
+- [StockSaathi case study](https://aliarbab2009.com/projects/stocksaathi): how it was built, the hard problems and what came of them.
+
+## Other projects
+
+- [SpendInCheck](https://aliarbab2009.com/projects/spendincheck)
+- [BolHisaab](https://aliarbab2009.com/projects/bolhisaab)
+- [MagLock Protocol](https://aliarbab2009.com/projects/maglock)
+- [Sovereign Alpha](https://aliarbab2009.com/projects/sovereign-alpha)
+- [LameCRAFT](https://aliarbab2009.com/projects/lamecraft)
+
+## About
+
+- [About Ali Arbab](https://aliarbab2009.com/about)
+- [Resume](https://aliarbab2009.com/resume)
+- [Contact](https://aliarbab2009.com/contact)

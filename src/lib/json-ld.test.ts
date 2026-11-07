@@ -74,11 +74,13 @@ describe("personJsonLd", () => {
     expect(json.email).not.toMatch(/@gmail\.com/);
   });
 
-  it("sameAs lists only the public GitHub, X and Instagram profiles", () => {
+  it("sameAs lists only public profiles and the StockSaathi founder page", () => {
     expect(json.sameAs).toEqual([
+      "https://www.linkedin.com/in/thealiarbab",
       "https://github.com/thealiarbab",
       "https://x.com/thealiarbab",
       "https://www.instagram.com/thealiarbab/",
+      "https://stocksaathi.co.in/about",
     ]);
   });
 });
