@@ -95,7 +95,7 @@ export const ACTIVITIES: readonly Activity[] = [
     from: "2026-04",
     to: "2026-04",
     blurb:
-      "Built StockSaathi end to end during a 36-hour national buildathon while a teammate pitched it to the panel. It placed second nationally.",
+      "Built StockSaathi end to end during a 36-hour national buildathon. It placed second nationally.",
   },
   {
     id: "stocksaathi-ambassador",

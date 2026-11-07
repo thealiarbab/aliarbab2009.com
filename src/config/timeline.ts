@@ -74,7 +74,7 @@ export const TIMELINE: readonly TimelineEntry[] = [
   {
     date: "2026-04",
     title: "2nd nationally at the Masters' Union AI Buildathon",
-    note: "The organisers set the problem on the day, so StockSaathi was built from scratch in a 36-hour national buildathon while a teammate pitched it. It placed second — and instead of stopping there, it went live and kept growing.",
+    note: "The organisers set the problem on the day, so StockSaathi was built from scratch in a 36-hour national buildathon. It placed second — and instead of stopping there, it went live and kept growing.",
     kind: "milestone",
   },
   {

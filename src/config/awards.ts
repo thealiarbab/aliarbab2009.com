@@ -32,7 +32,7 @@ export const AWARDS: readonly Award[] = [
     org: "Masters' Union",
     year: 2026,
     blurb:
-      "The brief was set on the day, so StockSaathi was built from scratch in 36 hours; a teammate pitched it to the panel.",
+      "The brief was set on the day, so I built StockSaathi from scratch in 36 hours.",
   },
   {
     id: "inter-house-math-quiz-2025",
