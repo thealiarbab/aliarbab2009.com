@@ -179,12 +179,12 @@ export default function StockSaathiPage() {
             className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Built in 36 hours. Still growing, with no paid marketing.
+            Built in 36 hours. 5,000+ signups since, with no paid marketing.
           </h2>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             StockSaathi started at the Masters&apos; Union AI Buildathon, a 36-hour national build,
             where it placed <strong className="font-medium">second in India</strong>. It went live
-            at stocksaathi.co.in the same month and has grown since entirely by word of mouth, with
+            at stocksaathi.co.in the same month and has grown since entirely by word of mouth, to more than 5,000 signups by November 2026, with
             a student brand ambassador,{" "}
             <InstagramLink href="https://www.instagram.com/devaanshh.04/">Devansh</InstagramLink>,
             and no paid acquisition.
@@ -619,7 +619,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
               ],
               [
                 "Orders fill without the app open",
-                "Limit orders and AMOs used to execute only inside the user's browser tab — and for teenagers the market is open during the school day, so orders sat unfilled for up to 128 days. Matching now runs server-side on a schedule, priced from the server's own quotes; 74 stuck orders were filled at their original limit and every affected user got an apology notice.",
+                "Limit orders and AMOs used to execute only inside the user's browser tab — and for teenagers the market is open during the school day, so orders sat unfilled for up to 128 days. Matching now runs server-side on a schedule, priced from the server's own quotes; 74 stuck orders were filled at their original limit and 24 users got an apology notice.",
               ],
             ].map(([title, body]) => (
               <li
@@ -666,7 +666,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
             {[
               [
                 "Server-side execution",
-                "Limit orders and after-market orders are matched on a schedule by the server, priced from its own quotes. 74 stuck orders were filled at their original limit and every affected user got a personal apology notice.",
+                "Limit orders and after-market orders are matched on a schedule by the server, priced from its own quotes. 74 stuck orders were filled at their original limit and 24 users got a personal apology notice.",
               ],
               [
                 "Server-priced trades",
