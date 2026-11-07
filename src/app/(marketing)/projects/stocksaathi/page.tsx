@@ -35,6 +35,9 @@ export default function StockSaathiPage() {
         <div className="col-span-6 flex flex-col gap-1 md:col-span-3">
           <p data-ss-section-number>Author</p>
           <p className="text-sm font-semibold text-[var(--color-fg)]">{siteConfig.author}</p>
+          <p className="text-xs text-[var(--color-muted)]">
+            Updated <time dateTime="2026-11-07">7 November 2026</time>
+          </p>
         </div>
         <div className="col-span-6 flex flex-col gap-1 md:col-span-3">
           <p data-ss-section-number>Project</p>
@@ -74,8 +77,8 @@ export default function StockSaathiPage() {
             className="max-w-3xl text-2xl leading-snug font-semibold text-[var(--color-fg)]"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            I founded and built StockSaathi, a free stock market simulator for students in India. It
-            gives every user ₹1,00,000 in virtual money on real NSE and BSE prices, with an AI coach
+            StockSaathi is a free stock market simulator for students in India, founded and built by
+            me, Ali Arbab. It gives every user ₹1,00,000 in virtual money on real NSE and BSE prices, with an AI coach
             that explains their mistakes.
           </p>
           <p className="flex flex-wrap gap-x-6 gap-y-2 text-base font-semibold">
@@ -616,7 +619,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
               ],
               [
                 "Orders fill without the app open",
-                "Limit orders and AMOs used to execute only inside the user's browser tab — and for teenagers the market is open during the school day, so orders sat unfilled for up to 128 days. Matching now runs server-side on a schedule, priced from the server's own quotes; 74 stuck orders were filled at their original limit and 24 users got an apology notice.",
+                "Limit orders and AMOs used to execute only inside the user's browser tab — and for teenagers the market is open during the school day, so orders sat unfilled for up to 128 days. Matching now runs server-side on a schedule, priced from the server's own quotes; 74 stuck orders were filled at their original limit and every affected user got an apology notice.",
               ],
             ].map(([title, body]) => (
               <li
@@ -663,7 +666,7 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
             {[
               [
                 "Server-side execution",
-                "Limit orders and after-market orders are matched on a schedule by the server, priced from its own quotes. 74 stuck orders were filled at their original limit and 24 users got a personal apology notice.",
+                "Limit orders and after-market orders are matched on a schedule by the server, priced from its own quotes. 74 stuck orders were filled at their original limit and every affected user got a personal apology notice.",
               ],
               [
                 "Server-priced trades",
@@ -727,6 +730,10 @@ meta.indexDrop = Math.round(realDropPct * 10) / 10;`}
         </div>
         <div className="col-span-12 flex flex-col gap-3 md:col-span-10">
           <ul className="ml-6 max-w-prose list-disc space-y-3 text-base leading-relaxed text-[var(--color-fg)]">
+            <li>
+              <strong className="font-medium">No tips channel.</strong> StockSaathi is not connected
+              to any trading-signal or tips channel that uses a similar name.
+            </li>
             <li>
               <strong className="font-medium">
                 Yahoo NSE data is officially 15-minute delayed.

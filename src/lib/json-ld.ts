@@ -113,6 +113,7 @@ export function contactPageJsonLd(): Json {
     description: `Reach ${siteConfig.author} by email or GitHub. Replies within 48 hours.`,
     mainEntity: {
       "@type": "Person",
+      "@id": PERSON_ID,
       name: siteConfig.author,
       url: siteConfig.url,
       email: `mailto:${siteConfig.email}`,
@@ -131,9 +132,10 @@ export function resumeJsonLd(): Json {
         "@id": RESUME_PAGE_ID,
         url: `${siteConfig.url}/resume`,
         name: `Resume — ${siteConfig.author}`,
-        description: "Single-page resume PDF — projects, coursework, skills.",
+        description: "Resume PDF: projects, coursework, skills.",
         mainEntity: {
           "@type": "Person",
+          "@id": PERSON_ID,
           name: siteConfig.author,
           url: siteConfig.url,
           email: `mailto:${siteConfig.email}`,
@@ -149,11 +151,7 @@ export function resumeJsonLd(): Json {
         encodingFormat: "application/pdf",
         inLanguage: "en",
         datePublished: today,
-        author: {
-          "@type": "Person",
-          name: siteConfig.author,
-          url: siteConfig.url,
-        },
+        author: { "@id": PERSON_ID },
       },
     ],
   };
@@ -188,6 +186,7 @@ function stocksaathiJsonLd(p: Project): Json {
     isAccessibleForFree: true,
     softwareVersion: "1.0",
     datePublished: p.startedISO,
+    dateModified: "2026-11-07",
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
     creator: creatorRef(),
     author: creatorRef(),
