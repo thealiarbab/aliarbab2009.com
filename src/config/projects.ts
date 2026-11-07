@@ -59,7 +59,7 @@ export const PROJECTS: readonly Project[] = [
     tagline:
       "A free stock market simulator that teaches students in India how markets — and their own reactions to them — actually work",
     description:
-      "A virtual ₹1,00,000 portfolio priced off real NSE and BSE prices, which can be delayed: 4,000+ stocks, 300+ ETFs and 8,000+ active mutual funds. Nine behavioural-bias detectors run on every trade, and an AI coach explains what just happened in the user's own numbers without ever giving a tip. Crash Replay re-runs real Indian market crashes day by day: three hand-built from real Nifty 50 closes, ten featured, and a generator for any other event. Placed 2nd nationally at the Masters' Union AI Buildathon; grown since by word of mouth.",
+      "A virtual ₹1,00,000 portfolio priced off real NSE and BSE prices, which can be delayed: 4,000+ stocks, 300+ ETFs and 8,000+ active mutual funds. Nine behavioural-bias detectors run on every trade, and an AI coach explains what just happened in the user's own numbers without ever giving a tip. Crash Replay re-runs real Indian market crashes day by day: three hand-built from real Nifty 50 closes, ten featured, and a generator for any other event. Placed 2nd nationally at the Masters' Union AI Buildathon; grown since by word of mouth to 5,000+ signups.",
     theme: "stocksaathi",
     status: "live",
     statusLabel: "Live in production",

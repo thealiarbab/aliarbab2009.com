@@ -81,6 +81,20 @@ export default function StockSaathiPage() {
             me, Ali Arbab. It gives every user ₹1,00,000 in virtual money on real NSE and BSE prices, with an AI coach
             that explains their mistakes.
           </p>
+          <dl className="grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-3">
+            <div className="flex flex-col gap-1">
+              <dt data-ss-section-number>Signups</dt>
+              <dd className="text-3xl font-semibold text-[var(--color-fg)] tabular-nums">5,000+</dd>
+            </div>
+            <div className="flex flex-col gap-1">
+              <dt data-ss-section-number>Have placed a trade</dt>
+              <dd className="text-3xl font-semibold text-[var(--color-fg)] tabular-nums">2,800+</dd>
+            </div>
+            <div className="flex flex-col gap-1">
+              <dt data-ss-section-number>Paid marketing</dt>
+              <dd className="text-3xl font-semibold text-[var(--color-fg)] tabular-nums">₹0</dd>
+            </div>
+          </dl>
           <p className="flex flex-wrap gap-x-6 gap-y-2 text-base font-semibold">
             <a
               href="https://stocksaathi.co.in/"
