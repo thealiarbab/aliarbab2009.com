@@ -104,7 +104,7 @@ export default async function Image() {
           fontFamily: "JetBrains Mono",
         }}
       >
-        <span>5,000+ signups · 4,000+ stocks · free</span>
+        <span>5,500+ signups · 4,000+ stocks · free</span>
         <span>stocksaathi.co.in</span>
       </div>
     </div>,

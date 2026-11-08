@@ -110,9 +110,15 @@ export default function HomePage() {
           </h1>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             I&apos;m Ali. I&apos;m in Class XII. I build software for people who are usually
-            designed around &mdash; not for. A paper-trading coach for teenagers, a budget tracker
-            that tells you whether you&apos;re over, a voice-first ledger for shopkeepers, and a
-            smart lock that answers to no vendor.
+            designed around &mdash; not for.{" "}
+            <a
+              href="https://stocksaathi.co.in"
+              className="text-[var(--color-primary)] underline underline-offset-4"
+            >
+              StockSaathi, a free stock market simulator for teens
+            </a>
+            , a budget tracker that tells you whether you&apos;re over, a voice-first ledger for
+            shopkeepers, and a smart lock that answers to no vendor.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">

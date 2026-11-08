@@ -16,7 +16,7 @@ export type NowItem = {
 export const NOW_ASOF = "2026-11-07";
 
 export const NOW_ITEMS: readonly NowItem[] = [
-  { label: "Growing", text: "StockSaathi · 5,000+ signups", href: "/projects/stocksaathi" },
+  { label: "Growing", text: "StockSaathi · 5,500+ signups", href: "/projects/stocksaathi" },
   { label: "Rewriting", text: "BolHisaab in Kotlin", href: "/projects/bolhisaab" },
   { label: "Rebuilding", text: "MagLock from scratch", href: "/projects/maglock" },
 ];

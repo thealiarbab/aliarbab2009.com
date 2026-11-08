@@ -84,7 +84,7 @@ export default function StockSaathiPage() {
           <dl className="grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-3">
             <div className="flex flex-col gap-1">
               <dt data-ss-section-number>Signups</dt>
-              <dd className="text-3xl font-semibold text-[var(--color-fg)] tabular-nums">5,000+</dd>
+              <dd className="text-3xl font-semibold text-[var(--color-fg)] tabular-nums">5,500+</dd>
             </div>
             <div className="flex flex-col gap-1">
               <dt data-ss-section-number>Have placed a trade</dt>
@@ -193,12 +193,12 @@ export default function StockSaathiPage() {
             className="text-[clamp(1.75rem,3vw,2.75rem)] leading-tight font-bold tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Built in 36 hours. 5,000+ signups since, with no paid marketing.
+            Built in 36 hours. 5,500+ signups since, with no paid marketing.
           </h2>
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             StockSaathi started at the Masters&apos; Union AI Buildathon, a 36-hour national build,
             where it placed <strong className="font-medium">second in India</strong>. It went live
-            at stocksaathi.co.in the same month and has grown since entirely by word of mouth, to more than 5,000 signups by November 2026, with
+            at stocksaathi.co.in the same month and has grown since entirely by word of mouth, to more than 5,500 signups by 8 November 2026, with
             a student brand ambassador,{" "}
             <InstagramLink href="https://www.instagram.com/devaanshh.04/">Devansh</InstagramLink>,
             and no paid acquisition.
