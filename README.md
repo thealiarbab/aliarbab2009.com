@@ -1,6 +1,10 @@
-# aliarbab2009.com
+<div align="center">
 
-Personal portfolio at `aliarbab2009.com`. Six project worlds — StockSaathi, SpendInCheck, BolHisaab, MagLock Protocol, Sovereign Alpha and LameCRAFT — each with its own theme, plus `/lab` for hardware still on paper.
+<picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset=".github/readme/header-phone-dark.svg"><source media="(max-width: 640px)" srcset=".github/readme/header-phone-light.svg"><source media="(prefers-color-scheme: dark)" srcset=".github/readme/header-dark.svg"><img src=".github/readme/header-light.svg" width="100%" alt="aliarbab2009.com. One site, a world for every project. My portfolio. Each project gets its own theme, and the lab holds hardware still on paper."></picture>
+
+</div>
+
+My personal portfolio at [aliarbab2009.com](https://aliarbab2009.com). Every project has its own world with its own theme, and `/lab` holds hardware still on paper.
 
 ## Stack
 
@@ -44,7 +48,11 @@ CI runs typecheck → lint → format:check → test → build → privacy-audit
 
 ## Architecture
 
-See `CLAUDE.md` for conventions.
+<div align="center">
+
+<picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset=".github/readme/architecture-phone-dark.svg"><source media="(max-width: 640px)" srcset=".github/readme/architecture-phone-light.svg"><source media="(prefers-color-scheme: dark)" srcset=".github/readme/architecture-dark.svg"><img src=".github/readme/architecture-light.svg" width="100%" alt="Architecture, left to right: Content (Typed config), then Rendering (Next.js App Router), then Checks (CI gates, Privacy audit), then Delivery (Vercel)."></picture>
+
+</div>
 
 Key directories:
 
@@ -73,3 +81,5 @@ Internal deadlines live in `PRIVATE_CALENDAR.md` which is gitignored. Never comm
 ## Deploy
 
 Every push to `main` auto-deploys to Vercel. Preview deploys on every PR. DNS points `aliarbab2009.com` apex + `www` to Vercel via A + CNAME records. HSTS, COOP, CORP, Permissions-Policy, and a strict CSP (Edge-runtime middleware with per-request nonces) are set in `next.config.ts` headers + `src/middleware.ts`.
+
+Built by [Ali Arbab](https://github.com/thealiarbab), Founder of StockSaathi.
