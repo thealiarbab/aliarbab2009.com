@@ -70,5 +70,10 @@ jobs:
           NEXT_PUBLIC_SITE_URL: https://aliarbab2009.com
         run: pnpm build
 
+      - name: Load the privacy patterns
+        env:
+          PRIVACY_PATTERNS_BASE64: ${{ secrets.PRIVACY_PATTERNS_BASE64 }}
+        run: echo "$PRIVACY_PATTERNS_BASE64" | base64 -d > scripts/.privacy-patterns.local.mjs
+
       - name: Privacy audit
         run: pnpm privacy-audit
