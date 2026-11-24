@@ -78,8 +78,8 @@ export default function StockSaathiPage() {
             style={{ fontFamily: "var(--font-display)" }}
           >
             StockSaathi is a free stock market simulator for students in India, founded and built by
-            me, Ali Arbab. It gives every user ₹1,00,000 in virtual money on real NSE and BSE prices, with an AI coach
-            that explains their mistakes.
+            me, Ali Arbab. It gives every user ₹1,00,000 in virtual money on real NSE and BSE
+            prices, with an AI coach that explains their mistakes.
           </p>
           <dl className="grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-3">
             <div className="flex flex-col gap-1">
@@ -198,8 +198,8 @@ export default function StockSaathiPage() {
           <p className="max-w-prose text-base leading-relaxed text-[var(--color-fg)]">
             StockSaathi started at the Masters&apos; Union AI Buildathon, a 36-hour national build,
             where it placed <strong className="font-medium">second in India</strong>. It went live
-            at stocksaathi.co.in the same month and has grown since entirely by word of mouth, to more than 5,500 signups by 8 November 2026, with
-            a student brand ambassador,{" "}
+            at stocksaathi.co.in the same month and has grown since entirely by word of mouth, to
+            more than 5,500 signups by 8 November 2026, with a student brand ambassador,{" "}
             <InstagramLink href="https://www.instagram.com/devaanshh.04/">Devansh</InstagramLink>,
             and no paid acquisition.
           </p>
